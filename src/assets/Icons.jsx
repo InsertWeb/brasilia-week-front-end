@@ -98,6 +98,7 @@ export function IconCalendary() {
     </svg>
   );
 }
+
 export function IconLocalization() {
   return (
     <svg
@@ -118,6 +119,63 @@ export function IconLocalization() {
         clip-rule="evenodd"
         d="M14.2745 9.88237C14.2745 12.6076 12.0585 14.8235 9.33336 14.8235C6.60818 14.8235 4.39218 12.6076 4.39218 9.88237C4.39218 7.15719 6.60818 4.94119 9.33336 4.94119C12.0585 4.94119 14.2745 7.15719 14.2745 9.88237ZM9.33336 13.1765C11.1489 13.1765 12.6275 11.6979 12.6275 9.88237C12.6275 8.06683 11.1489 6.58825 9.33336 6.58825C7.51782 6.58825 6.03924 8.06683 6.03924 9.88237C6.03924 11.6979 7.51782 13.1765 9.33336 13.1765Z"
         fill="black"
+      />
+    </svg>
+  );
+}
+
+export function IconNext({ width }) {
+  return (
+    <svg
+      width={width ?? 24}
+      height={width ?? 24}
+      viewBox="0 0 26 26"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="25.7623"
+        y="13.2062"
+        width="1.33786"
+        height="17.7266"
+        transform="rotate(135 25.7623 13.2062)"
+        fill="currentColor"
+      />
+      <rect
+        x="13.2277"
+        y="25.7408"
+        width="1.33786"
+        height="17.7266"
+        transform="rotate(-135 13.2277 25.7408)"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+export function IconPrev({ width }) {
+  return (
+    <svg
+      width={width ?? 24}
+      height={width ?? 24}
+      viewBox="0 0 26 26"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="0.237793"
+        y="12.7938"
+        width="1.33786"
+        height="17.7266"
+        transform="rotate(-45 0.237793 12.7938)"
+        fill="currentColor"
+      />
+      <rect
+        x="12.7723"
+        y="0.259155"
+        width="1.33786"
+        height="17.7266"
+        transform="rotate(45 12.7723 0.259155)"
+        fill="currentColor"
       />
     </svg>
   );

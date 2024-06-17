@@ -1,5 +1,4 @@
 import { IconCalendary, IconLocalization } from "../../assets/Icons";
-import Museu from "../../assets/museuSobre.png";
 
 export function SobreBDW() {
   return (
