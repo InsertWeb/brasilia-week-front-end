@@ -1,6 +1,6 @@
-import { IconCircle, IconInstagram, MenuHamburguer } from "../assets/Icons";
+import { IconCircle, IconInstagram, MenuHamburguer } from "../../assets/Icons";
 
-export function Main() {
+export function BannerMain() {
   return (
     <div className="bg-[url('/bgMain.png')] bg-cover bg-center relative">
       <div className="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
