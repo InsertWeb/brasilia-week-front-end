@@ -3,7 +3,7 @@ import { IconCalendary, IconLocalization } from "../../assets/Icons";
 export function SobreBDW() {
   return (
     <div className="font-['Helvetica']">
-      <div className="max-w-6xl mx-auto flex py-16 items-center justify-between gap-2">
+      <div className="max-w-6xl px-4 mx-auto flex flex-wrap gap-5 py-16 items-center justify-between sm:gap-2">
         <button className="bg-black text-white py-6 max-w-sm w-full">
           QUERO PARTICIPAR
         </button>
@@ -16,10 +16,12 @@ export function SobreBDW() {
           <span>Museu da República</span>
         </div>
       </div>
-      <div className="bg-[url('/museuSobre.png')] bg-no-repeat bg-right">
-        <div className="grid grid-cols-2 max-w-6xl mx-auto pb-16">
+      <div className="md:bg-[url('/museuSobre.png')] bg-no-repeat bg-right">
+        <div className="grid md:grid-cols-2 max-w-6xl px-4 mx-auto pb-16">
           <div className="space-y-16">
-            <h2 className="text-5xl">Sobre a #BDW24</h2>
+            <h2 className="text-4xl relative tracking-[16%] font-light">
+              Sobre a #BDW24
+            </h2>
             <p className="font-['Sora'] tracking-widest leading-loose">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text

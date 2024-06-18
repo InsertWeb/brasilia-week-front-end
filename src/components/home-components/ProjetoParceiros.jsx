@@ -12,17 +12,33 @@ export function ProjetoParceiros() {
         viewBox="0 0 491 795"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute right-0"
+        className="absolute right-0 -z-10"
       >
         <circle cx="397.5" cy="397.5" r="397" stroke="#83BF45" />
         <circle cx="78" cy="164" r="31" fill="#83BF45" />
       </svg>
-      <div className="max-w-6xl mx-auto py-44">
-        <h2 className="text-4xl pb-14 tracking-widest">PROJETOS PARCEIROS</h2>
+      <div className="max-w-6xl mx-auto py-44 px-4">
+        <h2 className="text-4xl relative tracking-[16%] font-light pb-14">
+          PROJETOS PARCEIROS
+        </h2>
 
-        <Swiper spaceBetween={20} slidesPerView={4}>
+        <Swiper
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+            },
+            768: {
+              spaceBetween: 20,
+              slidesPerView: 3,
+            },
+            1024: {
+              spaceBetween: 20,
+              slidesPerView: 4,
+            },
+          }}
+        >
           <SwiperSlide>
-            <div className="space-y-4 max-w-64">
+            <div className="space-y-4 sm:max-w-64">
               <img
                 src={Parceiro1}
                 alt=""
@@ -41,7 +57,7 @@ export function ProjetoParceiros() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="space-y-4 max-w-64">
+            <div className="space-y-4 sm:max-w-64">
               <img
                 src={Parceiro1}
                 alt=""
@@ -60,7 +76,7 @@ export function ProjetoParceiros() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="space-y-4 max-w-64">
+            <div className="space-y-4 sm:max-w-64">
               <img
                 src={Parceiro1}
                 alt=""
@@ -79,7 +95,7 @@ export function ProjetoParceiros() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="space-y-4 max-w-64">
+            <div className="space-y-4 sm:max-w-64">
               <img
                 src={Parceiro1}
                 alt=""
@@ -98,7 +114,7 @@ export function ProjetoParceiros() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="space-y-4 max-w-64">
+            <div className="space-y-4 sm:max-w-64">
               <img
                 src={Parceiro1}
                 alt=""
@@ -117,7 +133,7 @@ export function ProjetoParceiros() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="space-y-4 max-w-64">
+            <div className="space-y-4 sm:max-w-64">
               <img
                 src={Parceiro1}
                 alt=""
