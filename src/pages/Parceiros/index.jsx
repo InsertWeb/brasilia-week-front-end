@@ -8,7 +8,7 @@ export function ParceirosPage() {
       <Header />
       <div className="max-w-6xl mx-auto py-16 px-4">
         <h2 className="text-5xl pb-16">Parceiros</h2>
-        <div className="grid grid-cols-4 gap-10">
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
           <CardParceiro />
           <CardParceiro />
           <CardParceiro />

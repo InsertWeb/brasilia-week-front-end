@@ -7,7 +7,7 @@ export function SobrePage() {
       <Header />
       <div className="font-['Helvetica'] max-w-6xl mx-auto px-4 py-16">
         <h1 className="text-5xl pb-16">SOBRE</h1>
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3">
           <p className="tracking-widest">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
@@ -32,7 +32,7 @@ export function SobrePage() {
         viewBox="0 0 605 1123"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute bottom-0 right-0"
+        className="absolute bottom-0 right-0 hidden md:block"
       >
         <path
           d="M330.578 574.555H314.917V571.88L330.87 549.07H333.691V571.929H338.457V574.555H333.691V583.018H330.578V574.555ZM317.981 571.929H330.578V553.739L317.981 571.929Z"

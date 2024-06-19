@@ -10,7 +10,7 @@ export function GaleriaPage() {
       <Header />
       <div className="font-['Helvetica'] max-w-6xl mx-auto px-4 py-16">
         <h1 className="text-5xl pb-16">GALERIA</h1>
-        <div className="grid grid-cols-3 gap-14">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-14">
           <div className="space-y-3 font-semibold">
             <img src={Galery1} alt={""} className="w-full h-80 object-cover" />
             <p>

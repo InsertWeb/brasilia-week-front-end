@@ -4,7 +4,7 @@ export function MainProgramacao() {
   return (
     <div className="font-['Helvetica'] max-w-6xl mx-auto px-4 py-16">
       <h1 className="text-5xl pb-16">Programação</h1>
-      <div className="grid grid-cols-8 gap-5">
+      <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-5">
         <button className="text-3xl py-3 px-1 border border-black hover:bg-[#F5F5F5] duration-300">
           04/07
         </button>
@@ -85,7 +85,7 @@ export function MainProgramacao() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2">
+      <div className="grid md:grid-cols-2">
         <div className="space-y-10">
           <h2 className="text-4xl">
             <span className="text-[#83BF45]">07:00</span> Exposição 04
