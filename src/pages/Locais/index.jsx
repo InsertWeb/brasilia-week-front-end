@@ -9,8 +9,8 @@ export function LocaisPage() {
       <div className="max-w-6xl mx-auto py-16 px-4">
         <h2 className="text-5xl pb-10">Locais</h2>
         <div>
-          {Array.from({ length: 10 }).map(() => (
-            <div className="space-y-3 border-b-2 border-[#83BF45] py-7">
+          {Array.from({ length: 10 }).map((_, i) => (
+            <div key={i} className="space-y-3 border-b-2 border-[#83BF45] py-7">
               <h3 className="text-3xl sm:text-4xl pb-2">
                 Local 01 Descrição aqui exemplo
               </h3>
