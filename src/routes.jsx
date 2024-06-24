@@ -9,6 +9,7 @@ import { PodcastaPage } from "./pages/Podcast";
 import { EquipePage } from "./pages/Equipe";
 import { LocaisPage } from "./pages/Locais";
 import { QueroApoiar } from "./pages/QueroApoiar";
+import { AdminPage } from "./Admin/Admin";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,16 @@ const router = createBrowserRouter([
   {
     path: "/apoiar",
     element: <QueroApoiar />,
+  },
+  {
+    path: "/admin",
+    element: <AdminPage />,
+    children: [
+      {
+        path: "/admin",
+        element: <>gepsoifdseo</>,
+      },
+    ],
   },
 ]);
 

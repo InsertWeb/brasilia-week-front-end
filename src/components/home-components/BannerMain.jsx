@@ -15,7 +15,9 @@ export function BannerMain() {
         <IconCircle />
       </div>
       <header className="max-w-6xl px-4 mx-auto flex justify-between items-center py-5">
-        <span className="text-3xl text-white font-['Helvetica']">BDW</span>
+        <Link to={"/"} className="text-3xl text-white font-['Helvetica']">
+          BDW
+        </Link>
         <button onClick={toggleMenu}>
           <MenuHamburguer />
         </button>
@@ -65,44 +67,50 @@ export function BannerMain() {
               </Link>
             </li>
             <li>
-              <a href="#home" className="hover:text-[#83BF45] duration-300">
+              <Link to="/galeria" className="hover:text-[#83BF45] duration-300">
                 Galeria
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#home" className="hover:text-[#83BF45] duration-300">
+              <Link to="/sobre" className="hover:text-[#83BF45] duration-300">
                 Sobre
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#home" className="hover:text-[#83BF45] duration-300">
+              <Link
+                to="/parceiros"
+                className="hover:text-[#83BF45] duration-300"
+              >
                 Parceiros
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#home" className="hover:text-[#83BF45] duration-300">
+              <Link
+                to="/imprensa"
+                className="hover:text-[#83BF45] duration-300"
+              >
                 Imprensa
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#home" className="hover:text-[#83BF45] duration-300">
+              <Link to="/podcast" className="hover:text-[#83BF45] duration-300">
                 Podcast
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#home" className="hover:text-[#83BF45] duration-300">
+              <Link to="/apoiar" className="hover:text-[#83BF45] duration-300">
                 Inspire-se
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#home" className="hover:text-[#83BF45] duration-300">
+              <Link to="/equipe" className="hover:text-[#83BF45] duration-300">
                 EQUIPE
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#home" className="hover:text-[#83BF45] duration-300">
+              <Link to="/locais" className="hover:text-[#83BF45] duration-300">
                 Locais
-              </a>
+              </Link>
             </li>
           </ul>
           <div className="flex flex-col items-end gap-5 sm:gap-10 text-white">
