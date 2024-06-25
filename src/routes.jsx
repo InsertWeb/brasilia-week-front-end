@@ -10,6 +10,8 @@ import { EquipePage } from "./pages/Equipe";
 import { LocaisPage } from "./pages/Locais";
 import { QueroApoiar } from "./pages/QueroApoiar";
 import { AdminPage } from "./Admin/Admin";
+import { LoginPage } from "./Admin/LoginPage";
+import { HomePage } from "./Admin/components/HomePage";
 
 const router = createBrowserRouter([
   {
@@ -53,12 +55,20 @@ const router = createBrowserRouter([
     element: <QueroApoiar />,
   },
   {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
     path: "/admin",
     element: <AdminPage />,
     children: [
       {
         path: "/admin",
-        element: <>gepsoifdseo</>,
+        element: <HomePage />,
+      },
+      {
+        path: "/admin/programacao",
+        element: <>programacao</>,
       },
     ],
   },
