@@ -38,6 +38,14 @@ export const ModalAddParceiros = () => {
                   className="bg-zinc-50 px-3 py-1 rounded-md"
                 />
               </label>
+              <label className="flex flex-col gap-1 col-span-2">
+                <span>Rede Social</span>
+                <input
+                  type="text"
+                  placeholder="@seunome"
+                  className="bg-zinc-50 px-3 py-1 rounded-md"
+                />
+              </label>
 
               <label className="flex flex-col gap-1">
                 <span>Título do Projeto (PT)</span>
