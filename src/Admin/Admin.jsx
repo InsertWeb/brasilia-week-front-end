@@ -9,7 +9,7 @@ export function AdminPage() {
   return (
     <div>
       <HeaderAdmin openMenu={isOpenMenu} setIsOpenMenu={setIsOpenMenu} />
-      <div className="flex h-full relative">
+      <div className="flex relative">
         {isOpenMenu && <NavMenu />}
         <div className="flex-1 overflow-y-auto">
           <div>
