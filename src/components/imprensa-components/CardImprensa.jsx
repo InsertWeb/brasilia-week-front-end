@@ -9,7 +9,10 @@ export function CardImprensa() {
           alt="Nome do Parceiro"
           className="w-full h-72 object-cover"
         />
-        <button className="absolute top-4 left-4 bg-white text-[#83BF45] px-6 py-1">
+        <button
+          className="absolute top-4 left-4 bg-white text-[#83BF45] px-6 py-1"
+          type="button"
+        >
           Jornal de Brasília
         </button>
       </div>

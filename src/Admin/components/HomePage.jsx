@@ -5,6 +5,11 @@ import { AdminGaleria } from "./Galeria";
 import { AdminParceiros } from "./Parceiros";
 import { AdminPatrocinadores } from "./AdminPatrocinadores";
 import { useLocation } from "react-router";
+import { AdminImprensa } from "./Imprensa";
+import { AdminPodcast } from "./Podcast";
+import { AdminInspire } from "./AdminInspire";
+import { AdminEquipe } from "./Equipe";
+import { AdminLocais } from "./Locais";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -25,6 +30,11 @@ export function HomePage() {
       {page === "galeria" && <AdminGaleria />}
       {page === "parceiros" && <AdminParceiros />}
       {page === "patrocinadores" && <AdminPatrocinadores />}
+      {page === "imprensa" && <AdminImprensa />}
+      {page === "podcast" && <AdminPodcast />}
+      {page === "inspire" && <AdminInspire />}
+      {page === "equipe" && <AdminEquipe />}
+      {page === "locais" && <AdminLocais />}
     </div>
   );
 }
