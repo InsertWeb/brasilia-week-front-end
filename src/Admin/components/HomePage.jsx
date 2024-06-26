@@ -10,6 +10,7 @@ import { AdminPodcast } from "./Podcast";
 import { AdminInspire } from "./AdminInspire";
 import { AdminEquipe } from "./Equipe";
 import { AdminLocais } from "./Locais";
+import { AdminUsuarios } from "./Usuarios";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -24,6 +25,7 @@ export function HomePage() {
       <h2 className="text-2xl font-medium pb-5">
         Configurações - Página Inicial
       </h2>
+      {!page && <AdminUsuarios />}
       {page === "banner" && <AdminBanner />}
       {page === "sobre" && <AdminSobre />}
       {page === "programacao" && <AdminProgramacao />}
