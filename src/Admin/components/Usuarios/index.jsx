@@ -4,12 +4,14 @@ import { ModalAddUsers } from "./ModalAddUsers";
 
 export function AdminUsuarios() {
   const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getAllClients();
   }, []);
 
   async function getAllClients() {
+    setLoading(true);
     try {
       const { token } = JSON.parse(localStorage.getItem("token") || "{}");
       if (token) {
@@ -20,6 +22,8 @@ export function AdminUsuarios() {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -35,13 +39,24 @@ export function AdminUsuarios() {
           <span>E-mail</span>
           <span>Administrador</span>
         </div>
-        {users.map((e) => (
-          <div className="grid grid-cols-3 text-sm">
-            <span>{e.name}</span>
-            <span>{e.email}</span>
-            <span>{e.is_admin ? "Sim" : "Não"}</span>
-          </div>
-        ))}
+        {loading
+          ? Array.from({ length: 5 }).map((_, index) => (
+              <div
+                key={index}
+                className="grid grid-cols-3 text-sm animate-pulse"
+              >
+                <span className="bg-gray-300 h-4 w-24 rounded-md"></span>
+                <span className="bg-gray-300 h-4 w-36 rounded-md"></span>
+                <span className="bg-gray-300 h-4 w-12 rounded-md"></span>
+              </div>
+            ))
+          : users.map((e) => (
+              <div key={e.id} className="grid grid-cols-3 text-sm">
+                <span>{e.name}</span>
+                <span>{e.email}</span>
+                <span>{e.is_admin ? "Sim" : "Não"}</span>
+              </div>
+            ))}
       </div>
     </div>
   );

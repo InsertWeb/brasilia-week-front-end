@@ -6,12 +6,7 @@ export const ModalAddUsers = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmiting, setIsSubmiting] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (payload) => {
     setIsSubmiting(true);
@@ -70,6 +65,14 @@ export const ModalAddUsers = () => {
                   className="bg-zinc-50 px-3 py-1 rounded-md"
                 />
               </label>
+              {/* <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  {...register("is_admin")}
+                  className="w-4 h-4"
+                />
+                <span>Usúario é Admin</span>
+              </label> */}
 
               <button
                 disabled={isSubmiting}
