@@ -9,7 +9,7 @@ export const ModalAddUsers = () => {
   const {
     register,
     handleSubmit,
-    watch,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -18,6 +18,7 @@ export const ModalAddUsers = () => {
     try {
       const res = await Login.addNewUser(payload);
       if (res.status === 200) {
+        reset();
         setIsOpen(false);
       }
     } catch (error) {
