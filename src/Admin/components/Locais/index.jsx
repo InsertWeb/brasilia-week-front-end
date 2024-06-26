@@ -6,7 +6,7 @@ export function AdminLocais() {
     <form className="bg-white rounded-lg p-5 space-y-5">
       <div>
         <div className="flex justify-between">
-          <h3 className="text-lg font-medium uppercase">Locais</h3>
+          <h2 className="text-2xl font-medium">Configurações - Locais</h2>
           <ModalAddLocal />
         </div>
         <div className="mt-4 space-y-5">

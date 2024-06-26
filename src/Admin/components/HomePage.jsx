@@ -22,9 +22,6 @@ export function HomePage() {
 
   return (
     <div className="px-8 py-5 bg-zinc-50 min-h-screen h-full">
-      <h2 className="text-2xl font-medium pb-5">
-        Configurações - Página Inicial
-      </h2>
       {!page && <AdminUsuarios />}
       {page === "banner" && <AdminBanner />}
       {page === "sobre" && <AdminSobre />}

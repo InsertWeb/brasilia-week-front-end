@@ -17,7 +17,7 @@ export function AdminPatrocinadores() {
 
   return (
     <form className="bg-white rounded-lg p-5 space-y-5">
-      <h3 className="text-lg font-medium">PATROCINADORES</h3>
+      <h2 className="text-2xl font-medium">Configurações - PATROCINADORES</h2>
 
       <div className="grid grid-cols-2">
         <div>

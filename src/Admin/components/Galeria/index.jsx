@@ -6,7 +6,7 @@ export function AdminGaleria() {
     <form className="bg-white rounded-lg p-5 space-y-5">
       <div>
         <div className="flex justify-between">
-          <h3 className="text-lg font-medium">GALERIA</h3>
+          <h2 className="text-2xl font-medium">Configurações - GALERIA</h2>
           <ModalAddFoto />
         </div>
         <div className="mt-4 space-y-5">

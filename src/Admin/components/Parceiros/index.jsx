@@ -6,7 +6,7 @@ export function AdminParceiros() {
     <form className="bg-white rounded-lg p-5 space-y-5">
       <div>
         <div className="flex justify-between">
-          <h3 className="text-lg font-medium">PARCEIROS</h3>
+          <h2 className="text-2xl font-medium">Configurações - PARCEIROS</h2>
           <ModalAddParceiros />
         </div>
         <div className="grid grid-cols-2 gap-5 mt-4">

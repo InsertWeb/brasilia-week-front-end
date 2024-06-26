@@ -30,7 +30,7 @@ export function AdminUsuarios() {
   return (
     <div className="bg-white rounded-lg p-5 space-y-5">
       <div className="flex justify-between">
-        <h3 className="text-lg font-medium">Usuários</h3>
+        <h2 className="text-2xl font-medium">Configurações - Usuários</h2>
         <ModalAddUsers />
       </div>
       <div className="space-y-2">
