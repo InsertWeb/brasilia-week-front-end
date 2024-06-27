@@ -59,4 +59,44 @@ export const PageConfig = {
       return error.response;
     }
   },
+  getEventosProgramacaoPage: async (page = 1, perPage = 999, search = "") => {
+    try {
+      const res = await api.get(
+        `/eventos?page=${page}&perPage=${perPage}&s=${search}`
+      );
+      return res;
+    } catch (error) {
+      return error.response;
+    }
+  },
+  addEventosProgramacaoPage: async (payload) => {
+    try {
+      const res = await api.post(`/eventos`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Eventos!");
+      return error.response;
+    }
+  },
+  editEventosProgramacaoPage: async (payload, id) => {
+    try {
+      const res = await api.put(`/eventos/${id}`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Eventos!");
+      return error.response;
+    }
+  },
+  deleteEventosProgramacaoPage: async (id) => {
+    try {
+      const res = await api.delete(`/eventos/${id}`);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Eventos!");
+      return error.response;
+    }
+  },
 };
