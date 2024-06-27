@@ -160,4 +160,45 @@ export const PageConfig = {
       return error.response;
     }
   },
+
+  getParceiros: async (page = 1, perPage = 999, search = "") => {
+    try {
+      const res = await api.get(
+        `/parceiros?page=${page}&perPage=${perPage}&s=${search}`
+      );
+      return res;
+    } catch (error) {
+      return error.response;
+    }
+  },
+  addParceiros: async (payload) => {
+    try {
+      const res = await api.post(`/parceiros`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Parceiros!");
+      return error.response;
+    }
+  },
+  editParceiros: async (payload, id) => {
+    try {
+      const res = await api.put(`/parceiros/${id}`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Parceiros!");
+      return error.response;
+    }
+  },
+  deleteParceiros: async (id) => {
+    try {
+      const res = await api.delete(`/parceiros/${id}`);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Parceiros!");
+      return error.response;
+    }
+  },
 };
