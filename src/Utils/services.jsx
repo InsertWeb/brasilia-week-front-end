@@ -201,4 +201,45 @@ export const PageConfig = {
       return error.response;
     }
   },
+
+  getImprensa: async (page = 1, perPage = 999, search = "") => {
+    try {
+      const res = await api.get(
+        `/imprensa?page=${page}&perPage=${perPage}&s=${search}`
+      );
+      return res;
+    } catch (error) {
+      return error.response;
+    }
+  },
+  addImprensa: async (payload) => {
+    try {
+      const res = await api.post(`/imprensa`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Imprensa!");
+      return error.response;
+    }
+  },
+  editImprensa: async (payload, id) => {
+    try {
+      const res = await api.put(`/imprensa/${id}`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Imprensa!");
+      return error.response;
+    }
+  },
+  deleteImprensa: async (id) => {
+    try {
+      const res = await api.delete(`/imprensa/${id}`);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Imprensa!");
+      return error.response;
+    }
+  },
 };

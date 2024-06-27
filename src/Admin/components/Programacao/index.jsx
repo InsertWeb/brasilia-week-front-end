@@ -140,9 +140,6 @@ export function AdminProgramacao() {
           </div>
         )}
       </div>
-      <button className="bg-black w-full text-white py-2 rounded-lg">
-        Salvar
-      </button>
     </div>
   );
 }

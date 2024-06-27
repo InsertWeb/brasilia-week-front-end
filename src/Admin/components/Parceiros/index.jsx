@@ -88,39 +88,73 @@ export function AdminParceiros() {
             <td className="py-2">Descrição(EN)</td>
             <td className="py-2"></td>
           </tr>
-          {parceiros?.data.map((e) => (
-            <tr key={e.id} className="align-middle text-sm">
-              <td className="py-2">
-                <img
-                  src={e.filePath ?? ImageGalery}
-                  alt={e.nome}
-                  className="w-24 h-16 object-cover rounded-lg"
-                />
-              </td>
-              <td className="px-4 py-2">{e.nome}</td>
-              <td className="px-4 py-2">{e.rede_social}</td>
-              <td className="px-4 py-2">{e.title_pt}</td>
-              <td className="px-4 py-2">{e.title_en}</td>
-              <td className="px-4 py-2">{e.descricao_pt}</td>
-              <td className="px-4 py-2">{e.descricao_en}</td>
-              <td className="px-4 py-2 font-medium">
-                <button
-                  className="text-xs font-medium hover:text-gray-500 duration-300"
-                  type="button"
-                  onClick={() => openEditEvent(e)}
-                >
-                  Editar
-                </button>
-                <button
-                  className="text-xs font-medium hover:text-red-500 duration-300"
-                  type="button"
-                  onClick={() => deleteEvent(e.id)}
-                >
-                  Excluir
-                </button>
-              </td>
-            </tr>
-          ))}
+          {isLoading ? (
+            Array.from({ length: 5 }).map((e, index) => (
+              <tr key={index} className="align-middle text-sm animate-pulse">
+                <td className="py-2">
+                  <div className="w-24 h-16 bg-gray-300 rounded-lg"></div>
+                </td>
+                <td className="px-4 py-2">
+                  <div className="w-24 h-4 bg-gray-300 rounded"></div>
+                </td>
+                <td className="px-4 py-2">
+                  <div className="w-24 h-4 bg-gray-300 rounded"></div>
+                </td>
+                <td className="px-4 py-2">
+                  <div className="w-24 h-4 bg-gray-300 rounded"></div>
+                </td>
+                <td className="px-4 py-2">
+                  <div className="w-24 h-4 bg-gray-300 rounded"></div>
+                </td>
+                <td className="px-4 py-2">
+                  <div className="w-24 h-4 bg-gray-300 rounded"></div>
+                </td>
+
+                <td className="px-4 py-2">
+                  <div className="space-y-2">
+                    <div className="w-16 h-6 bg-gray-300 rounded"></div>
+                    <div className="w-16 h-6 bg-gray-300 rounded"></div>
+                  </div>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <>
+              {parceiros?.data.map((e) => (
+                <tr key={e.id} className="align-middle text-sm">
+                  <td className="py-2">
+                    <img
+                      src={e.filePath ?? ImageGalery}
+                      alt={e.nome}
+                      className="w-24 h-16 object-cover rounded-lg"
+                    />
+                  </td>
+                  <td className="px-4 py-2">{e.nome}</td>
+                  <td className="px-4 py-2">{e.rede_social}</td>
+                  <td className="px-4 py-2">{e.title_pt}</td>
+                  <td className="px-4 py-2">{e.title_en}</td>
+                  <td className="px-4 py-2">{e.descricao_pt}</td>
+                  <td className="px-4 py-2">{e.descricao_en}</td>
+                  <td className="px-4 py-2 font-medium">
+                    <button
+                      className="text-xs font-medium hover:text-gray-500 duration-300"
+                      type="button"
+                      onClick={() => openEditEvent(e)}
+                    >
+                      Editar
+                    </button>
+                    <button
+                      className="text-xs font-medium hover:text-red-500 duration-300"
+                      type="button"
+                      onClick={() => deleteEvent(e.id)}
+                    >
+                      Excluir
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </>
+          )}
         </body>
       </table>
     </div>
