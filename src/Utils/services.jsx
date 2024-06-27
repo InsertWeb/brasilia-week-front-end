@@ -99,4 +99,44 @@ export const PageConfig = {
       return error.response;
     }
   },
+  getGaleria: async (page = 1, perPage = 999, search = "") => {
+    try {
+      const res = await api.get(
+        `/galeria?page=${page}&perPage=${perPage}&s=${search}`
+      );
+      return res;
+    } catch (error) {
+      return error.response;
+    }
+  },
+  addGaleria: async (payload) => {
+    try {
+      const res = await api.post(`/galeria`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Galeria!");
+      return error.response;
+    }
+  },
+  editGaleria: async (payload, id) => {
+    try {
+      const res = await api.put(`/galeria/${id}`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Galeria!");
+      return error.response;
+    }
+  },
+  deleteGaleria: async (id) => {
+    try {
+      const res = await api.delete(`/galeria/${id}`);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Galeria!");
+      return error.response;
+    }
+  },
 };

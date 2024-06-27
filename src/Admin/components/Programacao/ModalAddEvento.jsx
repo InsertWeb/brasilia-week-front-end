@@ -27,7 +27,7 @@ export const ModalAddEvento = ({
       setValue("img", event.filePath ?? "");
       setImagePreview(event.filePath ?? null);
     }
-  }, [event]);
+  }, [event, isEdit]);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];

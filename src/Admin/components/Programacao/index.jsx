@@ -39,7 +39,7 @@ export function AdminProgramacao() {
     setIsEdit(true);
   }
 
-  async function deleteDeskIndividual(id) {
+  async function deleteEvent(id) {
     confirmAlert({
       title: "Confirmação",
       message: "Tem certeza que deseja excluir o evento?",
@@ -130,7 +130,7 @@ export function AdminProgramacao() {
                   <button
                     className="font-medium hover:text-red-500 duration-300"
                     type="button"
-                    onClick={() => deleteDeskIndividual(e.id)}
+                    onClick={() => deleteEvent(e.id)}
                   >
                     Excluir
                   </button>
