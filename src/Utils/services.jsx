@@ -59,6 +59,7 @@ export const PageConfig = {
       return error.response;
     }
   },
+
   getEventosProgramacaoPage: async (page = 1, perPage = 999, search = "") => {
     try {
       const res = await api.get(
@@ -99,6 +100,7 @@ export const PageConfig = {
       return error.response;
     }
   },
+
   getGaleria: async (page = 1, perPage = 999, search = "") => {
     try {
       const res = await api.get(
@@ -136,6 +138,25 @@ export const PageConfig = {
       return res;
     } catch (error) {
       toast.error("Erro na rota de Galeria!");
+      return error.response;
+    }
+  },
+
+  getSobre: async () => {
+    try {
+      const res = await api.get(`/sobre`);
+      return res;
+    } catch (error) {
+      return error.response;
+    }
+  },
+  updateSobre: async (payload) => {
+    try {
+      const res = await api.put(`/sobre`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro ao mudar configurações do Banner!");
       return error.response;
     }
   },

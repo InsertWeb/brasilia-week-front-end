@@ -101,7 +101,7 @@ export function AdminProgramacao() {
         ) : (
           <div className="space-y-5">
             {eventos?.data.map((e) => (
-              <div className="grid grid-cols-5 gap-5 items-center">
+              <div className="grid grid-cols-5 gap-5 items-center" key={e.id}>
                 <img
                   src={e.filePath ?? "/bgBlack.png"}
                   alt={e.title_pt}
