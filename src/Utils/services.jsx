@@ -39,3 +39,24 @@ export const Login = {
     }
   },
 };
+
+export const PageConfig = {
+  getBanner: async () => {
+    try {
+      const res = await api.get(`/banner`);
+      return res;
+    } catch (error) {
+      return error.response;
+    }
+  },
+  updateBanner: async (payload) => {
+    try {
+      const res = await api.put(`/banner`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro ao mudar configurações do Banner!");
+      return error.response;
+    }
+  },
+};

@@ -1,16 +1,52 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IconCircle, IconInstagram, MenuHamburguer } from "../../assets/Icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { PageConfig } from "../../Utils/services";
 
-export function BannerMain() {
+export function BannerMain({ lang }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [infoBanner, setInfoBanner] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    getInfoBanner();
+  }, []);
+
+  const toggleLanguage = () => {
+    const params = new URLSearchParams(location.search);
+    if (params.has("lang")) {
+      navigate("/");
+    } else {
+      navigate("?lang=en");
+    }
   };
 
+  async function getInfoBanner() {
+    setIsLoading(true);
+    try {
+      const response = await PageConfig.getBanner();
+      if (response && response.status === 200) {
+        setInfoBanner(response.data);
+      }
+    } catch (error) {
+      return error;
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  const backgroundImageUrl = infoBanner?.banner?.image ?? "/bgBlack.png";
+
   return (
-    <div className="bg-[url('/bgMain.png')] bg-cover bg-center relative overflow-hidden">
+    <div
+      style={{
+        backgroundImage: `url(${backgroundImageUrl})`,
+      }}
+      className={`bg-cover bg-center relative overflow-hidden`}
+    >
       <div className="absolute top-1/3 left-1/3 sm:left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <IconCircle />
       </div>
@@ -18,7 +54,7 @@ export function BannerMain() {
         <Link to={"/"} className="text-3xl text-white font-['Helvetica']">
           BDW
         </Link>
-        <button onClick={toggleMenu}>
+        <button onClick={() => setMenuOpen(!menuOpen)}>
           <MenuHamburguer />
         </button>
       </header>
@@ -30,7 +66,10 @@ export function BannerMain() {
       >
         <div className="flex justify-between max-w-6xl mx-auto px-4">
           <span className="text-2xl sm:text-3xl">BDW</span>
-          <button className="text-white " onClick={toggleMenu}>
+          <button
+            className="text-white "
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
             <svg
               width="31"
               height="31"
@@ -114,7 +153,7 @@ export function BannerMain() {
             </li>
           </ul>
           <div className="flex flex-col items-end gap-5 sm:gap-10 text-white">
-            <button>PT | ENG</button>
+            <Link to={toggleLanguage}>PT | ENG</Link>
             <a href="#" target="_blank">
               <IconInstagram />
             </a>
@@ -124,7 +163,7 @@ export function BannerMain() {
 
       <main className="max-w-6xl px-4 mx-auto py-5">
         <div className="flex flex-col items-end gap-5 sm:gap-10 text-white">
-          <button>PT | ENG</button>
+          <button onClick={toggleLanguage}>PT | ENG</button>
           <a href="#" target="_blank">
             <IconInstagram />
           </a>
@@ -132,7 +171,11 @@ export function BannerMain() {
 
         <div className="flex flex-col justify-center items-center text-white gap-32 py-36 text-4xl sm:text-5xl font-thin">
           <h2>#bdw24</h2>
-          <h1 className="tracking-[20px]">BRASÍLIA DESIGN WEEK</h1>
+          <h1 className="tracking-[20px]">
+            {lang === "en"
+              ? infoBanner?.banner?.title_en
+              : infoBanner?.banner?.title_pt}
+          </h1>
         </div>
       </main>
     </div>
