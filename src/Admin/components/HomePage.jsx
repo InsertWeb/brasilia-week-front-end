@@ -24,16 +24,16 @@ export function HomePage() {
     <div className="px-8 py-5 bg-zinc-50 min-h-screen h-full">
       {!page && <AdminUsuarios />}
       {page === "banner" && <AdminBanner />}
-      {page === "sobre" && <AdminSobre />}
       {page === "programacao" && <AdminProgramacao />}
       {page === "galeria" && <AdminGaleria />}
+      {page === "sobre" && <AdminSobre />}
       {page === "parceiros" && <AdminParceiros />}
-      {page === "patrocinadores" && <AdminPatrocinadores />}
       {page === "imprensa" && <AdminImprensa />}
       {page === "podcast" && <AdminPodcast />}
       {page === "inspire" && <AdminInspire />}
       {page === "equipe" && <AdminEquipe />}
       {page === "locais" && <AdminLocais />}
+      {page === "patrocinadores" && <AdminPatrocinadores />}
     </div>
   );
 }

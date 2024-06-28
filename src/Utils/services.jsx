@@ -324,4 +324,105 @@ export const PageConfig = {
       return error.response;
     }
   },
+
+  getInspire: async () => {
+    try {
+      const res = await api.get(`/inspire_se`);
+      return res;
+    } catch (error) {
+      return error.response;
+    }
+  },
+  updateInspire: async (payload) => {
+    try {
+      const res = await api.put(`/inspire_se`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro ao mudar configurações do Inspire-se!");
+      return error.response;
+    }
+  },
+
+  getLocais: async (page = 1, perPage = 999, search = "") => {
+    try {
+      const res = await api.get(
+        `/locais?page=${page}&perPage=${perPage}&s=${search}`
+      );
+      return res;
+    } catch (error) {
+      return error.response;
+    }
+  },
+  addLocais: async (payload) => {
+    try {
+      const res = await api.post(`/locais`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Locais!");
+      return error.response;
+    }
+  },
+  editLocais: async (payload, id) => {
+    try {
+      const res = await api.put(`/locais/${id}`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Locais!");
+      return error.response;
+    }
+  },
+  deleteLocais: async (id) => {
+    try {
+      const res = await api.delete(`/locais/${id}`);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Locais!");
+      return error.response;
+    }
+  },
+
+  getPatrocinadores: async (page = 1, perPage = 999, search = "") => {
+    try {
+      const res = await api.get(
+        `/patrocinadores?page=${page}&perPage=${perPage}&s=${search}`
+      );
+      return res;
+    } catch (error) {
+      return error.response;
+    }
+  },
+  addPatrocinadores: async (payload) => {
+    try {
+      const res = await api.post(`/patrocinadores`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Patrocinadores!");
+      return error.response;
+    }
+  },
+  editPatrocinadores: async (payload, id) => {
+    try {
+      const res = await api.put(`/patrocinadores/${id}`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Patrocinadores!");
+      return error.response;
+    }
+  },
+  deletePatrocinadores: async (id) => {
+    try {
+      const res = await api.delete(`/patrocinadores/${id}`);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Patrocinadores!");
+      return error.response;
+    }
+  },
 };

@@ -1,9 +1,15 @@
-import { useState } from "react";
-import ImageGalery from "../../assets/galery/galeria1.png";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { PageConfig } from "../../Utils/services";
 
 export function AdminPatrocinadores() {
   const [imagePreview, setImagePreview] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
+  const [patrocinadores, setPatrocinadores] = useState(null);
 
+  const { register, handleSubmit, watch, setValue, reset } = useForm();
+
+  console.log(patrocinadores);
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -15,15 +21,59 @@ export function AdminPatrocinadores() {
     }
   };
 
+  const onSubmit = async (payload) => {
+    setIsLoading(true);
+    const token = localStorage.getItem("token");
+    try {
+      if (token) {
+        const response = await PageConfig.addPatrocinadores(payload);
+        getPatrocinadores();
+        reset();
+        setImagePreview(null);
+      }
+    } catch (error) {
+      return error;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getPatrocinadores();
+  }, []);
+
+  async function getPatrocinadores() {
+    setIsLoading(true);
+    const token = localStorage.getItem("token");
+    if (token) {
+      try {
+        const response = await PageConfig.getPatrocinadores();
+        if (response && response.status === 200) {
+          setPatrocinadores(response.data);
+        }
+      } catch (error) {
+        return error;
+      } finally {
+        setIsLoading(false);
+      }
+    }
+  }
+
   return (
     <div className="bg-white rounded-lg p-5 space-y-5">
       <h2 className="text-2xl font-medium">Configurações - PATROCINADORES</h2>
-      <form className="space-y-5">
-        <label className="text-sm grid grid-cols-2">
-          <div className="flex flex-col space-y-3 gap-1">
+      <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
+        <div className="text-sm grid grid-cols-2">
+          <label className="flex flex-col space-y-3 gap-1 h-fit">
             <span>Logo do Patrocinador</span>
-            <input type="file" accept="image/*" onChange={handleImageChange} />
-          </div>
+            <input
+              {...register("img")}
+              type="file"
+              required
+              accept="image/*"
+              onChange={handleImageChange}
+            />
+          </label>
           <div>
             {imagePreview && (
               <div>
@@ -38,51 +88,36 @@ export function AdminPatrocinadores() {
               </div>
             )}
           </div>
-        </label>
+        </div>
         <label className="flex flex-col gap-1 text-sm">
           <span>Nome</span>
           <input
             type="text"
+            required
+            {...register("nome")}
             className="bg-zinc-50 px-5 py-2"
             placeholder="Nome do Patrocinador"
           />
         </label>
-        <button className="bg-black text-white w-full py-1 rounded-lg">
-          Adicionar
+        <button
+          className="bg-black text-white w-full py-1 rounded-lg"
+          disabled={isLoading}
+        >
+          {isLoading ? "Adicionando" : "Adicionar"}
         </button>
       </form>
 
       <div className="mt-8 grid gap-5 grid-cols-6">
-        <img
-          src={ImageGalery}
-          alt=""
-          className="w-full h-16 object-cover rounded-lg"
-        />
-        <img
-          src={ImageGalery}
-          alt=""
-          className="w-full h-16 object-cover rounded-lg"
-        />
-        <img
-          src={ImageGalery}
-          alt=""
-          className="w-full h-16 object-cover rounded-lg"
-        />
-        <img
-          src={ImageGalery}
-          alt=""
-          className="w-full h-16 object-cover rounded-lg"
-        />
-        <img
-          src={ImageGalery}
-          alt=""
-          className="w-full h-16 object-cover rounded-lg"
-        />
-        <img
-          src={ImageGalery}
-          alt=""
-          className="w-full h-16 object-cover rounded-lg"
-        />
+        {patrocinadores.data.map((e) => (
+          <div className="text-center">
+            <img
+              src={e.filePath}
+              alt=""
+              className="w-full h-16 object-cover rounded-lg"
+            />
+            <span>{e.nome}</span>
+          </div>
+        ))}
       </div>
     </div>
   );

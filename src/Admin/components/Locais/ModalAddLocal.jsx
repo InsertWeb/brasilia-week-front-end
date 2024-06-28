@@ -1,17 +1,51 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { PageConfig } from "../../../Utils/services";
 
-export const ModalAddLocal = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [imagePreview, setImagePreview] = useState(null);
+export const ModalAddLocal = ({
+  local,
+  isOpen,
+  setIsOpen,
+  isEdit,
+  setIsEdit,
+  reload,
+}) => {
+  const [isLoading, setIsLoading] = useState(null);
+  const { register, handleSubmit, setValue, reset } = useForm();
+  console.log(local);
+  useEffect(() => {
+    if (isEdit) {
+      setValue("title_pt", local.title_pt ?? "");
+      setValue("title_en", local.title_en ?? "");
+      setValue("endereco_pt", local.endereco_pt ?? "");
+      setValue("endereco_en", local.endereco_en ?? "");
+      setValue("website", local.website ?? "");
+    }
+  }, [local, isEdit]);
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result);
-      };
-      reader.readAsDataURL(file);
+  const onSubmit = async (payload) => {
+    setIsLoading(true);
+    const token = localStorage.getItem("token");
+    try {
+      if (token) {
+        let response;
+        if (isEdit) {
+          response = await PageConfig.editLocais(payload, local.id);
+        } else {
+          response = await PageConfig.addLocais(payload);
+        }
+
+        if (response.status === 200) {
+          reset();
+          reload();
+          setIsOpen(false);
+          setIsEdit(false);
+        }
+      }
+    } catch (error) {
+      return error;
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -29,11 +63,15 @@ export const ModalAddLocal = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 ">
           <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 p-6 relative">
             <h2 className="text-xl font-bold mb-4">Adicionar Local</h2>
-            <form className="grid grid-cols-2 gap-5">
+            <form
+              className="grid grid-cols-2 gap-5"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <label className="flex flex-col gap-1">
                 <span>Título (PT)</span>
                 <textarea
                   type="text"
+                  {...register("title_pt")}
                   placeholder="Título"
                   className="bg-zinc-50 px-3 py-1 rounded-md resize-none h-24"
                 />
@@ -42,6 +80,7 @@ export const ModalAddLocal = () => {
                 <span>Título (EN)</span>
                 <textarea
                   type="text"
+                  {...register("title_en")}
                   placeholder="Title"
                   className="bg-zinc-50 px-3 py-1 rounded-md resize-none h-24"
                 />
@@ -50,6 +89,7 @@ export const ModalAddLocal = () => {
                 <span>Endereço (PT)</span>
                 <textarea
                   type="text"
+                  {...register("endereco_pt")}
                   placeholder="Endereço"
                   className="bg-zinc-50 px-3 py-1 rounded-md resize-none h-24"
                 />
@@ -58,6 +98,7 @@ export const ModalAddLocal = () => {
                 <span>Endereço (EN)</span>
                 <textarea
                   type="text"
+                  {...register("endereco_en")}
                   placeholder="Endereço"
                   className="bg-zinc-50 px-3 py-1 rounded-md resize-none h-24"
                 />
@@ -67,18 +108,26 @@ export const ModalAddLocal = () => {
                 <span>Website</span>
                 <textarea
                   type="text"
+                  {...register("website")}
                   placeholder="Website"
                   className="bg-zinc-50 px-3 py-1 rounded-md resize-none h-24"
                 />
               </label>
 
-              <button className="bg-black col-span-2 text-white py-1 rounded-md">
-                Salvar
+              <button
+                className="bg-black col-span-2 text-white py-1 rounded-md"
+                disabled={isLoading}
+              >
+                {isLoading ? "Salvando" : "Salvar"}
               </button>
             </form>
 
             <button
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                reset();
+                setIsEdit(false);
+                setIsOpen(false);
+              }}
               className="text-red-500 absolute top-3 right-3"
             >
               <svg

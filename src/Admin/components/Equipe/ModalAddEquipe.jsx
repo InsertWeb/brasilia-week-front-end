@@ -55,7 +55,7 @@ export const ModalAddEquipe = ({
 
         let response;
         if (isEdit) {
-          response = await PageConfig.editEquipes(formData, notice.id);
+          response = await PageConfig.editEquipes(formData, equipe.id);
         } else {
           response = await PageConfig.addEquipes(formData);
         }

@@ -33,13 +33,13 @@ export function AdminEquipe() {
     }
   }
 
-  function openEditPodcast(e) {
+  function openEditEquipe(e) {
     setEquipe(e);
     setIsOpen(true);
     setIsEdit(true);
   }
 
-  async function deletePodcast(id) {
+  async function deleteEquipe(id) {
     confirmAlert({
       title: "Confirmação",
       message: "Tem certeza que deseja excluir?",
@@ -102,14 +102,14 @@ export function AdminEquipe() {
                   <button
                     className="font-medium hover:text-gray-500 duration-300 w-full"
                     type="button"
-                    onClick={() => openEditPodcast(e)}
+                    onClick={() => openEditEquipe(e)}
                   >
                     Editar
                   </button>
                   <button
                     className="font-medium hover:text-red-500 duration-300 w-full"
                     type="button"
-                    onClick={() => deletePodcast(e.id)}
+                    onClick={() => deleteEquipe(e.id)}
                   >
                     Excluir
                   </button>

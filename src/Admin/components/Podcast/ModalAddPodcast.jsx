@@ -57,7 +57,7 @@ export const ModalAddPodcast = ({
 
         let response;
         if (isEdit) {
-          response = await PageConfig.editPodCast(formData, notice.id);
+          response = await PageConfig.editPodCast(formData, podcast.id);
         } else {
           response = await PageConfig.addPodCast(formData);
         }
