@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { PageConfig } from "../../Utils/services";
+import { confirmAlert } from "react-confirm-alert";
 
 export function AdminPatrocinadores() {
   const [imagePreview, setImagePreview] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const [patrocinadores, setPatrocinadores] = useState(null);
 
-  const { register, handleSubmit, watch, setValue, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
-  console.log(patrocinadores);
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -26,7 +26,19 @@ export function AdminPatrocinadores() {
     const token = localStorage.getItem("token");
     try {
       if (token) {
-        const response = await PageConfig.addPatrocinadores(payload);
+        const formData = new FormData();
+
+        for (const key in payload) {
+          if (key !== "img") {
+            formData.append(key, payload[key]);
+          }
+        }
+
+        if (payload.img && payload.img.length > 0) {
+          formData.append("img", payload.img[0]);
+        }
+
+        const response = await PageConfig.addPatrocinadores(formData);
         getPatrocinadores();
         reset();
         setImagePreview(null);
@@ -57,6 +69,30 @@ export function AdminPatrocinadores() {
         setIsLoading(false);
       }
     }
+  }
+
+  async function deletepatrocinador(id) {
+    confirmAlert({
+      title: "Confirmação",
+      message: "Tem certeza que deseja excluir esse Patrocinador?",
+      buttons: [
+        {
+          label: "Sim",
+          onClick: async () => {
+            try {
+              await PageConfig.deletePatrocinadores(id);
+              getPatrocinadores();
+            } catch {
+              toast.error("Erro ao Deletar Patrocinador");
+            }
+          },
+        },
+        {
+          label: "Cancelar",
+          onClick: () => {},
+        },
+      ],
+    });
   }
 
   return (
@@ -108,7 +144,7 @@ export function AdminPatrocinadores() {
       </form>
 
       <div className="mt-8 grid gap-5 grid-cols-6">
-        {patrocinadores.data.map((e) => (
+        {patrocinadores?.data.map((e) => (
           <div className="text-center">
             <img
               src={e.filePath}
@@ -116,6 +152,13 @@ export function AdminPatrocinadores() {
               className="w-full h-16 object-cover rounded-lg"
             />
             <span>{e.nome}</span>
+            <button
+              className="text-sm hover:text-red-500 duration-300 w-full"
+              type="button"
+              onClick={() => deletepatrocinador(e.id)}
+            >
+              Excluir
+            </button>
           </div>
         ))}
       </div>

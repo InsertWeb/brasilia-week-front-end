@@ -14,7 +14,7 @@ export const ModalAddParceiros = ({
   const [imagePreview, setImagePreview] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { register, handleSubmit, setValue, reset } = useForm();
-  console.log(parceiro);
+
   useEffect(() => {
     if (isEdit) {
       setValue("nome", parceiro.nome ?? "");

@@ -12,7 +12,7 @@ export const ModalAddLocal = ({
 }) => {
   const [isLoading, setIsLoading] = useState(null);
   const { register, handleSubmit, setValue, reset } = useForm();
-  console.log(local);
+
   useEffect(() => {
     if (isEdit) {
       setValue("title_pt", local.title_pt ?? "");
