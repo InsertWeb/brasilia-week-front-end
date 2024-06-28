@@ -1,4 +1,3 @@
-import { useLocation } from "react-router";
 import { BannerMain } from "../../components/home-components/BannerMain";
 import { Galeria } from "../../components/home-components/Galeria";
 import { Patrocinadores } from "../../components/home-components/Patrocinadores";
@@ -8,13 +7,9 @@ import { SobreBDW } from "../../components/home-components/SobreBDW";
 import { Footer } from "../../components/utils/Footer";
 import { useGetInfos } from "../../Utils/useGetInfos";
 import Loading from "../../assets/loading.svg";
-export function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
 
 export function Homepage() {
-  const query = useQuery();
-  const lang = query.get("lang");
+  const lang = localStorage.getItem("lang");
   const context = useGetInfos();
 
   return (

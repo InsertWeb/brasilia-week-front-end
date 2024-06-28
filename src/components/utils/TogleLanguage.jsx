@@ -1,16 +1,11 @@
-import { useLocation, useNavigate } from "react-router";
-
 export function TogleLanguage() {
-  const navigate = useNavigate();
-  const location = useLocation();
-
   const toggleLanguage = () => {
-    const params = new URLSearchParams(location.search);
-    if (params.has("lang")) {
-      navigate(`${location.pathname}`);
+    if (localStorage.getItem("lang")) {
+      localStorage.removeItem("lang");
     } else {
-      navigate("?lang=en");
+      localStorage.setItem("lang", "en");
     }
+    window.location.reload();
   };
 
   return <button onClick={toggleLanguage}>PT | ENG</button>;

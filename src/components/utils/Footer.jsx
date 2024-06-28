@@ -3,12 +3,10 @@ import {
   IconInstagram,
   IconLocalization,
 } from "../../assets/Icons";
-import { useQuery } from "../../pages/Home/Homepage";
 import { TogleLanguage } from "./TogleLanguage";
 
 export function Footer() {
-  const query = useQuery();
-  const lang = query.get("lang");
+  const lang = localStorage.getItem("lang");
   return (
     <footer className="bg-black text-white pt-8 pb-4">
       <div className="max-w-6xl mx-auto flex justify-between gap-5 flex-wrap pb-4 border-b px-4">

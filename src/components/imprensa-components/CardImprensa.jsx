@@ -1,9 +1,7 @@
 import Parceiro1 from "../../assets/parceiros1.png";
-import { useQuery } from "../../pages/Home/Homepage";
 
 export function CardImprensa({ data }) {
-  const query = useQuery();
-  const lang = query.get("lang");
+  const lang = localStorage.getItem("lang");
 
   return (
     <div className="space-y-4">

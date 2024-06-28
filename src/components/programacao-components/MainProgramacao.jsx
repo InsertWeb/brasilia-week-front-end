@@ -2,14 +2,12 @@ import moment from "moment";
 import { useGetInfos } from "../../Utils/useGetInfos";
 import { IconPrev } from "../../assets/Icons";
 import { useEffect, useState } from "react";
-import { useQuery } from "../../pages/Home/Homepage";
 
 export function MainProgramacao() {
   const context = useGetInfos();
   const eventos = context?.dataHomepage?.programacao;
 
-  const query = useQuery();
-  const lang = query.get("lang");
+  const lang = localStorage.getItem("lang");
 
   const [currentDateIndex, setCurrentDateIndex] = useState(0);
   const [eventClicked, setEventClicked] = useState(0);

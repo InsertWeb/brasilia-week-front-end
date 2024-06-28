@@ -1,14 +1,12 @@
 import { useGetInfos } from "../../Utils/useGetInfos";
 import { Footer } from "../../components/utils/Footer";
 import { Header } from "../../components/utils/Header";
-import { useQuery } from "../Home/Homepage";
 
 export function SobrePage() {
   const context = useGetInfos();
   const sobre = context?.dataHomepage?.sobre;
 
-  const query = useQuery();
-  const lang = query.get("lang");
+  const lang = localStorage.getItem("lang");
 
   return (
     <div className="relative">

@@ -1,14 +1,12 @@
 import { Footer } from "../../components/utils/Footer";
 import { Header } from "../../components/utils/Header";
 import { useGetInfos } from "../../Utils/useGetInfos";
-import { useQuery } from "../Home/Homepage";
 
 export function GaleriaPage() {
   const context = useGetInfos();
   const eventos = context?.dataHomepage?.galeria;
 
-  const query = useQuery();
-  const lang = query.get("lang");
+  const lang = localStorage.getItem("lang");
 
   return (
     <div>

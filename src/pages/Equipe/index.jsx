@@ -2,14 +2,12 @@ import { useGetInfos } from "../../Utils/useGetInfos";
 import { CardEquipe } from "../../components/equipe-components/CardEquipe";
 import { Footer } from "../../components/utils/Footer";
 import { Header } from "../../components/utils/Header";
-import { useQuery } from "../Home/Homepage";
 
 export function EquipePage() {
   const context = useGetInfos();
   const parceiros = context?.dataHomepage?.parceiros;
 
-  const query = useQuery();
-  const lang = query.get("lang");
+  const lang = localStorage.getItem("lang");
 
   return (
     <div className="font-['Helvetica']">
