@@ -1,6 +1,12 @@
+import { useState } from "react";
 import { IconNext, IconPrev } from "../../assets/Icons";
+import { Link } from "react-router-dom";
 
-export function Programacao() {
+export function Programacao({ lang, data }) {
+  const [eventClicked, setEventClicked] = useState(data && data[0]);
+
+  const backgroundImageUrl = eventClicked?.filePath ?? "/bgBlack.png";
+
   return (
     <div className="font-['Helvetica']">
       <div className="max-w-6xl px-4 mx-auto py-16">
@@ -16,7 +22,7 @@ export function Programacao() {
             >
               <circle cx="43" cy="43" r="43" fill="#83BF45" />
             </svg>
-            PROGRAMAÇÃO
+            {lang === "en" ? "SCHEDULE" : "PROGRAMAÇÃO"}
           </h2>
 
           <div className="flex gap-7 items-center w-full sm:w-fit justify-between">
@@ -36,69 +42,59 @@ export function Programacao() {
 
         <div className="grid md:grid-cols-2 gap-3 pt-20">
           <div className="space-y-3">
-            <div className="bg-[url('/bgProgramacao.png')] bg-cover h-[440px] flex items-end justify-end">
-              <button className="bg-white max-w-56 w-full py-2 m-6">
+            <div
+              style={{
+                backgroundImage: `url(${backgroundImageUrl})`,
+              }}
+              className="bg-cover h-[440px] flex items-end justify-end"
+            >
+              <Link
+                to={"/programacao"}
+                className="bg-white max-w-56 w-full py-2 m-6 text-center"
+              >
                 INSCREVA-SE
-              </button>
+              </Link>
             </div>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry simply dummy text of the printing and typesetting
-              industry.
+              {lang === "en"
+                ? eventClicked?.descricao_en
+                : eventClicked?.descricao_pt}
             </p>
           </div>
           <div className="text-[#0D0D0D]">
-            <div className="flex gap-2 items-center">
-              <IconPrev width={35} className={"hidden sm:block"} />
-              <div className="border-b border-black py-6 w-full hover:bg-[#F6F6F6]">
-                <span className="px-5 border-r border-black">07:00</span>
-                <span className="pl-5">Exposição 01</span>
+            {data?.map((e) => (
+              <div
+                className="flex gap-2 items-center"
+                onClick={() => setEventClicked(e)}
+              >
+                <IconPrev width={35} className={"hidden sm:block"} />
+                <div className="border-b border-black py-6 w-full hover:bg-[#F6F6F6]">
+                  <span className="px-5 border-r border-black">
+                    {e.horario}
+                  </span>
+                  <span className="pl-5">
+                    {lang === "en" ? e.title_en : e.title_pt}
+                  </span>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              <IconPrev width={35} className={"hidden sm:block"} />
-              <div className="border-b border-black py-6 w-full hover:bg-[#F6F6F6]">
-                <span className="px-5 border-r border-black">07:00</span>
-                <span className="pl-5">Exposição 01</span>
-              </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              <IconPrev width={35} className={"hidden sm:block"} />
-              <div className="border-b border-black py-6 w-full hover:bg-[#F6F6F6]">
-                <span className="px-5 border-r border-black">07:00</span>
-                <span className="pl-5">Exposição 01</span>
-              </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              <IconPrev width={35} className={"hidden sm:block"} />
-              <div className="border-b border-black py-6 w-full hover:bg-[#F6F6F6]">
-                <span className="px-5 border-r border-black">07:00</span>
-                <span className="pl-5">Exposição 01</span>
-              </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              <IconPrev width={35} className={"hidden sm:block"} />
-              <div className="border-b border-black py-6 w-full hover:bg-[#F6F6F6]">
-                <span className="px-5 border-r border-black">07:00</span>
-                <span className="pl-5">Exposição 01</span>
-              </div>
-            </div>
-            <div className="flex gap-2 items-center">
-              <IconPrev width={35} className={"hidden sm:block"} />
-              <div className="border-b border-black py-6 w-full hover:bg-[#F6F6F6]">
-                <span className="px-5 border-r border-black">07:00</span>
-                <span className="pl-5">Exposição 01</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
         <div className="flex flex-col justify-center items-center ">
-          <button className="py-3 max-w-2xl border-2 border-black w-full my-32">
-            VEJA A PROGRAMAÇÃO COMPLETA
-          </button>
-          <button className="py-6 max-w-sm w-full bg-[#83BF45] text-white">
-            QUERO PARTICIPAR
+          <Link
+            to={"/programacao"}
+            className="py-3 max-w-2xl border-2 border-black w-full my-32 text-center"
+          >
+            {lang === "en"
+              ? "SEE THE COMPLETE PROGRAM"
+              : "VEJA A PROGRAMAÇÃO COMPLETA"}
+          </Link>
+          <button
+            className="py-6 max-w-sm w-full bg-[#83BF45] text-white"
+            type="button"
+          >
+            {lang === "en" ? "I WANT TO PARTICIPATE" : "QUERO PARTICIPAR"}
           </button>
         </div>
       </div>

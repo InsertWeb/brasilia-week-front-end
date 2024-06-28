@@ -6,6 +6,7 @@ import { Programacao } from "../../components/home-components/Programacao";
 import { ProjetoParceiros } from "../../components/home-components/ProjetoParceiros";
 import { SobreBDW } from "../../components/home-components/SobreBDW";
 import { Footer } from "../../components/utils/Footer";
+import { useGetInfos } from "../../Utils/useGetInfos";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -14,14 +15,15 @@ function useQuery() {
 export function Homepage() {
   const query = useQuery();
   const lang = query.get("lang");
-
+  const context = useGetInfos();
+  console.log(context);
   return (
     <div>
-      <BannerMain lang={lang} />
-      <SobreBDW />
-      <Programacao />
-      <Galeria />
-      <ProjetoParceiros />
+      <BannerMain lang={lang} data={context?.dataHomepage?.banner} />
+      <SobreBDW lang={lang} data={context?.dataHomepage?.sobre} />
+      <Programacao lang={lang} data={context?.dataHomepage?.programacao} />
+      <Galeria lang={lang} data={context?.dataHomepage?.galeria} />
+      <ProjetoParceiros lang={lang} data={context?.dataHomepage?.parceiros} />
       <Patrocinadores />
       <Footer />
     </div>

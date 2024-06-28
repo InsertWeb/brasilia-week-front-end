@@ -1,14 +1,11 @@
-import Galery1 from "../../assets/galery/galeria1.png";
-import Galery2 from "../../assets/galery/galeria2.png";
-import Galery3 from "../../assets/galery/galeria3.png";
 import { SwiperSlide, Swiper } from "swiper/react";
 
-export function Galeria() {
+export function Galeria({ lang, data }) {
   return (
     <div className="pb-20 pt-10">
       <div className="max-w-6xl px-4 mx-auto font-['Helvetica']">
         <h2 className="text-4xl relative tracking-[16%] font-light pb-14">
-          GALERIA
+          {lang === "en" ? "Galery" : "Galeria"}
         </h2>
         <Swiper
           breakpoints={{
@@ -25,58 +22,18 @@ export function Galeria() {
             },
           }}
         >
-          <SwiperSlide>
-            <div className="space-y-3 font-semibold">
-              <img
-                src={Galery1}
-                alt={""}
-                className="w-full h-80 object-cover"
-              />
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry
-              </p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="space-y-3 font-semibold">
-              <img
-                src={Galery2}
-                alt={""}
-                className="w-full h-80 object-cover"
-              />
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry
-              </p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="space-y-3 font-semibold">
-              <img
-                src={Galery3}
-                alt={""}
-                className="w-full h-80 object-cover"
-              />
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry
-              </p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="space-y-3 font-semibold">
-              <img
-                src={Galery1}
-                alt={""}
-                className="w-full h-80 object-cover"
-              />
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry
-              </p>
-            </div>
-          </SwiperSlide>
+          {data.map((e) => (
+            <SwiperSlide>
+              <div className="space-y-3 font-semibold">
+                <img
+                  src={e.filePath}
+                  alt={lang === "en" ? e.descricao_en : e.descricao_pt}
+                  className="w-full h-80 object-cover"
+                />
+                <p>{lang === "en" ? e.descricao_en : e.descricao_pt}</p>
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>

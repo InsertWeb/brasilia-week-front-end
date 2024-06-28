@@ -1,8 +1,9 @@
 import Parceiro1 from "../../assets/parceiros1.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { Link } from "react-router-dom";
 
-export function ProjetoParceiros() {
+export function ProjetoParceiros({ lang, data }) {
   return (
     <div className="font-['Helvetica'] relative bg-[url('/bg-cicle.svg')]">
       <div className="bg-[#83BF45] absolute w-full h-full max-h-[60%] bottom-0"></div>
@@ -19,7 +20,7 @@ export function ProjetoParceiros() {
       </svg>
       <div className="max-w-6xl mx-auto py-44 px-4">
         <h2 className="text-4xl relative tracking-[16%] font-light pb-14">
-          PROJETOS PARCEIROS
+          {lang === "en" ? "PARTNER PROJECTS" : "PROJETOS PARCEIROS"}
         </h2>
 
         <Swiper
@@ -37,120 +38,29 @@ export function ProjetoParceiros() {
             },
           }}
         >
-          <SwiperSlide>
-            <div className="space-y-4 sm:max-w-64">
-              <img
-                src={Parceiro1}
-                alt=""
-                className="w-full h-72 object-cover"
-              />
-              <h3 className="text-2xl font-semibold">
-                Projeto 1 <br /> Texto exemplo
-              </h3>
-              <p className="text-white">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry
-              </p>
-              <button className="bg-white px-12 py-3 text-sm font-semibold">
-                VEJA MAIS
-              </button>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="space-y-4 sm:max-w-64">
-              <img
-                src={Parceiro1}
-                alt=""
-                className="w-full h-72 object-cover"
-              />
-              <h3 className="text-2xl font-semibold">
-                Projeto 1 <br /> Texto exemplo
-              </h3>
-              <p className="text-white">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry
-              </p>
-              <button className="bg-white px-12 py-3 text-sm font-semibold">
-                VEJA MAIS
-              </button>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="space-y-4 sm:max-w-64">
-              <img
-                src={Parceiro1}
-                alt=""
-                className="w-full h-72 object-cover"
-              />
-              <h3 className="text-2xl font-semibold">
-                Projeto 1 <br /> Texto exemplo
-              </h3>
-              <p className="text-white">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry
-              </p>
-              <button className="bg-white px-12 py-3 text-sm font-semibold">
-                VEJA MAIS
-              </button>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="space-y-4 sm:max-w-64">
-              <img
-                src={Parceiro1}
-                alt=""
-                className="w-full h-72 object-cover"
-              />
-              <h3 className="text-2xl font-semibold">
-                Projeto 1 <br /> Texto exemplo
-              </h3>
-              <p className="text-white">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry
-              </p>
-              <button className="bg-white px-12 py-3 text-sm font-semibold">
-                VEJA MAIS
-              </button>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="space-y-4 sm:max-w-64">
-              <img
-                src={Parceiro1}
-                alt=""
-                className="w-full h-72 object-cover"
-              />
-              <h3 className="text-2xl font-semibold">
-                Projeto 1 <br /> Texto exemplo
-              </h3>
-              <p className="text-white">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry
-              </p>
-              <button className="bg-white px-12 py-3 text-sm font-semibold">
-                VEJA MAIS
-              </button>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="space-y-4 sm:max-w-64">
-              <img
-                src={Parceiro1}
-                alt=""
-                className="w-full h-72 object-cover"
-              />
-              <h3 className="text-2xl font-semibold">
-                Projeto 1 <br /> Texto exemplo
-              </h3>
-              <p className="text-white">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry
-              </p>
-              <button className="bg-white px-12 py-3 text-sm font-semibold">
-                VEJA MAIS
-              </button>
-            </div>
-          </SwiperSlide>
+          {data.map((e) => (
+            <SwiperSlide>
+              <div className="flex flex-col gap-2 sm:max-w-64">
+                <img
+                  src={e.filePath}
+                  alt=""
+                  className="w-full h-72 object-cover"
+                />
+                <h3 className="text-2xl font-semibold">
+                  {lang === "en" ? e.title_en : e.title_pt}
+                </h3>
+                <p className="text-white">
+                  {lang === "en" ? e.descricao_en : e.descricao_pt}
+                </p>
+                <Link
+                  to={"/galeria"}
+                  className="bg-white hover:bg-zinc-100 duration-300 px-12 py-3 text-sm font-semibold text-center"
+                >
+                  {lang === "en" ? "SEE MORE" : "VEJA MAIS"}
+                </Link>
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>

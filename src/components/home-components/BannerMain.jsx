@@ -3,17 +3,11 @@ import { IconCircle, IconInstagram, MenuHamburguer } from "../../assets/Icons";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { PageConfig } from "../../Utils/services";
 
-export function BannerMain({ lang }) {
+export function BannerMain({ lang, data }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [infoBanner, setInfoBanner] = useState(null);
-  const [isLoading, setIsLoading] = useState(null);
 
   const navigate = useNavigate();
   const location = useLocation();
-
-  useEffect(() => {
-    getInfoBanner();
-  }, []);
 
   const toggleLanguage = () => {
     const params = new URLSearchParams(location.search);
@@ -24,21 +18,7 @@ export function BannerMain({ lang }) {
     }
   };
 
-  async function getInfoBanner() {
-    setIsLoading(true);
-    try {
-      const response = await PageConfig.getBanner();
-      if (response && response.status === 200) {
-        setInfoBanner(response.data);
-      }
-    } catch (error) {
-      return error;
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
-  const backgroundImageUrl = infoBanner?.banner?.image ?? "/bgBlack.png";
+  const backgroundImageUrl = data?.image ?? "/bgBlack.png";
 
   return (
     <div
@@ -172,9 +152,7 @@ export function BannerMain({ lang }) {
         <div className="flex flex-col justify-center items-center text-white gap-32 py-36 text-4xl sm:text-5xl font-thin">
           <h2>#bdw24</h2>
           <h1 className="tracking-[20px]">
-            {lang === "en"
-              ? infoBanner?.banner?.title_en
-              : infoBanner?.banner?.title_pt}
+            {lang === "en" ? data?.title_en : data?.title_pt}
           </h1>
         </div>
       </main>
