@@ -100,7 +100,7 @@ export const ModalAddNotices = ({
                 <span>Título (PT)</span>
                 <input
                   type="text"
-                  {...register("nome_jornal_pt")}
+                  {...register("title_pt")}
                   placeholder="Nome"
                   className="bg-zinc-50 px-3 py-1 rounded-md"
                 />
@@ -109,7 +109,7 @@ export const ModalAddNotices = ({
                 <span>Título (EN)</span>
                 <input
                   type="text"
-                  {...register("nome_jornal_pt")}
+                  {...register("title_en")}
                   placeholder="Title"
                   className="bg-zinc-50 px-3 py-1 rounded-md"
                 />
@@ -119,7 +119,7 @@ export const ModalAddNotices = ({
                 <span>Descrição (PT)</span>
                 <input
                   type="text"
-                  {...register("title_pt")}
+                  {...register("descricao_p")}
                   placeholder="Descrição"
                   className="bg-zinc-50 px-3 py-1 rounded-md"
                 />
@@ -128,7 +128,7 @@ export const ModalAddNotices = ({
                 <span>Descrição (EN)</span>
                 <input
                   type="text"
-                  {...register("title_en")}
+                  {...register("descricao_en")}
                   placeholder="Description"
                   className="bg-zinc-50 px-3 py-1 rounded-md"
                 />
@@ -138,7 +138,7 @@ export const ModalAddNotices = ({
                 <span>Nome do Jornal (PT)</span>
                 <input
                   type="text"
-                  {...register("descricao_pt")}
+                  {...register("nome_jornal_pt")}
                   placeholder="Nome do Jornal"
                   className="bg-zinc-50 px-3 py-1 rounded-md"
                 />
@@ -147,7 +147,7 @@ export const ModalAddNotices = ({
                 <span>Nome do Jornal (EN)</span>
                 <input
                   type="text"
-                  {...register("descricao_en")}
+                  {...register("nome_jornal_en")}
                   placeholder="Nome do Jornal"
                   className="bg-zinc-50 px-3 py-1 rounded-md"
                 />

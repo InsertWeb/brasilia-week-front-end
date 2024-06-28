@@ -8,7 +8,7 @@ import { SobreBDW } from "../../components/home-components/SobreBDW";
 import { Footer } from "../../components/utils/Footer";
 import { useGetInfos } from "../../Utils/useGetInfos";
 
-function useQuery() {
+export function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
@@ -16,7 +16,7 @@ export function Homepage() {
   const query = useQuery();
   const lang = query.get("lang");
   const context = useGetInfos();
-  console.log(context);
+
   return (
     <div>
       <BannerMain lang={lang} data={context?.dataHomepage?.banner} />

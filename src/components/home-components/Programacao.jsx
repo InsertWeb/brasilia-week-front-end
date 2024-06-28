@@ -1,11 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IconNext, IconPrev } from "../../assets/Icons";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 export function Programacao({ lang, data }) {
   const [eventClicked, setEventClicked] = useState(data && data[0]);
+  const [currentDateIndex, setCurrentDateIndex] = useState(0);
 
   const backgroundImageUrl = eventClicked?.filePath ?? "/bgBlack.png";
+
+  const uniqueDates = Array.from(new Set(data?.map((event) => event.date)));
+
+  const handlePrev = () => {
+    setCurrentDateIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : uniqueDates.length - 1
+    );
+  };
+  const handleNext = () => {
+    setCurrentDateIndex((prevIndex) =>
+      prevIndex < uniqueDates.length - 1 ? prevIndex + 1 : 0
+    );
+  };
+
+  const currentDate = uniqueDates[currentDateIndex];
+  const currentEvents = data?.filter((event) => event.date === currentDate);
+
+  useEffect(() => {
+    if (currentEvents) {
+      setEventClicked(currentEvents[0]);
+    }
+  }, [currentEvents]);
 
   return (
     <div className="font-['Helvetica']">
@@ -27,15 +51,21 @@ export function Programacao({ lang, data }) {
 
           <div className="flex gap-7 items-center w-full sm:w-fit justify-between">
             <div className="flex gap-7">
-              <button className="bg-[#BCBCBC] py-2 w-12 flex items-center justify-center text-white">
+              <button
+                className="bg-[#BCBCBC] py-2 w-12 flex items-center justify-center text-white"
+                onClick={handlePrev}
+              >
                 <IconPrev />
               </button>
-              <button className="bg-[#BCBCBC] py-2 w-12 flex items-center justify-center text-white">
+              <button
+                className="bg-[#BCBCBC] py-2 w-12 flex items-center justify-center text-white"
+                onClick={handleNext}
+              >
                 <IconNext />
               </button>
             </div>
             <span className="text-3xl sm:text-4xl border border-b-0 border-black py-5 px-8">
-              21/06
+              {moment(currentDate).format("DD/MM")}
             </span>
           </div>
         </div>
@@ -52,7 +82,7 @@ export function Programacao({ lang, data }) {
                 to={"/programacao"}
                 className="bg-white max-w-56 w-full py-2 m-6 text-center"
               >
-                INSCREVA-SE
+                {lang === "en" ? "SIGN UP" : "INSCREVA-SE"}
               </Link>
             </div>
             <p>
@@ -62,8 +92,9 @@ export function Programacao({ lang, data }) {
             </p>
           </div>
           <div className="text-[#0D0D0D]">
-            {data?.map((e) => (
+            {currentEvents?.map((e) => (
               <div
+                key={e.id}
                 className="flex gap-2 items-center"
                 onClick={() => setEventClicked(e)}
               >

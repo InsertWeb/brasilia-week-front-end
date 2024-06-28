@@ -22,8 +22,8 @@ export function Galeria({ lang, data }) {
             },
           }}
         >
-          {data.map((e) => (
-            <SwiperSlide>
+          {data?.map((e) => (
+            <SwiperSlide key={e.id}>
               <div className="space-y-3 font-semibold">
                 <img
                   src={e.filePath}

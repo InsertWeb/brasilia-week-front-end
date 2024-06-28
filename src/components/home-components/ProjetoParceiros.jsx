@@ -38,8 +38,8 @@ export function ProjetoParceiros({ lang, data }) {
             },
           }}
         >
-          {data.map((e) => (
-            <SwiperSlide>
+          {data?.map((e) => (
+            <SwiperSlide key={e.id}>
               <div className="flex flex-col gap-2 sm:max-w-64">
                 <img
                   src={e.filePath}

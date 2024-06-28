@@ -1,27 +1,23 @@
+import { useGetInfos } from "../../Utils/useGetInfos";
 import { Footer } from "../../components/utils/Footer";
 import { Header } from "../../components/utils/Header";
+import { useQuery } from "../Home/Homepage";
 
 export function SobrePage() {
+  const context = useGetInfos();
+  const sobre = context?.dataHomepage?.sobre;
+
+  const query = useQuery();
+  const lang = query.get("lang");
+
   return (
     <div className="relative">
       <Header />
-      <div className="font-['Helvetica'] max-w-6xl mx-auto px-4 py-16">
-        <h1 className="text-5xl pb-16">SOBRE</h1>
+      <div className="font-['Helvetica'] max-w-6xl mx-auto px-4 py-16 min-h-screen">
+        <h1 className="text-5xl pb-16">{lang === "en" ? "About" : "Sobre"}</h1>
         <div className="grid md:grid-cols-3">
           <p className="tracking-widest">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only
-            five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing.
+            {lang === "en" ? sobre?.descricao_en : sobre?.descricao_pt}
           </p>
         </div>
       </div>

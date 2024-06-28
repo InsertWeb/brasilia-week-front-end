@@ -39,13 +39,14 @@ function useProvideGetInfos() {
   async function getInfosHomePage() {
     setLoadingHomepage(true);
     try {
-      const [banner, sobre, programacao, galeria, parceiros] =
+      const [banner, sobre, programacao, galeria, parceiros, imprensa] =
         await Promise.all([
           PageConfig.getBanner(),
           PageConfig.getSobre(),
           PageConfig.getEventosProgramacaoPage(),
           PageConfig.getGaleria(),
           PageConfig.getParceiros(),
+          PageConfig.getImprensa(),
         ]);
       const dataHomepage = {
         banner: banner.data.banner,
@@ -53,6 +54,7 @@ function useProvideGetInfos() {
         programacao: programacao.data.data,
         galeria: galeria.data.data,
         parceiros: parceiros.data.data,
+        imprensa: imprensa.data.data,
       };
       setDataHomepage(dataHomepage);
     } catch (error) {
