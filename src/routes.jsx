@@ -12,6 +12,7 @@ import { QueroApoiar } from "./pages/QueroApoiar";
 import { AdminPage } from "./Admin/Admin";
 import { LoginPage } from "./Admin/LoginPage";
 import { HomePage } from "./Admin/components/HomePage";
+import { PrivateRoute } from "./components/utils/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -60,11 +61,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <AdminPage />,
+    element: (
+      <PrivateRoute>
+        <AdminPage />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/admin",
-        element: <HomePage />,
+        element: (
+          <PrivateRoute>
+            <HomePage />
+          </PrivateRoute>
+        ),
       },
     ],
   },

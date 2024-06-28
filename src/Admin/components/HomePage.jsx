@@ -5,6 +5,12 @@ import { AdminGaleria } from "./Galeria";
 import { AdminParceiros } from "./Parceiros";
 import { AdminPatrocinadores } from "./AdminPatrocinadores";
 import { useLocation } from "react-router";
+import { AdminImprensa } from "./Imprensa";
+import { AdminPodcast } from "./Podcast";
+import { AdminInspire } from "./AdminInspire";
+import { AdminEquipe } from "./Equipe";
+import { AdminLocais } from "./Locais";
+import { AdminUsuarios } from "./Usuarios";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -16,14 +22,17 @@ export function HomePage() {
 
   return (
     <div className="px-8 py-5 bg-zinc-50 min-h-screen h-full">
-      <h2 className="text-2xl font-medium pb-5">
-        Configurações - Página Inicial
-      </h2>
+      {!page && <AdminUsuarios />}
       {page === "banner" && <AdminBanner />}
-      {page === "sobre" && <AdminSobre />}
       {page === "programacao" && <AdminProgramacao />}
       {page === "galeria" && <AdminGaleria />}
+      {page === "sobre" && <AdminSobre />}
       {page === "parceiros" && <AdminParceiros />}
+      {page === "imprensa" && <AdminImprensa />}
+      {page === "podcast" && <AdminPodcast />}
+      {page === "inspire" && <AdminInspire />}
+      {page === "equipe" && <AdminEquipe />}
+      {page === "locais" && <AdminLocais />}
       {page === "patrocinadores" && <AdminPatrocinadores />}
     </div>
   );

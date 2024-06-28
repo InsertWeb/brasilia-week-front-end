@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { PageConfig } from "../../../Utils/services";
-import InputMask from "react-input-mask";
-import moment from "moment";
 
-export const ModalAddEvento = ({
-  event,
+export const ModalAddEquipe = ({
+  equipe,
   isOpen,
   setIsOpen,
   isEdit,
@@ -18,16 +16,14 @@ export const ModalAddEvento = ({
 
   useEffect(() => {
     if (isEdit) {
-      setValue("title_pt", event.title_pt ?? "");
-      setValue("title_en", event.title_en ?? "");
-      setValue("horario", event.horario ?? "");
-      setValue("date", moment(event.date).format("YYYY-MM-DD") ?? "");
-      setValue("descricao_pt", event.descricao_pt ?? "");
-      setValue("descricao_en", event.descricao_en ?? "");
-      setValue("img", event.filePath ?? "");
-      setImagePreview(event.filePath ?? null);
+      setValue("nome", equipe.nome ?? "");
+      setValue("reseSocial", equipe.reseSocial ?? "");
+      setValue("descricao_pt", equipe.descricao_pt ?? "");
+      setValue("descricao_en", equipe.descricao_en ?? "");
+      setValue("img", equipe.filePath ?? "");
+      setImagePreview(equipe.filePath ?? null);
     }
-  }, [event, isEdit]);
+  }, [equipe, isEdit]);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -59,12 +55,9 @@ export const ModalAddEvento = ({
 
         let response;
         if (isEdit) {
-          response = await PageConfig.editEventosProgramacaoPage(
-            formData,
-            event.id
-          );
+          response = await PageConfig.editEquipes(formData, equipe.id);
         } else {
-          response = await PageConfig.addEventosProgramacaoPage(formData);
+          response = await PageConfig.addEquipes(formData);
         }
 
         if (response.status === 200) {
@@ -85,57 +78,39 @@ export const ModalAddEvento = ({
     <div>
       <button
         type="button"
-        onClick={() => {
-          setIsOpen(true);
-        }}
+        onClick={() => setIsOpen(true)}
         className="bg-black px-5 py-1 text-white rounded-lg hover:bg-black/90 duration-300"
       >
-        Adicionar Evento
+        Adicionar Equipe
       </button>
 
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 ">
-          <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 p-6 relative">
-            <h2 className="text-xl font-bold mb-4">Evento</h2>
+          <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 p-6 relative max-h-[95%]">
+            <h2 className="text-xl font-bold mb-4">Adicionar Equipe</h2>
             <form
               className="grid grid-cols-2 gap-5"
               onSubmit={handleSubmit(onSubmit)}
             >
-              <label className="flex flex-col gap-1">
-                <span>Título (PT)</span>
+              <label className="flex flex-col gap-1 col-span-2">
+                <span>Nome</span>
                 <input
                   type="text"
-                  {...register("title_pt")}
-                  placeholder="Título"
+                  {...register("nome")}
+                  placeholder="Nome"
                   className="bg-zinc-50 px-3 py-1 rounded-md"
                 />
               </label>
-              <label className="flex flex-col gap-1">
-                <span>Título (EN)</span>
+              <label className="flex flex-col gap-1 col-span-2">
+                <span>Rede Social</span>
                 <input
                   type="text"
-                  {...register("title_en")}
-                  placeholder="Título"
+                  {...register("reseSocial")}
+                  placeholder="@seunome"
                   className="bg-zinc-50 px-3 py-1 rounded-md"
                 />
               </label>
-              <label className="flex flex-col gap-1">
-                <span>Horario</span>
-                <InputMask
-                  mask="99:99"
-                  {...register("horario")}
-                  placeholder="00:00"
-                  className="bg-zinc-50 px-3 py-1 rounded-md"
-                />
-              </label>
-              <label className="flex flex-col gap-1">
-                <span>Data</span>
-                <input
-                  type="date"
-                  {...register("date")}
-                  className="bg-zinc-50 px-3 py-1 rounded-md"
-                />
-              </label>
+
               <label className="flex flex-col gap-1">
                 <span>Descrição (PT)</span>
                 <textarea
@@ -150,14 +125,14 @@ export const ModalAddEvento = ({
                 <textarea
                   type="text"
                   {...register("descricao_en")}
-                  placeholder="Descrição"
+                  placeholder="Description"
                   className="bg-zinc-50 px-3 py-1 rounded-md resize-none h-24"
                 />
               </label>
 
               <label className="grid col-span-2 grid-cols-2 gap-1 text-sm">
                 <div className="flex flex-col gap-1">
-                  <span>Imagem da sessão</span>
+                  <span>Imagem do Parceiro</span>
                   <input
                     type="file"
                     {...register("img")}

@@ -1,7 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { PageConfig } from "../../Utils/services";
 
 export function AdminSobre() {
   const [imagePreview, setImagePreview] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
+  const [infoSobre, setInfoSobre] = useState(null);
+
+  const { register, handleSubmit, watch, setValue } = useForm();
+
+  useEffect(() => {
+    getInfoSobre();
+  }, []);
+
+  useEffect(() => {
+    if (infoSobre) {
+      setValue("title_pt", infoSobre.Query.title_pt ?? "");
+      setValue("title_en", infoSobre.Query.title_en ?? "");
+      setValue("descricao_pt", infoSobre.Query.descricao_pt ?? "");
+      setValue("descricao_en", infoSobre.Query.descricao_en ?? "");
+      setValue("text_button_pt", infoSobre.Query.text_button_pt ?? "");
+      setValue("text_button_en", infoSobre.Query.text_button_en ?? "");
+      setValue("img", infoSobre.Query.image ?? "");
+      setImagePreview(infoSobre.Query.image ?? null);
+    }
+  }, [infoSobre]);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -13,15 +36,63 @@ export function AdminSobre() {
       reader.readAsDataURL(file);
     }
   };
+
+  const onSubmit = async (payload) => {
+    setIsLoading(true);
+    const token = localStorage.getItem("token");
+    try {
+      if (token) {
+        const formData = new FormData();
+
+        for (const key in payload) {
+          if (key !== "image") {
+            formData.append(key, payload[key]);
+          }
+        }
+
+        if (payload.image && payload.image.length > 0) {
+          formData.append("image", payload.image[0]);
+        }
+
+        const response = await PageConfig.updateSobre(formData);
+      }
+    } catch (error) {
+      return error;
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  async function getInfoSobre() {
+    setIsLoading(true);
+    const token = localStorage.getItem("token");
+    if (token) {
+      try {
+        const response = await PageConfig.getSobre();
+        if (response && response.status === 200) {
+          setInfoSobre(response.data);
+        }
+      } catch (error) {
+        return error;
+      } finally {
+        setIsLoading(false);
+      }
+    }
+  }
+
   return (
-    <form className="bg-white rounded-lg p-5 space-y-5">
-      <h3 className="text-lg font-medium">Sobre a #BDW24</h3>
+    <form
+      className="bg-white rounded-lg p-5 space-y-5"
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      <h2 className="text-2xl font-medium">Configurações - Sobre a #BDW24</h2>
 
       <div className="grid grid-cols-2 gap-5">
         <label className="flex flex-col gap-1 text-sm">
           <span>Titulo (PT)</span>
           <input
             type="text"
+            {...register("title_pt")}
             className="bg-zinc-50 px-5 py-2"
             placeholder="Titulo"
           />
@@ -30,6 +101,7 @@ export function AdminSobre() {
           <span>Titulo (EN)</span>
           <input
             type="text"
+            {...register("title_en")}
             className="bg-zinc-50 px-5 py-2 rounded-lg"
             placeholder="Title"
           />
@@ -41,6 +113,7 @@ export function AdminSobre() {
           <span>Descrição (PT)</span>
           <textarea
             type="text"
+            {...register("descricao_pt")}
             className="bg-zinc-50 px-5 py-2 resize-none h-44"
             placeholder="Descrição"
           />
@@ -49,6 +122,7 @@ export function AdminSobre() {
           <span>Descrição (EN)</span>
           <textarea
             type="text"
+            {...register("descricao_en")}
             className="bg-zinc-50 px-5 py-2 resize-none h-44"
             placeholder="Description"
           />
@@ -60,6 +134,7 @@ export function AdminSobre() {
           <span>Texto Botão (PT)</span>
           <input
             type="text"
+            {...register("text_button_pt")}
             className="bg-zinc-50 px-5 py-2"
             placeholder="Description"
           />
@@ -68,6 +143,7 @@ export function AdminSobre() {
           <span>Texto Botão (EN)</span>
           <input
             type="text"
+            {...register("text_button_en")}
             className="bg-zinc-50 px-5 py-2"
             placeholder="Button text"
           />
@@ -77,7 +153,12 @@ export function AdminSobre() {
       <label className="grid grid-cols-2 gap-1 text-sm">
         <div className="flex flex-col gap-1">
           <span>Imagem da sessão</span>
-          <input type="file" accept="image/*" onChange={handleImageChange} />
+          <input
+            type="file"
+            {...register("img")}
+            accept="image/*"
+            onChange={handleImageChange}
+          />
         </div>
         <div>
           {imagePreview && (
@@ -95,8 +176,11 @@ export function AdminSobre() {
         </div>
       </label>
 
-      <button className="bg-black w-full text-white py-2 rounded-lg">
-        Salvar
+      <button
+        className="bg-black w-full text-white py-2 rounded-lg"
+        disabled={isLoading}
+      >
+        {isLoading ? "Salvando" : "Salvar"}
       </button>
     </form>
   );

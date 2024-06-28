@@ -1,23 +1,21 @@
 import Parceiro1 from "../../assets/parceiros1.png";
 
-export function CardPodcast() {
+export function CardPodcast({ data }) {
+  const lang = localStorage.getItem("lang");
   return (
     <div className="space-y-3">
       <img
-        src={Parceiro1}
+        src={data.filePath ?? Parceiro1}
         alt="Nome do Parceiro"
         className="w-full h-72 object-cover"
       />
       <div className="space-y-1">
-        <span className="text-[#83BF45] text-lg">Ep. #01</span>
+        <span className="text-[#83BF45] text-lg">{data.numero_ep}</span>
         <h3 className="text-2xl font-semibold">
-          Nasce um movimento em prol do design brasiliense
+          {lang === "en" ? data?.title_en : data?.title_pt}
         </h3>
       </div>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry
-      </p>
+      <p> {lang === "en" ? data?.description_en : data?.description_pt}</p>
     </div>
   );
 }

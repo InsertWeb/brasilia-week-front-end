@@ -1,27 +1,37 @@
 import { Link } from "react-router-dom";
-import FotoUser from "../../assets/parceiros1.png";
+import { useGetInfos } from "../../Utils/useGetInfos";
 
 export function NavMenu() {
+  const context = useGetInfos();
+
   return (
     <div className="max-w-56 w-full h-screen">
       <div className="bg-[url('/bgMain.png')] bg-cover bg-center w-full">
-        <div className="flex flex-col items-center py-3 bg-black/40">
-          <img src={FotoUser} alt="" className="w-20 rounded-full" />
-          <button className="text-white pt-2 font-medium text-sm">
-            Nome Usuario
-          </button>
+        <div className="flex flex-col items-center py-5 bg-black/90">
+          <span className="text-white font-medium text-center">
+            {context?.name}
+          </span>
+          <span className="text-white text-sm">{context?.email}</span>
         </div>
       </div>
       <nav className="bg-zinc-50 h-full uppercase p-4">
         <ul>
-          <li>
-            <Link
-              to={"/admin?page=banner"}
-              className="w-full px-5 py-2 text-start uppercase duration-300 hover:bg-[#83BF45] hover:text-white"
+          <Link to={"/admin"}>
+            <li
+              className="w-full px-5 py-2 text-start uppercase duration-300
+              hover:bg-[#83BF45] hover:text-white"
+            >
+              Usuários
+            </li>
+          </Link>
+          <Link to={"/admin?page=banner"}>
+            <li
+              className="w-full px-5 py-2 text-start uppercase duration-300
+              hover:bg-[#83BF45] hover:text-white"
             >
               Banner Principal
-            </Link>
-          </li>
+            </li>
+          </Link>
           <Link to={"/admin?page=programacao"}>
             <li className="hover:bg-[#83BF45] hover:text-white py-2 px-5 duration-300">
               Programação

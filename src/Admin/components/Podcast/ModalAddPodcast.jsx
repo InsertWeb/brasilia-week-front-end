@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { PageConfig } from "../../../Utils/services";
-import InputMask from "react-input-mask";
-import moment from "moment";
 
-export const ModalAddEvento = ({
-  event,
+export const ModalAddPodcast = ({
+  podcast,
   isOpen,
   setIsOpen,
   isEdit,
@@ -18,16 +16,16 @@ export const ModalAddEvento = ({
 
   useEffect(() => {
     if (isEdit) {
-      setValue("title_pt", event.title_pt ?? "");
-      setValue("title_en", event.title_en ?? "");
-      setValue("horario", event.horario ?? "");
-      setValue("date", moment(event.date).format("YYYY-MM-DD") ?? "");
-      setValue("descricao_pt", event.descricao_pt ?? "");
-      setValue("descricao_en", event.descricao_en ?? "");
-      setValue("img", event.filePath ?? "");
-      setImagePreview(event.filePath ?? null);
+      setValue("title_pt", podcast.title_pt ?? "");
+      setValue("title_en", podcast.title_en ?? "");
+      setValue("numero_ep", podcast.numero_ep ?? "");
+      setValue("descricao_pt", podcast.descricao_pt ?? "");
+      setValue("descricao_en", podcast.descricao_en ?? "");
+      setValue("link_noticia", podcast.link_noticia ?? "");
+      setValue("img", podcast.filePath ?? "");
+      setImagePreview(podcast.filePath ?? null);
     }
-  }, [event, isEdit]);
+  }, [podcast, isEdit]);
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -59,12 +57,9 @@ export const ModalAddEvento = ({
 
         let response;
         if (isEdit) {
-          response = await PageConfig.editEventosProgramacaoPage(
-            formData,
-            event.id
-          );
+          response = await PageConfig.editPodCast(formData, podcast.id);
         } else {
-          response = await PageConfig.addEventosProgramacaoPage(formData);
+          response = await PageConfig.addPodCast(formData);
         }
 
         if (response.status === 200) {
@@ -85,18 +80,16 @@ export const ModalAddEvento = ({
     <div>
       <button
         type="button"
-        onClick={() => {
-          setIsOpen(true);
-        }}
+        onClick={() => setIsOpen(true)}
         className="bg-black px-5 py-1 text-white rounded-lg hover:bg-black/90 duration-300"
       >
-        Adicionar Evento
+        Adicionar Podcast
       </button>
 
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 ">
-          <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 p-6 relative">
-            <h2 className="text-xl font-bold mb-4">Evento</h2>
+          <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 p-6 relative max-h-[95%] overflow-auto">
+            <h2 className="text-xl font-bold mb-4">Adicionar Podcast</h2>
             <form
               className="grid grid-cols-2 gap-5"
               onSubmit={handleSubmit(onSubmit)}
@@ -106,7 +99,7 @@ export const ModalAddEvento = ({
                 <input
                   type="text"
                   {...register("title_pt")}
-                  placeholder="Título"
+                  placeholder="Nome"
                   className="bg-zinc-50 px-3 py-1 rounded-md"
                 />
               </label>
@@ -115,27 +108,20 @@ export const ModalAddEvento = ({
                 <input
                   type="text"
                   {...register("title_en")}
-                  placeholder="Título"
+                  placeholder="Title"
                   className="bg-zinc-50 px-3 py-1 rounded-md"
                 />
               </label>
-              <label className="flex flex-col gap-1">
-                <span>Horario</span>
-                <InputMask
-                  mask="99:99"
-                  {...register("horario")}
-                  placeholder="00:00"
-                  className="bg-zinc-50 px-3 py-1 rounded-md"
-                />
-              </label>
-              <label className="flex flex-col gap-1">
-                <span>Data</span>
+              <label className="flex flex-col gap-1 col-span-2">
+                <span>Número do EP</span>
                 <input
-                  type="date"
-                  {...register("date")}
+                  type="text"
+                  {...register("numero_ep")}
+                  placeholder="Ep. #01"
                   className="bg-zinc-50 px-3 py-1 rounded-md"
                 />
               </label>
+
               <label className="flex flex-col gap-1">
                 <span>Descrição (PT)</span>
                 <textarea
@@ -150,14 +136,24 @@ export const ModalAddEvento = ({
                 <textarea
                   type="text"
                   {...register("descricao_en")}
-                  placeholder="Descrição"
+                  placeholder="Description"
                   className="bg-zinc-50 px-3 py-1 rounded-md resize-none h-24"
+                />
+              </label>
+
+              <label className="flex flex-col gap-1 col-span-2">
+                <span>Link do Podcast</span>
+                <input
+                  type="text"
+                  {...register("link_noticia")}
+                  placeholder="http://"
+                  className="bg-zinc-50 px-3 py-1 rounded-md"
                 />
               </label>
 
               <label className="grid col-span-2 grid-cols-2 gap-1 text-sm">
                 <div className="flex flex-col gap-1">
-                  <span>Imagem da sessão</span>
+                  <span>Imagem do Podcast</span>
                   <input
                     type="file"
                     {...register("img")}

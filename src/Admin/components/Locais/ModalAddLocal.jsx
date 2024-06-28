@@ -2,60 +2,37 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { PageConfig } from "../../../Utils/services";
 
-export const ModalAddFoto = ({
-  galeriaImage,
+export const ModalAddLocal = ({
+  local,
   isOpen,
   setIsOpen,
   isEdit,
   setIsEdit,
   reload,
 }) => {
-  const [imagePreview, setImagePreview] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { register, handleSubmit, setValue, reset } = useForm();
 
   useEffect(() => {
     if (isEdit) {
-      setValue("descricao_pt", galeriaImage.descricao_pt ?? "");
-      setValue("descricao_en", galeriaImage.descricao_en ?? "");
-      setValue("img", galeriaImage.filePath ?? "");
-      setImagePreview(galeriaImage.filePath ?? null);
+      setValue("title_pt", local.title_pt ?? "");
+      setValue("title_en", local.title_en ?? "");
+      setValue("endereco_pt", local.descricao_pt ?? "");
+      setValue("endereco_en", local.descricao_en ?? "");
+      setValue("website", local.website ?? "");
     }
-  }, [galeriaImage, isEdit]);
-
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+  }, [local, isEdit]);
 
   const onSubmit = async (payload) => {
     setIsLoading(true);
     const token = localStorage.getItem("token");
     try {
       if (token) {
-        const formData = new FormData();
-
-        for (const key in payload) {
-          if (key !== "img") {
-            formData.append(key, payload[key]);
-          }
-        }
-
-        if (payload.img && payload.img.length > 0) {
-          formData.append("img", payload.img[0]);
-        }
-
         let response;
         if (isEdit) {
-          response = await PageConfig.editGaleria(formData, galeriaImage.id);
+          response = await PageConfig.editLocais(payload, local.id);
         } else {
-          response = await PageConfig.addGaleria(formData);
+          response = await PageConfig.addLocais(payload);
         }
 
         if (response.status === 200) {
@@ -79,60 +56,62 @@ export const ModalAddFoto = ({
         onClick={() => setIsOpen(true)}
         className="bg-black px-5 py-1 text-white rounded-lg hover:bg-black/90 duration-300"
       >
-        Adicionar Foto
+        Adicionar Local
       </button>
 
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 ">
           <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 p-6 relative">
-            <h2 className="text-xl font-bold mb-4">Adicionar Foto</h2>
+            <h2 className="text-xl font-bold mb-4">Adicionar Local</h2>
             <form
               className="grid grid-cols-2 gap-5"
               onSubmit={handleSubmit(onSubmit)}
             >
               <label className="flex flex-col gap-1">
-                <span>Descrição (PT)</span>
+                <span>Título (PT)</span>
                 <textarea
                   type="text"
-                  {...register("descricao_pt")}
-                  placeholder="Descrição"
+                  {...register("title_pt")}
+                  placeholder="Título"
                   className="bg-zinc-50 px-3 py-1 rounded-md resize-none h-24"
                 />
               </label>
               <label className="flex flex-col gap-1">
-                <span>Descrição (EN)</span>
+                <span>Título (EN)</span>
                 <textarea
                   type="text"
-                  {...register("descricao_en")}
-                  placeholder="Description"
+                  {...register("title_en")}
+                  placeholder="Title"
+                  className="bg-zinc-50 px-3 py-1 rounded-md resize-none h-24"
+                />
+              </label>
+              <label className="flex flex-col gap-1">
+                <span>Endereço (PT)</span>
+                <textarea
+                  type="text"
+                  {...register("endereco_pt")}
+                  placeholder="Endereço"
+                  className="bg-zinc-50 px-3 py-1 rounded-md resize-none h-24"
+                />
+              </label>
+              <label className="flex flex-col gap-1">
+                <span>Endereço (EN)</span>
+                <textarea
+                  type="text"
+                  {...register("endereco_en")}
+                  placeholder="Endereço"
                   className="bg-zinc-50 px-3 py-1 rounded-md resize-none h-24"
                 />
               </label>
 
-              <label className="grid col-span-2 grid-cols-2 gap-1 text-sm">
-                <div className="flex flex-col gap-1">
-                  <span>Imagem da sessão</span>
-                  <input
-                    type="file"
-                    {...register("img")}
-                    accept="image/*"
-                    onChange={handleImageChange}
-                  />
-                </div>
-                <div>
-                  {imagePreview && (
-                    <div>
-                      <p className="text-gray-700 mb-2">
-                        Pré-visualização da Imagem:
-                      </p>
-                      <img
-                        src={imagePreview}
-                        alt="Image Preview"
-                        className="w-full h-auto rounded-lg object-cover"
-                      />
-                    </div>
-                  )}
-                </div>
+              <label className="flex flex-col gap-1 col-span-2">
+                <span>Website</span>
+                <textarea
+                  type="text"
+                  {...register("website")}
+                  placeholder="Website"
+                  className="bg-zinc-50 px-3 py-1 rounded-md resize-none h-24"
+                />
               </label>
 
               <button
@@ -147,7 +126,6 @@ export const ModalAddFoto = ({
               onClick={() => {
                 reset();
                 setIsEdit(false);
-                setImagePreview(null);
                 setIsOpen(false);
               }}
               className="text-red-500 absolute top-3 right-3"
