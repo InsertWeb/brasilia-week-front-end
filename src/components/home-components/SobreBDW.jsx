@@ -1,6 +1,8 @@
 import { IconCalendary, IconLocalization } from "../../assets/Icons";
 
 export function SobreBDW({ lang, data }) {
+  const backgroundImageUrl = data?.image ?? "/bgBlack.png";
+
   return (
     <div className="font-['Helvetica']">
       <div className="max-w-6xl px-4 mx-auto flex flex-wrap gap-5 py-16 items-center justify-between sm:gap-2">
@@ -20,7 +22,13 @@ export function SobreBDW({ lang, data }) {
           </span>
         </div>
       </div>
-      <div className="md:bg-[url('/museuSobre.png')] bg-no-repeat bg-right">
+      <div
+        style={{
+          backgroundImage: `url(${backgroundImageUrl})`,
+          backgroundSize: "40% 100%",
+        }}
+        className="bg-no-repeat bg-right"
+      >
         <div className="grid md:grid-cols-2 max-w-6xl px-4 mx-auto pb-16">
           <div className="space-y-16">
             <h2 className="text-4xl relative tracking-[16%] font-light">

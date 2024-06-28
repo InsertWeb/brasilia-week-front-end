@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IconInstagram, MenuHamburguer } from "../../assets/Icons";
 import { useState } from "react";
+import { TogleLanguage } from "./TogleLanguage";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -112,7 +113,7 @@ export function Header() {
             </li>
           </ul>
           <div className="flex flex-col items-end gap-5 sm:gap-10 text-white">
-            <button>PT | ENG</button>
+            <TogleLanguage />
             <a href="#" target="_blank">
               <IconInstagram />
             </a>

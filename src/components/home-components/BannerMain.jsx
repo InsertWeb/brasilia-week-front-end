@@ -1,22 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IconCircle, IconInstagram, MenuHamburguer } from "../../assets/Icons";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { PageConfig } from "../../Utils/services";
+import { Link } from "react-router-dom";
+import { TogleLanguage } from "../utils/TogleLanguage";
 
 export function BannerMain({ lang, data }) {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const toggleLanguage = () => {
-    const params = new URLSearchParams(location.search);
-    if (params.has("lang")) {
-      navigate("/");
-    } else {
-      navigate("?lang=en");
-    }
-  };
 
   const backgroundImageUrl = data?.image ?? "/bgBlack.png";
 
@@ -133,7 +121,7 @@ export function BannerMain({ lang, data }) {
             </li>
           </ul>
           <div className="flex flex-col items-end gap-5 sm:gap-10 text-white">
-            <Link to={toggleLanguage}>PT | ENG</Link>
+            <TogleLanguage />
             <a href="#" target="_blank">
               <IconInstagram />
             </a>
@@ -143,7 +131,7 @@ export function BannerMain({ lang, data }) {
 
       <main className="max-w-6xl px-4 mx-auto py-5">
         <div className="flex flex-col items-end gap-5 sm:gap-10 text-white">
-          <button onClick={toggleLanguage}>PT | ENG</button>
+          <TogleLanguage />
           <a href="#" target="_blank">
             <IconInstagram />
           </a>

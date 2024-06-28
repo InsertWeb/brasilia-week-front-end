@@ -7,7 +7,7 @@ import { ProjetoParceiros } from "../../components/home-components/ProjetoParcei
 import { SobreBDW } from "../../components/home-components/SobreBDW";
 import { Footer } from "../../components/utils/Footer";
 import { useGetInfos } from "../../Utils/useGetInfos";
-
+import Loading from "../../assets/loading.svg";
 export function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
@@ -19,13 +19,25 @@ export function Homepage() {
 
   return (
     <div>
-      <BannerMain lang={lang} data={context?.dataHomepage?.banner} />
-      <SobreBDW lang={lang} data={context?.dataHomepage?.sobre} />
-      <Programacao lang={lang} data={context?.dataHomepage?.programacao} />
-      <Galeria lang={lang} data={context?.dataHomepage?.galeria} />
-      <ProjetoParceiros lang={lang} data={context?.dataHomepage?.parceiros} />
-      <Patrocinadores />
-      <Footer />
+      {context.loadingHomepage ? (
+        <div className="bg-black h-screen text-white flex flex-col items-center justify-center">
+          <img src={Loading} alt="Carregando.." />
+          Carregando
+        </div>
+      ) : (
+        <>
+          <BannerMain lang={lang} data={context?.dataHomepage?.banner} />
+          <SobreBDW lang={lang} data={context?.dataHomepage?.sobre} />
+          <Programacao lang={lang} data={context?.dataHomepage?.programacao} />
+          <Galeria lang={lang} data={context?.dataHomepage?.galeria} />
+          <ProjetoParceiros
+            lang={lang}
+            data={context?.dataHomepage?.parceiros}
+          />
+          <Patrocinadores />
+          <Footer />
+        </>
+      )}
     </div>
   );
 }
