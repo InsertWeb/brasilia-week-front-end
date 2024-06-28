@@ -242,4 +242,86 @@ export const PageConfig = {
       return error.response;
     }
   },
+
+  getPodCast: async (page = 1, perPage = 999, search = "") => {
+    try {
+      const res = await api.get(
+        `/podcasts?page=${page}&perPage=${perPage}&s=${search}`
+      );
+      return res;
+    } catch (error) {
+      return error.response;
+    }
+  },
+  addPodCast: async (payload) => {
+    try {
+      const res = await api.post(`/podcasts`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de PodCast!");
+      return error.response;
+    }
+  },
+  editPodCast: async (payload, id) => {
+    try {
+      const res = await api.put(`/podcasts/${id}`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de PodCast!");
+      return error.response;
+    }
+  },
+  deletePodCast: async (id) => {
+    try {
+      const res = await api.delete(`/podcasts/${id}`);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de PodCast!");
+      return error.response;
+    }
+  },
+
+  getEquipes: async (page = 1, perPage = 999, search = "") => {
+    try {
+      const res = await api.get(
+        `/equipes?page=${page}&perPage=${perPage}&s=${search}`
+      );
+      return res;
+    } catch (error) {
+      return error.response;
+    }
+  },
+  addEquipes: async (payload) => {
+    try {
+      const res = await api.post(`/equipes`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Equipes!");
+      return error.response;
+    }
+  },
+  editEquipes: async (payload, id) => {
+    try {
+      const res = await api.put(`/equipes/${id}`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Equipes!");
+      return error.response;
+    }
+  },
+  deleteEquipes: async (id) => {
+    try {
+      const res = await api.delete(`/equipes/${id}`);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error("Erro na rota de Equipes!");
+      return error.response;
+    }
+  },
 };
