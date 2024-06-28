@@ -17,8 +17,8 @@ export const ModalAddLocal = ({
     if (isEdit) {
       setValue("title_pt", local.title_pt ?? "");
       setValue("title_en", local.title_en ?? "");
-      setValue("endereco_pt", local.endereco_pt ?? "");
-      setValue("endereco_en", local.endereco_en ?? "");
+      setValue("endereco_pt", local.descricao_pt ?? "");
+      setValue("endereco_en", local.descricao_en ?? "");
       setValue("website", local.website ?? "");
     }
   }, [local, isEdit]);

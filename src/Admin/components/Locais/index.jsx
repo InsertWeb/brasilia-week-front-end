@@ -111,7 +111,7 @@ export function AdminLocais() {
                     <div className="text-[#83BF45] flex gap-2 items-center">
                       <IconLocalization />
                       <span className="text-black">
-                        {lang === "en" ? e.endereco_en : e.endereco_pt}
+                        {lang === "en" ? e?.descricao_en : e?.descricao_pt}
                       </span>
                     </div>
                     <div className="flex gap-2 items-center">

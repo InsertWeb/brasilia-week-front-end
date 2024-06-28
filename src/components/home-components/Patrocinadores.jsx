@@ -1,4 +1,4 @@
-export function Patrocinadores() {
+export function Patrocinadores({ lang, data }) {
   return (
     <div className="py-24 relative overflow-hidden">
       <svg
@@ -29,23 +29,21 @@ export function Patrocinadores() {
 
       <div className="max-w-6xl px-4 mx-auto font-['Helvetica']">
         <h2 className="text-4xl relative tracking-[16%] font-light pb-14">
-          PATROCINADORES
+          {lang === "en" ? "SPONSORS" : " PATROCINADORES"}
         </h2>
         <div className="grid sm:grid-cols-3 lg:grid-cols-5 gap-6">
-          <div className="bg-[#F8F8F8] h-20" />
-          <div className="bg-[#F8F8F8] h-20" />
-          <div className="bg-[#F8F8F8] h-20" />
-          <div className="bg-[#F8F8F8] h-20" />
-          <div className="bg-[#F8F8F8] h-20" />
-          <div className="bg-[#F8F8F8] h-20" />
-          <div className="bg-[#F8F8F8] h-20" />
-          <div className="bg-[#F8F8F8] h-20" />
-          <div className="bg-[#F8F8F8] h-20" />
-          <div className="bg-[#F8F8F8] h-20" />
+          {data.map((e) => (
+            <img
+              src={e.filePath}
+              alt={e.nome}
+              key={e.id}
+              className="w-full h-24 object-cover"
+            />
+          ))}
         </div>
 
         <button className="max-w-sm w-full py-4 bg-black text-white mt-36">
-          QUERO APOIAR
+          {lang === "en" ? "I WANT TO SUPPORT" : " QUERO APOIAR"}
         </button>
       </div>
     </div>

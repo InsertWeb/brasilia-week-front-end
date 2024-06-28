@@ -145,7 +145,7 @@ export function AdminPatrocinadores() {
 
       <div className="mt-8 grid gap-5 grid-cols-6">
         {patrocinadores?.data.map((e) => (
-          <div className="text-center">
+          <div className="text-center" key={e.id}>
             <img
               src={e.filePath}
               alt=""

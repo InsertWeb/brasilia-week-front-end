@@ -11,7 +11,6 @@ import Loading from "../../assets/loading.svg";
 export function Homepage() {
   const lang = localStorage.getItem("lang");
   const context = useGetInfos();
-
   return (
     <div>
       {context.loadingHomepage ? (
@@ -29,7 +28,10 @@ export function Homepage() {
             lang={lang}
             data={context?.dataHomepage?.parceiros}
           />
-          <Patrocinadores />
+          <Patrocinadores
+            lang={lang}
+            data={context?.dataHomepage?.patrocinadores}
+          />
           <Footer />
         </>
       )}

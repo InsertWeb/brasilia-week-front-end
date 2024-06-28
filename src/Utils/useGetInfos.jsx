@@ -39,15 +39,31 @@ function useProvideGetInfos() {
   async function getInfosHomePage() {
     setLoadingHomepage(true);
     try {
-      const [banner, sobre, programacao, galeria, parceiros, imprensa] =
-        await Promise.all([
-          PageConfig.getBanner(),
-          PageConfig.getSobre(),
-          PageConfig.getEventosProgramacaoPage(),
-          PageConfig.getGaleria(),
-          PageConfig.getParceiros(),
-          PageConfig.getImprensa(),
-        ]);
+      const [
+        banner,
+        sobre,
+        programacao,
+        galeria,
+        parceiros,
+        imprensa,
+        podcast,
+        inspireSe,
+        equipes,
+        locais,
+        patrocinadores,
+      ] = await Promise.all([
+        PageConfig.getBanner(),
+        PageConfig.getSobre(),
+        PageConfig.getEventosProgramacaoPage(),
+        PageConfig.getGaleria(),
+        PageConfig.getParceiros(),
+        PageConfig.getImprensa(),
+        PageConfig.getPodCast(),
+        PageConfig.getInspire(),
+        PageConfig.getEquipes(),
+        PageConfig.getLocais(),
+        PageConfig.getPatrocinadores(),
+      ]);
       const dataHomepage = {
         banner: banner.data.banner,
         sobre: sobre.data.Query,
@@ -55,6 +71,11 @@ function useProvideGetInfos() {
         galeria: galeria.data.data,
         parceiros: parceiros.data.data,
         imprensa: imprensa.data.data,
+        inspireSe: inspireSe.data.data,
+        equipes: equipes.data.data,
+        locais: locais.data.data,
+        patrocinadores: patrocinadores.data.data,
+        podcast: podcast.data.data,
       };
       setDataHomepage(dataHomepage);
     } catch (error) {
