@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Patrocinadores({ lang, data }) {
   return (
     <div className="py-24 relative overflow-hidden">
@@ -27,7 +29,7 @@ export function Patrocinadores({ lang, data }) {
         />
       </svg>
 
-      <div className="max-w-6xl px-4 mx-auto font-['Helvetica']">
+      <div className="max-w-6xl px-4 mx-auto font-['Helvetica'] flex flex-col">
         <h2 className="text-4xl relative tracking-[16%] font-light pb-14">
           {lang === "en" ? "SPONSORS" : " PATROCINADORES"}
         </h2>
@@ -42,9 +44,12 @@ export function Patrocinadores({ lang, data }) {
           ))}
         </div>
 
-        <button className="max-w-sm w-full py-4 bg-black text-white mt-36">
+        <Link
+          to={"/apoiar"}
+          className="max-w-sm w-full py-4 bg-black text-white mt-36 text-center"
+        >
           {lang === "en" ? "I WANT TO SUPPORT" : " QUERO APOIAR"}
-        </button>
+        </Link>
       </div>
     </div>
   );

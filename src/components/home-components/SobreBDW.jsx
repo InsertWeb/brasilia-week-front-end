@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { IconCalendary, IconLocalization } from "../../assets/Icons";
 
 export function SobreBDW({ lang, data }) {
@@ -6,13 +7,17 @@ export function SobreBDW({ lang, data }) {
   return (
     <div className="font-['Helvetica']">
       <div className="max-w-6xl px-4 mx-auto flex flex-wrap gap-5 py-16 items-center justify-between sm:gap-2">
-        <button className="bg-black text-white py-6 max-w-sm w-full">
+        <a
+          href="https://linktr.ee/bsbdesignweek?fbclid=PAZXh0bgNhZW0CMTEAAaaqGnGhN0uvaI41Y4W9d7kSvUy_evzBWIqzm4f6rOFM6j7waLmSClF6vZY_aem_APydz2B6uZUjDmnRZhoQew"
+          target="_blank"
+          className="bg-black text-white py-6 max-w-sm w-full text-center"
+        >
           {lang === "en" ? "I WANT TO PARTICIPATE" : " QUERO PARTICIPAR"}
-        </button>
+        </a>
         <div className="flex gap-4 items-center font-medium">
           <IconCalendary />
           <span>
-            {lang === "en" ? "July 3 to 11, 2024" : "3 a 11 de julho de 2024"}
+            {lang === "en" ? "July 4 to 11, 2024" : "4 a 11 de julho de 2024"}
           </span>
         </div>
         <div className="flex gap-4 items-center">
@@ -30,17 +35,20 @@ export function SobreBDW({ lang, data }) {
         className="bg-no-repeat bg-right"
       >
         <div className="grid md:grid-cols-2 max-w-6xl px-4 mx-auto pb-16">
-          <div className="space-y-16">
+          <div className="space-y-16 flex flex-col">
             <h2 className="text-4xl relative tracking-[16%] font-light">
               {lang === "en" ? data?.title_en : data?.title_pt}
             </h2>
             <p className="font-['Sora'] tracking-widest leading-loose">
-              {lang === "en" ? data?.descricao_en : data?.descricao_pt}
+              {lang === "en" ? data?.chamada_en : data?.chamada_pt}
             </p>
 
-            <button className="border-2 border-black py-3 w-full">
+            <Link
+              to={"/sobre"}
+              className="border-2 border-black py-3 text-center"
+            >
               {lang === "en" ? data?.text_button_en : data?.text_button_pt}
-            </button>
+            </Link>
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ export function Footer() {
           <div className="flex gap-4 items-center font-medium text-white">
             <IconCalendary />
             <span>
-              {lang === "en" ? "July 3 to 11, 2024" : "3 a 11 de julho de 2024"}
+              {lang === "en" ? "July 4 to 11, 2024" : "4 a 11 de julho de 2024"}
             </span>
           </div>
           <div className="flex gap-4 items-center">
@@ -26,7 +26,7 @@ export function Footer() {
         </div>
         <div className="flex items-center gap-10 text-white">
           <TogleLanguage />
-          <a href="#" target="_blank">
+          <a href="https://www.instagram.com/bsbdesignweek/" target="_blank">
             <IconInstagram />
           </a>
         </div>

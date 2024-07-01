@@ -8,15 +8,20 @@ export function SobrePage() {
 
   const lang = localStorage.getItem("lang");
 
+  const description = lang === "en" ? sobre?.descricao_en : sobre?.descricao_pt;
+
   return (
     <div className="relative">
       <Header />
       <div className="font-['Helvetica'] max-w-6xl mx-auto px-4 py-16 min-h-screen">
-        <h1 className="text-5xl pb-16">{lang === "en" ? "About" : "Sobre"}</h1>
+        <h1 className="text-5xl pb-16">
+          {lang === "en" ? sobre?.title_en : sobre?.title_pt}
+        </h1>
         <div className="grid md:grid-cols-3">
-          <p className="tracking-widest">
-            {lang === "en" ? sobre?.descricao_en : sobre?.descricao_pt}
-          </p>
+          <p
+            className="tracking-widest"
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
         </div>
       </div>
 
