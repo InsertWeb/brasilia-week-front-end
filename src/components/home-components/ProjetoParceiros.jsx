@@ -49,11 +49,11 @@ export function ProjetoParceiros({ lang, data }) {
                 <h3 className="text-2xl font-semibold">
                   {lang === "en" ? e.title_en : e.title_pt}
                 </h3>
-                <p className="text-white">
+                <p className="text-white h-12">
                   {lang === "en" ? e.descricao_en : e.descricao_pt}
                 </p>
                 <Link
-                  to={"/galeria"}
+                  to={"/parceiros"}
                   className="bg-white hover:bg-zinc-100 duration-300 px-12 py-3 text-sm font-semibold text-center"
                 >
                   {lang === "en" ? "SEE MORE" : "VEJA MAIS"}

@@ -48,11 +48,7 @@ export function MainProgramacao() {
               backgroundImage: `url(${backgroundImageUrl})`,
             }}
             className="bg-cover h-[440px] flex items-end justify-end"
-          >
-            <button className="bg-white max-w-56 w-full py-2 m-6">
-              {lang === "en" ? "SIGN UP" : "INSCREVA-SE"}
-            </button>
-          </div>
+          />
         </div>
         <div className="text-[#0D0D0D]">
           {currentEvents?.map((e) => (
@@ -74,7 +70,7 @@ export function MainProgramacao() {
       </div>
 
       <div className="grid md:grid-cols-2">
-        <div className="space-y-10">
+        <div className="space-y-10 flex flex-col">
           <h2 className="text-4xl">
             <span className="text-[#83BF45]">{eventClicked.horario}</span>{" "}
             {lang === "en" ? eventClicked.title_en : eventClicked.title_pt}
@@ -84,9 +80,13 @@ export function MainProgramacao() {
               ? eventClicked.descricao_en
               : eventClicked.descricao_pt}
           </p>
-          <button className="w-full border border-black py-3">
+          <a
+            href="https://linktr.ee/bsbdesignweek?fbclid=PAZXh0bgNhZW0CMTEAAaaqGnGhN0uvaI41Y4W9d7kSvUy_evzBWIqzm4f6rOFM6j7waLmSClF6vZY_aem_APydz2B6uZUjDmnRZhoQew"
+            target="_blank"
+            className="w-full border border-black py-3 text-center"
+          >
             {lang === "en" ? "SIGN UP" : "INSCREVA-SE"}
-          </button>
+          </a>
         </div>
       </div>
     </div>

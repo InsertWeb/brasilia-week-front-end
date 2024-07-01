@@ -30,16 +30,16 @@ export function Patrocinadores({ lang, data }) {
       </svg>
 
       <div className="max-w-6xl px-4 mx-auto font-['Helvetica'] flex flex-col">
-        <h2 className="text-4xl relative tracking-[16%] font-light pb-14">
+        <h2 className="text-4xl relative tracking-[16%] font-light pb-4">
           {lang === "en" ? "SPONSORS" : " PATROCINADORES"}
         </h2>
-        <div className="grid sm:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div>
           {data.map((e) => (
             <img
               src={e.filePath}
               alt={e.nome}
               key={e.id}
-              className="w-full h-24 object-cover"
+              className="w-full object-cover"
             />
           ))}
         </div>
