@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { SwiperSlide, Swiper } from "swiper/react";
 
 export function Galeria({ lang, data }) {
@@ -24,14 +25,14 @@ export function Galeria({ lang, data }) {
         >
           {data?.map((e) => (
             <SwiperSlide key={e.id}>
-              <div className="space-y-3 font-semibold">
+              <Link to={"/galeria"} className="space-y-3 font-semibold">
                 <img
                   src={e.filePath}
                   alt={lang === "en" ? e.descricao_en : e.descricao_pt}
                   className="w-full h-80 object-cover"
                 />
                 <p>{lang === "en" ? e.descricao_en : e.descricao_pt}</p>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

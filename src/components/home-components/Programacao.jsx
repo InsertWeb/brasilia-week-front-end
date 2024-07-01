@@ -13,7 +13,9 @@ export function Programacao({ lang, data }) {
 
   const backgroundImageUrl = eventClicked?.filePath ?? "/bgBlack.png";
 
-  const uniqueDates = Array.from(new Set(data?.map((event) => event.date)));
+  const uniqueDates = Array.from(
+    new Set(data?.map((event) => event.date))
+  ).sort((a, b) => new Date(a) - new Date(b));
 
   const handlePrev = () => {
     setCurrentDateIndex((prevIndex) =>
@@ -27,7 +29,9 @@ export function Programacao({ lang, data }) {
   };
 
   const currentDate = uniqueDates[currentDateIndex];
-  const currentEvents = data?.filter((event) => event.date === currentDate);
+  const currentEvents = data
+    ?.filter((event) => event.date === currentDate)
+    .sort((a, b) => new Date(a.date) - new Date(b.date));
 
   useEffect(() => {
     if (currentEvents) {
