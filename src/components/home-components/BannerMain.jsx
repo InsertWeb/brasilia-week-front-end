@@ -132,7 +132,7 @@ export function BannerMain({ lang, data }) {
       <main className="max-w-6xl px-4 mx-auto py-5">
         <div className="flex flex-col items-end gap-5 sm:gap-10 text-white">
           <TogleLanguage />
-          <a href="#" target="_blank">
+          <a href="https://www.instagram.com/bsbdesignweek/" target="_blank">
             <IconInstagram />
           </a>
         </div>

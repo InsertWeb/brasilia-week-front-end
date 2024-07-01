@@ -121,12 +121,14 @@ export function Programacao({ lang, data }) {
               ? "SEE THE COMPLETE PROGRAM"
               : "VEJA A PROGRAMAÇÃO COMPLETA"}
           </Link>
-          <button
-            className="py-6 max-w-sm w-full bg-[#83BF45] text-white"
+          <a
+            href="https://linktr.ee/bsbdesignweek?fbclid=PAZXh0bgNhZW0CMTEAAaaqGnGhN0uvaI41Y4W9d7kSvUy_evzBWIqzm4f6rOFM6j7waLmSClF6vZY_aem_APydz2B6uZUjDmnRZhoQew"
+            target="_blank"
+            className="py-6 max-w-sm w-full bg-[#83BF45] text-white text-center"
             type="button"
           >
             {lang === "en" ? "I WANT TO PARTICIPATE" : "QUERO PARTICIPAR"}
-          </button>
+          </a>
         </div>
       </div>
     </div>
