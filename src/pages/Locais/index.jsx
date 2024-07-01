@@ -6,7 +6,7 @@ import { Header } from "../../components/utils/Header";
 export function LocaisPage() {
   const context = useGetInfos();
   const locais = context?.dataHomepage?.locais;
-  console.log(locais);
+
   const lang = localStorage.getItem("lang");
   return (
     <div className="font-['Helvetica']">
@@ -30,12 +30,14 @@ export function LocaisPage() {
                   {lang === "en" ? e?.descricao_en : e?.descricao_pt}
                 </span>
               </div>
-              <div className="flex gap-2 items-center">
-                <IconSite />
-                <a target="_blank" href={e.website}>
-                  {e.website}
-                </a>
-              </div>
+              {e.website && (
+                <div className="flex gap-2 items-center">
+                  <IconSite />
+                  <a target="_blank" href={e.website}>
+                    {e.website}
+                  </a>
+                </div>
+              )}
             </div>
           ))}
         </div>

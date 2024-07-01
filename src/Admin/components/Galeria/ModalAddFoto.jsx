@@ -84,7 +84,7 @@ export const ModalAddFoto = ({
 
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 ">
-          <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 p-6 relative">
+          <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 p-6 relative max-h-[95%] overflow-auto">
             <h2 className="text-xl font-bold mb-4">Adicionar Foto</h2>
             <form
               className="grid grid-cols-2 gap-5"

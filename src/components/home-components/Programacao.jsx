@@ -2,10 +2,14 @@ import { useEffect, useState } from "react";
 import { IconNext, IconPrev } from "../../assets/Icons";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import { useGetInfos } from "../../Utils/useGetInfos";
 
 export function Programacao({ lang, data }) {
   const [eventClicked, setEventClicked] = useState(data && data[0]);
   const [currentDateIndex, setCurrentDateIndex] = useState(0);
+
+  const context = useGetInfos();
+  const loading = context?.loadingHomepage;
 
   const backgroundImageUrl = eventClicked?.filePath ?? "/bgBlack.png";
 
@@ -29,7 +33,7 @@ export function Programacao({ lang, data }) {
     if (currentEvents) {
       setEventClicked(currentEvents[0]);
     }
-  }, [currentEvents]);
+  }, [loading]);
 
   return (
     <div className="font-['Helvetica']">

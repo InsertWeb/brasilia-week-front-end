@@ -1,7 +1,7 @@
-import Parceiro1 from "../../assets/parceiros1.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Link } from "react-router-dom";
+import "./truncatStyle.css";
 
 export function ProjetoParceiros({ lang, data }) {
   return (
@@ -46,10 +46,10 @@ export function ProjetoParceiros({ lang, data }) {
                   alt=""
                   className="w-full h-72 object-cover"
                 />
-                <h3 className="text-2xl font-semibold">
+                <h3 className="text-2xl font-semibold truncated-text">
                   {lang === "en" ? e.title_en : e.title_pt}
                 </h3>
-                <p className="text-white h-12">
+                <p className="text-white truncated-text">
                   {lang === "en" ? e.descricao_en : e.descricao_pt}
                 </p>
                 <Link
