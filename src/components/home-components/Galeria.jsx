@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
+import { Navigation, Pagination } from "swiper/modules";
 import { SwiperSlide, Swiper } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export function Galeria({ lang, data }) {
   return (
@@ -22,10 +26,12 @@ export function Galeria({ lang, data }) {
               slidesPerView: 4,
             },
           }}
+          pagination={{ clickable: true }}
+          modules={[Navigation, Pagination]}
         >
           {data?.map((e) => (
-            <SwiperSlide key={e.id}>
-              <Link to={"/galeria"} className="space-y-3 font-semibold">
+            <SwiperSlide key={e.id} className=" pb-16">
+              <Link to={"/galeria"} className="space-y-3 font-semibold ">
                 <img
                   src={e.filePath}
                   alt={lang === "en" ? e.descricao_en : e.descricao_pt}
