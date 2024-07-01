@@ -34,10 +34,10 @@ export function Galeria({ lang, data }) {
               <Link to={"/galeria"} className="space-y-3 font-semibold ">
                 <img
                   src={e.filePath}
-                  alt={lang === "en" ? e.descricao_en : e.descricao_pt}
+                  alt={lang === "en" ? e.title_en : e.title_pt}
                   className="w-full h-80 object-cover"
                 />
-                <p>{lang === "en" ? e.descricao_en : e.descricao_pt}</p>
+                <p>{lang === "en" ? e.title_en : e.title_pt}</p>
               </Link>
             </SwiperSlide>
           ))}

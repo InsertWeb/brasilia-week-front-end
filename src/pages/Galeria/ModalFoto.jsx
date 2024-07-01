@@ -4,7 +4,7 @@ export function ModalFoto({ onClose, data }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
-      <div className="relative bg-white rounded-lg shadow-lg outline-none focus:outline-none z-10 max-w-5xl w-full">
+      <div className="relative bg-white rounded-lg shadow-lg outline-none focus:outline-none z-10 max-w-5xl max-h-[80%] w-full">
         <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t">
           <h3 className="text-xl font-semibold">
             {lang === "en" ? data?.title_en : data?.title_pt}
@@ -20,7 +20,11 @@ export function ModalFoto({ onClose, data }) {
         </div>
         <div className="relative p-6">
           {data.link_youtube && (
-            <a href={data.link_youtube} target="_blank">
+            <a
+              href={data.link_youtube}
+              target="_blank"
+              className="underline text-blue-900"
+            >
               {data.link_youtube}
             </a>
           )}
@@ -31,7 +35,7 @@ export function ModalFoto({ onClose, data }) {
             <img
               src={data.filePath}
               alt={data.title_pt}
-              className="object-cover"
+              className="object-cover w-full h-96"
             />
           </div>
         </div>
