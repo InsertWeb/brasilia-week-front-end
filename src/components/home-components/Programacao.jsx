@@ -99,12 +99,20 @@ export function Programacao({ lang, data }) {
                 className="flex gap-2 items-center"
                 onClick={() => setEventClicked(e)}
               >
-                <IconPrev width={35} className={"hidden sm:block"} />
-                <div className="border-b border-black py-6 w-full hover:bg-[#F6F6F6]">
+                <div className="w-10">
+                  {e.id === eventClicked.id && (
+                    <IconPrev width={35} className={"hidden sm:block"} />
+                  )}
+                </div>
+                <div
+                  className={`border-b border-black py-6 w-full hover:bg-[#F6F6F6] ${
+                    e.id === eventClicked.id && "bg-[#F6F6F6]"
+                  }`}
+                >
                   <span className="px-5 border-r border-black">
                     {e.horario}
                   </span>
-                  <span className="pl-5">
+                  <span className="pl-5 text-sm">
                     {lang === "en" ? e.title_en : e.title_pt}
                   </span>
                 </div>
