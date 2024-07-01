@@ -22,12 +22,12 @@ export function SobreBDW({ lang, data }) {
             {lang === "en" ? "July 4 to 11, 2024" : "4 a 11 de julho de 2024"}
           </span>
         </div>
-        <div className="flex gap-4 items-center">
+        <Link to={"/locais"} className="flex gap-4 items-center">
           <IconLocalization />
           <span>
-            {lang === "en" ? "Museum of the Republic" : "Museu da República"}
+            {lang === "en" ? "Exhibition locations" : "Locais de exposição"}
           </span>
-        </div>
+        </Link>
       </div>
       <div
         style={{
