@@ -2,6 +2,7 @@ import { ModalAddFoto } from "./ModalAddFoto";
 import ImageGalery from "../../../assets/galery/galeria1.png";
 import { useEffect, useState } from "react";
 import { PageConfig } from "../../../Utils/services";
+import { confirmAlert } from "react-confirm-alert";
 
 export function AdminGaleria() {
   const [isLoading, setIsLoading] = useState(null);

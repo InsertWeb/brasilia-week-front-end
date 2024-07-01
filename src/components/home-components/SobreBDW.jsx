@@ -10,9 +10,11 @@ export function SobreBDW({ lang, data }) {
         <a
           href="https://linktr.ee/bsbdesignweek?fbclid=PAZXh0bgNhZW0CMTEAAaaqGnGhN0uvaI41Y4W9d7kSvUy_evzBWIqzm4f6rOFM6j7waLmSClF6vZY_aem_APydz2B6uZUjDmnRZhoQew"
           target="_blank"
-          className="bg-black text-white py-6 max-w-sm w-full text-center"
+          className="bg-black text-white py-6 max-w-sm w-full text-center uppercase"
         >
-          {lang === "en" ? "I WANT TO PARTICIPATE" : " QUERO PARTICIPAR"}
+          {lang === "en"
+            ? "I want to participate in BDW"
+            : " Quero participar da BDW"}
         </a>
         <div className="flex gap-4 items-center font-medium">
           <IconCalendary />

@@ -77,14 +77,7 @@ export function Programacao({ lang, data }) {
                 backgroundImage: `url(${backgroundImageUrl})`,
               }}
               className="bg-cover h-[440px] flex items-end justify-end"
-            >
-              <Link
-                to={"/programacao"}
-                className="bg-white max-w-56 w-full py-2 m-6 text-center"
-              >
-                {lang === "en" ? "SIGN UP" : "INSCREVA-SE"}
-              </Link>
-            </div>
+            />
             <p>
               {lang === "en"
                 ? eventClicked?.descricao_en
@@ -124,10 +117,12 @@ export function Programacao({ lang, data }) {
           <a
             href="https://linktr.ee/bsbdesignweek?fbclid=PAZXh0bgNhZW0CMTEAAaaqGnGhN0uvaI41Y4W9d7kSvUy_evzBWIqzm4f6rOFM6j7waLmSClF6vZY_aem_APydz2B6uZUjDmnRZhoQew"
             target="_blank"
-            className="py-6 max-w-sm w-full bg-[#83BF45] text-white text-center"
+            className="py-6 max-w-sm w-full bg-[#83BF45] text-white text-center uppercase"
             type="button"
           >
-            {lang === "en" ? "I WANT TO PARTICIPATE" : "QUERO PARTICIPAR"}
+            {lang === "en"
+              ? "I want to participate in BDW"
+              : "Quero participar da BDW"}
           </a>
         </div>
       </div>
