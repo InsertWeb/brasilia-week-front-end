@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 export function MainProgramacao() {
   const context = useGetInfos();
   const eventos = context?.dataHomepage?.programacao;
+  const loading = context?.loadingHomepage;
 
   const lang = localStorage.getItem("lang");
 
@@ -22,7 +23,7 @@ export function MainProgramacao() {
     if (currentEvents) {
       setEventClicked(currentEvents[0]);
     }
-  }, [currentEvents]);
+  }, [loading]);
 
   return (
     <div className="font-['Helvetica'] max-w-6xl mx-auto px-4 py-16">

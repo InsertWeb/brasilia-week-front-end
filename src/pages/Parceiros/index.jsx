@@ -16,7 +16,7 @@ export function ParceirosPage() {
         <h2 className="text-5xl pb-16">
           {lang === "en" ? "Partners" : "Parceiros"}
         </h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+        <div className="grid sm:grid-cols-2  gap-10">
           {parceiros?.map((e) => (
             <div key={e.id}>
               <CardParceiro data={e} lang={lang} />
