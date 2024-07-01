@@ -15,9 +15,14 @@ export function MainProgramacao() {
 
   const backgroundImageUrl = eventClicked?.filePath ?? "/bgBlack.png";
 
-  const uniqueDates = Array.from(new Set(eventos?.map((event) => event.date)));
+  const uniqueDates = Array.from(
+    new Set(eventos?.map((event) => event.date))
+  ).sort((a, b) => new Date(a) - new Date(b));
+
   const currentDate = uniqueDates[currentDateIndex];
-  const currentEvents = eventos?.filter((event) => event.date === currentDate);
+  const currentEvents = eventos
+    ?.filter((event) => event.date === currentDate)
+    .sort((a, b) => new Date(a.date) - new Date(b.date));
 
   useEffect(() => {
     if (currentEvents) {
@@ -34,7 +39,9 @@ export function MainProgramacao() {
         {uniqueDates.map((e, i) => (
           <button
             key={e.id}
-            className="text-3xl py-3 px-1 border border-black hover:bg-[#F5F5F5] duration-300"
+            className={`text-3xl py-3 px-1 border border-black hover:bg-[#F5F5F5] duration-300 ${
+              currentDateIndex === i && "bg-black text-white hover:bg-black"
+            }`}
             onClick={() => setCurrentDateIndex(i)}
           >
             {moment(e).format("DD/MM")}
