@@ -13,6 +13,7 @@ import { AdminPage } from "./Admin/Admin";
 import { LoginPage } from "./Admin/LoginPage";
 import { HomePage } from "./Admin/components/HomePage";
 import { PrivateRoute } from "./components/utils/PrivateRoute";
+import { ItemGalery } from "./pages/Galeria/ItemGalery";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "/galeria",
     element: <GaleriaPage />,
+  },
+  {
+    path: "/galeria/:id",
+    element: <ItemGalery />,
   },
   {
     path: "/sobre",

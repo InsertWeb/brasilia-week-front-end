@@ -111,6 +111,14 @@ export const PageConfig = {
       return error.response;
     }
   },
+  getItemGaleria: async (id) => {
+    try {
+      const res = await api.get(`/galeria/${id}`);
+      return res;
+    } catch (error) {
+      return error.response;
+    }
+  },
   addGaleria: async (payload) => {
     try {
       const res = await api.post(`/galeria`, payload);

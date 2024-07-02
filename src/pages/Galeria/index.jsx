@@ -2,21 +2,13 @@ import { useEffect, useState } from "react";
 import { Footer } from "../../components/utils/Footer";
 import { Header } from "../../components/utils/Header";
 import { useGetInfos } from "../../Utils/useGetInfos";
-import { ModalFoto } from "./ModalFoto";
+import { Link } from "react-router-dom";
 
 export function GaleriaPage() {
   const context = useGetInfos();
   const eventos = context?.dataHomepage?.galeria;
 
   const lang = localStorage.getItem("lang");
-  const [isOpen, setIsOpen] = useState(false);
-  const [imagem, setImagem] = useState(false);
-
-  const openModal = (e) => {
-    setImagem(e);
-    setIsOpen(true);
-  };
-  const closeModal = () => setIsOpen(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,10 +23,10 @@ export function GaleriaPage() {
         </h1>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-14">
           {eventos?.map((e) => (
-            <div
+            <Link
+              to={`/galeria/${e.id}`}
               className="space-y-3 font-semibold"
               key={e.id}
-              onClick={() => openModal(e)}
             >
               <img
                 src={e.filePath}
@@ -42,11 +34,10 @@ export function GaleriaPage() {
                 className="w-full h-80 object-cover"
               />
               <p>{lang === "en" ? e.title_en : e.title_pt}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
-      {isOpen && <ModalFoto onClose={closeModal} data={imagem} />}
       <Footer />
     </div>
   );
