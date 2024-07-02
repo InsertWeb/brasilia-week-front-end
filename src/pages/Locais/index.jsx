@@ -32,8 +32,11 @@ export function LocaisPage() {
               </div>
               {e.website && (
                 <div className="flex gap-2 items-center">
-                  <IconSite />
-                  <a target="_blank" href={e.website}>
+                  {/* <IconSite /> */}
+                  <a
+                    target="_blank"
+                    href={`https://instagram.com/${e.website}`}
+                  >
                     {e.website}
                   </a>
                 </div>
