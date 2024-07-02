@@ -99,7 +99,7 @@ export function AdminPatrocinadores() {
     <div className="bg-white rounded-lg p-5 space-y-5">
       <h2 className="text-2xl font-medium">Configurações - PATROCINADORES</h2>
       <form className="space-y-5" onSubmit={handleSubmit(onSubmit)}>
-        <div className="text-sm grid grid-cols-2">
+        <div className="text-sm sm:grid grid-cols-2">
           <label className="flex flex-col space-y-3 gap-1 h-fit">
             <span>Logo do Patrocinador</span>
             <input
@@ -143,7 +143,7 @@ export function AdminPatrocinadores() {
         </button>
       </form>
 
-      <div className="mt-8 grid gap-5 grid-cols-6">
+      <div className="mt-8 grid gap-5 sm:grid-cols-6">
         {patrocinadores?.data.map((e) => (
           <div className="text-center" key={e.id}>
             <img

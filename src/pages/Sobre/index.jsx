@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useGetInfos } from "../../Utils/useGetInfos";
 import { Footer } from "../../components/utils/Footer";
 import { Header } from "../../components/utils/Header";
@@ -9,6 +10,10 @@ export function SobrePage() {
   const lang = localStorage.getItem("lang");
 
   const description = lang === "en" ? sobre?.descricao_en : sobre?.descricao_pt;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="relative">

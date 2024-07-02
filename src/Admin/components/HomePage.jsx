@@ -21,7 +21,7 @@ export function HomePage() {
   const page = query.get("page");
 
   return (
-    <div className="px-8 py-5 bg-zinc-50 min-h-screen h-full">
+    <div className="sm:px-8 px-4 py-5 bg-zinc-50 min-h-screen h-full">
       {!page && <AdminUsuarios />}
       {page === "banner" && <AdminBanner />}
       {page === "programacao" && <AdminProgramacao />}

@@ -4,7 +4,7 @@ export function ModalFoto({ onClose, data }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
-      <div className="relative bg-white rounded-lg shadow-lg outline-none focus:outline-none z-10 max-w-5xl max-h-[80%] w-full">
+      <div className="relative bg-white rounded-lg shadow-lg outline-none focus:outline-none z-10 max-w-5xl max-h-[80%] overflow-auto w-full">
         <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t">
           <h3 className="text-xl font-semibold">
             {lang === "en" ? data?.title_en : data?.title_pt}
@@ -28,7 +28,7 @@ export function ModalFoto({ onClose, data }) {
               {data.link_youtube}
             </a>
           )}
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid sm:grid-cols-2 gap-5">
             <div>
               <p dangerouslySetInnerHTML={{ __html: description }} />
             </div>

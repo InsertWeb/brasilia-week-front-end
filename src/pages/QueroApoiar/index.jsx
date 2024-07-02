@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useGetInfos } from "../../Utils/useGetInfos";
 import { Footer } from "../../components/utils/Footer";
 import { Header } from "../../components/utils/Header";
@@ -7,7 +8,9 @@ export function QueroApoiar() {
   const inspireSe = context?.dataHomepage?.inspireSe;
 
   const lang = localStorage.getItem("lang");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="font-['Sora']">
       <Header />

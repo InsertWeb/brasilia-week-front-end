@@ -66,7 +66,7 @@ export function AdminEquipe() {
   return (
     <div className="bg-white rounded-lg p-5 space-y-5">
       <div>
-        <div className="flex justify-between">
+        <div className="flex flex-col sm:flex-row gap-3 justify-between">
           <h2 className="text-2xl font-medium">Configurações - Equipe</h2>
 
           <ModalAddEquipe
@@ -79,7 +79,7 @@ export function AdminEquipe() {
           />
         </div>
         {isLoading ? (
-          <div className="grid grid-cols-3 gap-5 py-4">
+          <div className="grid sm:grid-cols-3 gap-5 py-4">
             <div className="space-y-4 animate-pulse">
               <div className="relative">
                 <div className="w-full h-72 bg-gray-300 rounded-xl"></div>
@@ -94,7 +94,7 @@ export function AdminEquipe() {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-3 gap-5 py-4">
+          <div className="grid sm:grid-cols-3 gap-5 py-4">
             {equipes?.data.map((e) => (
               <div key={e.id}>
                 <CardEquipe data={e} />

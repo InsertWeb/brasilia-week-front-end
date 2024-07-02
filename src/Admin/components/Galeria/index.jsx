@@ -66,7 +66,7 @@ export function AdminGaleria() {
   return (
     <div className="bg-white rounded-lg p-5 space-y-5">
       <div>
-        <div className="flex justify-between">
+        <div className="flex flex-col gap-5 sm:flex-row justify-between">
           <h2 className="text-2xl font-medium">Configurações - GALERIA</h2>
           <ModalAddFoto
             galeriaImage={galeriaImage}
@@ -91,7 +91,10 @@ export function AdminGaleria() {
           ) : (
             <>
               {galeriaImages?.data.map((e) => (
-                <div className="grid grid-cols-4 gap-5 items-center" key={e.id}>
+                <div
+                  className="grid sm:grid-cols-4 text-center sm:text-start gap-5 items-center"
+                  key={e.id}
+                >
                   <img
                     src={e.filePath ?? ImageGalery}
                     alt=""

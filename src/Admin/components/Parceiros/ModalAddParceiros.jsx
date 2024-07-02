@@ -92,10 +92,10 @@ export const ModalAddParceiros = ({
           <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 p-6 relative max-h-[90%] overflow-auto">
             <h2 className="text-xl font-bold mb-4">Adicionar Parceiro</h2>
             <form
-              className="grid grid-cols-2 gap-5"
+              className="grid sm:grid-cols-2 gap-5"
               onSubmit={handleSubmit(onSubmit)}
             >
-              <label className="flex flex-col gap-1 col-span-2">
+              <label className="flex flex-col gap-1 sm:col-span-2">
                 <span>Nome</span>
                 <input
                   type="text"
@@ -104,7 +104,7 @@ export const ModalAddParceiros = ({
                   className="bg-zinc-50 px-3 py-1 rounded-md"
                 />
               </label>
-              <label className="flex flex-col gap-1 col-span-2">
+              <label className="flex flex-col gap-1 sm:col-span-2">
                 <span>Rede Social</span>
                 <input
                   type="text"
@@ -152,12 +152,13 @@ export const ModalAddParceiros = ({
                 />
               </label>
 
-              <label className="grid col-span-2 grid-cols-2 gap-1 text-sm">
+              <label className="grid sm:col-span-2 sm:grid-cols-2 gap-1 text-sm">
                 <div className="flex flex-col gap-1">
                   <span>Imagem do Parceiro</span>
                   <input
                     type="file"
                     accept="image/*"
+                    className="w-full sm:w-fit"
                     {...register("img")}
                     onChange={handleImageChange}
                   />
@@ -179,7 +180,7 @@ export const ModalAddParceiros = ({
               </label>
 
               <button
-                className="bg-black col-span-2 text-white py-1 rounded-md"
+                className="bg-black sm:col-span-2 text-white py-1 rounded-md"
                 disabled={isLoading}
               >
                 {isLoading ? "Salvando" : "Salvar"}

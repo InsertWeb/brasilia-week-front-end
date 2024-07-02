@@ -98,7 +98,7 @@ export function Header() {
             </li>
             <li>
               <Link to="/apoiar" className="hover:text-[#83BF45] duration-300">
-                Inspire-se
+                QUERO APOIAR
               </Link>
             </li>
             <li>

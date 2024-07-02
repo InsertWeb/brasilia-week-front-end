@@ -66,7 +66,7 @@ export function AdminPodcast() {
   return (
     <div className="bg-white rounded-lg p-5 space-y-5">
       <div>
-        <div className="flex justify-between">
+        <div className="flex flex-col gap-3 sm:flex-row justify-between">
           <h2 className="text-2xl font-medium">Configurações - Podcast</h2>
           <ModalAddPodcast
             podcast={podcast}
@@ -78,7 +78,7 @@ export function AdminPodcast() {
           />
         </div>
         {isLoading ? (
-          <div className="grid grid-cols-3 gap-5 py-4">
+          <div className="grid sm:grid-cols-3 gap-5 py-4">
             <div className="space-y-4 animate-pulse">
               <div className="relative">
                 <div className="w-full h-72 bg-gray-300 rounded-xl"></div>
@@ -93,7 +93,7 @@ export function AdminPodcast() {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-3 gap-5 py-4">
+          <div className="grid sm:grid-cols-3 gap-5 py-4">
             {podcasts?.data.map((e) => (
               <div key={e.id}>
                 <CardPodcast data={e} />

@@ -77,11 +77,11 @@ export function AdminBanner() {
 
   return (
     <form
-      className="bg-white rounded-lg p-5 space-y-5"
+      className="bg-white rounded-lg p-2 sm:p-5 space-y-5"
       onSubmit={handleSubmit(onSubmit)}
     >
       <h2 className="text-2xl font-medium">Configurações - Banner</h2>
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid sm:grid-cols-2 gap-5">
         <label className="flex flex-col gap-1 text-sm">
           <span>Titulo Principal (PT)</span>
           <input
@@ -102,7 +102,7 @@ export function AdminBanner() {
         </label>
       </div>
 
-      <label className="grid grid-cols-2 gap-1 text-sm">
+      <label className="grid sm:grid-cols-2 gap-1 text-sm">
         <div className="flex flex-col gap-1">
           <span>Imagem do Banner</span>
           <input

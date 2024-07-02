@@ -61,10 +61,10 @@ export const ModalAddLocal = ({
 
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 ">
-          <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 p-6 relative">
+          <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 p-6 relative max-h-[85%] overflow-auto">
             <h2 className="text-xl font-bold mb-4">Adicionar Local</h2>
             <form
-              className="grid grid-cols-2 gap-5"
+              className="grid sm:grid-cols-2 gap-5"
               onSubmit={handleSubmit(onSubmit)}
             >
               <label className="flex flex-col gap-1">
@@ -104,7 +104,7 @@ export const ModalAddLocal = ({
                 />
               </label>
 
-              <label className="flex flex-col gap-1 col-span-2">
+              <label className="flex flex-col gap-1 sm:col-span-2">
                 <span>Website</span>
                 <textarea
                   type="text"
@@ -115,7 +115,7 @@ export const ModalAddLocal = ({
               </label>
 
               <button
-                className="bg-black col-span-2 text-white py-1 rounded-md"
+                className="bg-black sm:col-span-2 text-white py-1 rounded-md"
                 disabled={isLoading}
               >
                 {isLoading ? "Salvando" : "Salvar"}

@@ -14,10 +14,10 @@ export function AdminInspire() {
 
   useEffect(() => {
     if (infoInspireSe) {
-      setValue("title_pt", infoInspireSe.data.title_pt ?? "");
-      setValue("title_en", infoInspireSe.data.title_en ?? "");
-      setValue("descricao_pt", infoInspireSe.data.descricao_pt ?? "");
-      setValue("descricao_en", infoInspireSe.data.descricao_en ?? "");
+      setValue("title_pt", infoInspireSe?.data?.title_pt ?? "");
+      setValue("title_en", infoInspireSe?.data?.title_en ?? "");
+      setValue("descricao_pt", infoInspireSe?.data?.descricao_pt ?? "");
+      setValue("descricao_en", infoInspireSe?.data?.descricao_en ?? "");
     }
   }, [infoInspireSe]);
 
@@ -54,12 +54,12 @@ export function AdminInspire() {
 
   return (
     <form
-      className="bg-white rounded-lg p-5 space-y-5"
+      className="bg-white rounded-lg sm:p-5 space-y-5"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h2 className="text-2xl font-medium">Configurações - Inspire-se</h2>
+      <h2 className="text-2xl font-medium">Configurações - QUERO APOIAR</h2>
 
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid sm:grid-cols-2 gap-5">
         <label className="flex flex-col gap-1 text-sm">
           <span>Titulo (PT)</span>
           <input
@@ -80,7 +80,7 @@ export function AdminInspire() {
         </label>
       </div>
 
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid sm:grid-cols-2 gap-5">
         <label className="flex flex-col gap-1 text-sm">
           <span>Descrição (PT)</span>
           <textarea

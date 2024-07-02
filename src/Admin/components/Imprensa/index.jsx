@@ -66,7 +66,7 @@ export function AdminImprensa() {
   return (
     <div className="bg-white rounded-lg p-5 space-y-5">
       <div>
-        <div className="flex justify-between">
+        <div className="flex flex-col sm:flex-row gap-3 justify-between">
           <h2 className="text-2xl font-medium">Configurações - IMPRENSA</h2>
           <ModalAddNotices
             notice={notice}

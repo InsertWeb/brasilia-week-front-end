@@ -64,11 +64,11 @@ export function AdminProgramacao() {
   }
 
   return (
-    <div className="bg-white rounded-lg p-5 space-y-5">
+    <div className="bg-white rounded-lg p-2 sm:p-5 space-y-5">
       <h2 className="text-2xl font-medium">Configurações - PROGRAMAÇÃO</h2>
 
       <div>
-        <div className="flex justify-between">
+        <div className="flex flex-col sm:flex-row gap-2 justify-between">
           <h4 className="text-lg">Lista de Eventos</h4>
           <ModalAddEvento
             event={event}
@@ -80,7 +80,7 @@ export function AdminProgramacao() {
           />
         </div>
         {isLoading ? (
-          <div className="grid grid-cols-5 gap-5 items-center animate-pulse">
+          <div className="grid sm:grid-cols-5 gap-5 items-center animate-pulse py-4">
             <div className="w-full h-24 bg-gray-300 rounded"></div>
             <div className="flex flex-col">
               <div className="w-32 h-4 bg-gray-300 rounded"></div>
@@ -99,9 +99,12 @@ export function AdminProgramacao() {
             </div>
           </div>
         ) : (
-          <div className="space-y-5">
+          <div className="space-y-5 py-4">
             {eventos?.data.map((e) => (
-              <div className="grid grid-cols-5 gap-5 items-center" key={e.id}>
+              <div
+                className="grid sm:grid-cols-5 text-center sm:text-start gap-5 items-center"
+                key={e.id}
+              >
                 <img
                   src={e.filePath ?? "/bgBlack.png"}
                   alt={e.title_pt}
