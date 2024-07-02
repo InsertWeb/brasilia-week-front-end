@@ -34,7 +34,7 @@ export function SobreBDW({ lang, data }) {
           backgroundImage: `url(${backgroundImageUrl})`,
           backgroundSize: "40% 100%",
         }}
-        className="bg-no-repeat bg-right"
+        className={`bg-no-repeat bg-right`}
       >
         <div className="grid md:grid-cols-2 max-w-6xl px-4 mx-auto pb-16">
           <div className="space-y-16 flex flex-col">

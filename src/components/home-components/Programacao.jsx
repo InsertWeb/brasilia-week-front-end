@@ -105,7 +105,7 @@ export function Programacao({ lang, data }) {
                   )}
                 </div>
                 <div
-                  className={`border-b border-black py-6 w-full hover:bg-[#F6F6F6] ${
+                  className={`flex items-center border-b border-black py-6 w-full hover:bg-[#F6F6F6] ${
                     e.id === eventClicked.id && "bg-[#F6F6F6]"
                   }`}
                 >

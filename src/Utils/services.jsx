@@ -339,7 +339,7 @@ export const PageConfig = {
       toast.success(res.data.msg);
       return res;
     } catch (error) {
-      toast.error("Erro ao mudar configurações do Inspire-se!");
+      toast.error("Erro ao mudar configurações do QUERO APOIAR!");
       return error.response;
     }
   },

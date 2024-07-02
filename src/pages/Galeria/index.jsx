@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Footer } from "../../components/utils/Footer";
 import { Header } from "../../components/utils/Header";
 import { useGetInfos } from "../../Utils/useGetInfos";
@@ -17,6 +17,10 @@ export function GaleriaPage() {
     setIsOpen(true);
   };
   const closeModal = () => setIsOpen(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>

@@ -57,7 +57,7 @@ export function AdminInspire() {
       className="bg-white rounded-lg p-5 space-y-5"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <h2 className="text-2xl font-medium">Configurações - Inspire-se</h2>
+      <h2 className="text-2xl font-medium">Configurações - QUERO APOIAR</h2>
 
       <div className="grid grid-cols-2 gap-5">
         <label className="flex flex-col gap-1 text-sm">

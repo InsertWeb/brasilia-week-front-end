@@ -64,7 +64,7 @@ export function NavMenu() {
           </Link>
           <Link to={"/admin?page=inspire"}>
             <li className="hover:bg-[#83BF45] hover:text-white py-2 px-5 duration-300">
-              Inspire-se
+              QUERO APOIAR
             </li>
           </Link>
           <Link to={"/admin?page=equipe"}>

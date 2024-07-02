@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useGetInfos } from "../../Utils/useGetInfos";
 import { CardParceiro } from "../../components/parceiros-components/CardParceiro";
 import { Footer } from "../../components/utils/Footer";
@@ -8,7 +9,9 @@ export function ParceirosPage() {
   const parceiros = context?.dataHomepage?.parceiros;
 
   const lang = localStorage.getItem("lang");
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <Header />

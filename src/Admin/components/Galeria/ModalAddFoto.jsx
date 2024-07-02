@@ -17,6 +17,8 @@ export const ModalAddFoto = ({
 
   useEffect(() => {
     if (isEdit) {
+      setValue("title_pt", galeriaImage.title_pt ?? "");
+      setValue("title_en", galeriaImage.title_en ?? "");
       setValue("descricao_pt", galeriaImage.descricao_pt ?? "");
       setValue("descricao_en", galeriaImage.descricao_en ?? "");
       setValue("img", galeriaImage.filePath ?? "");
@@ -80,7 +82,7 @@ export const ModalAddFoto = ({
         onClick={() => setIsOpen(true)}
         className="bg-black px-5 py-1 text-white rounded-lg hover:bg-black/90 duration-300"
       >
-        Adicionar Foto
+        Adicionar Item
       </button>
 
       {isOpen && (

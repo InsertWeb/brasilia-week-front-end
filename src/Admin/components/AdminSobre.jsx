@@ -14,7 +14,7 @@ export function AdminSobre() {
   useEffect(() => {
     getInfoSobre();
   }, []);
-  console.log(watch("descricao_pt"));
+
   useEffect(() => {
     if (infoSobre) {
       setValue("title_pt", infoSobre.Query.title_pt ?? "");
@@ -49,13 +49,13 @@ export function AdminSobre() {
         const formData = new FormData();
 
         for (const key in payload) {
-          if (key !== "image") {
+          if (key !== "img") {
             formData.append(key, payload[key]);
           }
         }
 
-        if (payload.image && payload.image.length > 0) {
-          formData.append("image", payload.image[0]);
+        if (payload.img && payload.img.length > 0) {
+          formData.append("img", payload.img[0]);
         }
 
         const response = await PageConfig.updateSobre(formData);
