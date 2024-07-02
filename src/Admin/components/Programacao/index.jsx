@@ -119,7 +119,7 @@ export function AdminProgramacao() {
                   <span>{e.descricao_en}</span>
                 </div>
                 <div className="flex flex-col">
-                  <span>{moment(e.date).format("DD/MM")}</span>
+                  <span>{moment.utc(e.date).format("DD/MM")}</span>
                   <span>{e.horario}</span>
                 </div>
                 <div className="flex flex-col text-sm">

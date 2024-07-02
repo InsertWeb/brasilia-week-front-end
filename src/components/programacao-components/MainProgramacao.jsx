@@ -44,7 +44,7 @@ export function MainProgramacao() {
             }`}
             onClick={() => setCurrentDateIndex(i)}
           >
-            {moment(e).format("DD/MM")}
+            {moment.utc(e).format("DD/MM")}
           </button>
         ))}
       </div>

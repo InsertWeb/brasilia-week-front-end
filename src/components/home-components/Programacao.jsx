@@ -73,7 +73,7 @@ export function Programacao({ lang, data }) {
               </button>
             </div>
             <span className="text-3xl sm:text-4xl border border-b-0 border-black py-5 px-8">
-              {moment(currentDate).format("DD/MM")}
+              {moment.utc(currentDate).format("DD/MM")}
             </span>
           </div>
         </div>
