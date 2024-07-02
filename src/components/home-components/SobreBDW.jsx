@@ -1,8 +1,35 @@
 import { Link } from "react-router-dom";
 import { IconCalendary, IconLocalization } from "../../assets/Icons";
+import { useEffect, useState } from "react";
+
+const useWindowSize = () => {
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return windowSize;
+};
 
 export function SobreBDW({ lang, data }) {
-  const backgroundImageUrl = data?.image ?? "/bgBlack.png";
+  const { width } = useWindowSize();
+
+  const backgroundImageUrl =
+    width > 768 ? data?.image ?? "/bgBlack.png" : "none";
 
   return (
     <div className="font-['Helvetica']">

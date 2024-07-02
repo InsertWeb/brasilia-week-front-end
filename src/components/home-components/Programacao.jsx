@@ -99,7 +99,7 @@ export function Programacao({ lang, data }) {
                 className="flex gap-2 items-center"
                 onClick={() => setEventClicked(e)}
               >
-                <div className="w-10">
+                <div className="sm:w-10 hidden sm:block">
                   {e.id === eventClicked.id && (
                     <IconPrev width={35} className={"hidden sm:block"} />
                   )}
