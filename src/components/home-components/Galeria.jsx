@@ -4,18 +4,8 @@ import { SwiperSlide, Swiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { ModalFoto } from "../../pages/Galeria/ModalFoto";
-import { useState } from "react";
 
 export function Galeria({ lang, data }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [imagem, setImagem] = useState(false);
-
-  const closeModal = () => setIsOpen(false);
-  const openModal = (e) => {
-    setImagem(e);
-    setIsOpen(true);
-  };
   return (
     <div className="pb-20 pt-10">
       <div className="max-w-6xl px-4 mx-auto font-['Helvetica']">
@@ -41,9 +31,9 @@ export function Galeria({ lang, data }) {
         >
           {data?.map((e) => (
             <SwiperSlide key={e.id} className=" pb-16">
-              <div
+              <Link
                 className="space-y-3 font-semibold cursor-pointer"
-                onClick={() => openModal(e)}
+                to={`/galeria/${e.id}`}
               >
                 <img
                   src={e.filePath}
@@ -51,7 +41,7 @@ export function Galeria({ lang, data }) {
                   className="w-full h-80 object-cover"
                 />
                 <p>{lang === "en" ? e.title_en : e.title_pt}</p>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -64,7 +54,6 @@ export function Galeria({ lang, data }) {
           </Link>
         </div>
       </div>
-      {isOpen && <ModalFoto onClose={closeModal} data={imagem} />}
     </div>
   );
 }
