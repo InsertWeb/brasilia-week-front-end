@@ -10,7 +10,7 @@ export function EquipePage() {
   const lang = localStorage.getItem("lang");
 
   return (
-    <div className="font-['Helvetica']">
+    <div className="fontHelveticaLight">
       <Header />
       <div className="max-w-6xl mx-auto py-16 px-4">
         <h2 className="text-5xl pb-16">{lang === "en" ? "Team" : "Equipe"}</h2>

@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 export function Galeria({ lang, data }) {
   return (
     <div className="pb-20 pt-10">
-      <div className="max-w-6xl px-4 mx-auto font-['Helvetica']">
+      <div className="max-w-6xl px-4 mx-auto fontHelveticaLight">
         <h2 className="text-4xl relative tracking-[16%] font-light pb-14">
           {lang === "en" ? "Galery" : "Galeria"}
         </h2>

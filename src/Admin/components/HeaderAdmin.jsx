@@ -17,7 +17,7 @@ export function HeaderAdmin({ openMenu, setIsOpenMenu }) {
   return (
     <header className="px-4 flex justify-between items-center py-3 bg-black">
       <div className="max-w-52 w-full flex justify-between">
-        <Link to={"/"} className="text-3xl text-white font-['Helvetica']">
+        <Link to={"/"} className="text-3xl text-white fontHelveticaLight">
           BDW
         </Link>
         <button onClick={() => setIsOpenMenu(!openMenu)}>

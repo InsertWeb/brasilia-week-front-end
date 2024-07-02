@@ -32,7 +32,7 @@ export function SobreBDW({ lang, data }) {
     width > 768 ? data?.image ?? "/bgBlack.png" : "none";
 
   return (
-    <div className="font-['Helvetica']">
+    <div className="fontHelveticaLight">
       <div className="max-w-6xl px-4 mx-auto flex flex-wrap gap-5 py-16 items-center justify-between sm:gap-2">
         <a
           href="https://linktr.ee/bsbdesignweek?fbclid=PAZXh0bgNhZW0CMTEAAaaqGnGhN0uvaI41Y4W9d7kSvUy_evzBWIqzm4f6rOFM6j7waLmSClF6vZY_aem_APydz2B6uZUjDmnRZhoQew"

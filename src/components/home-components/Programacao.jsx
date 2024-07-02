@@ -40,7 +40,7 @@ export function Programacao({ lang, data }) {
   }, [loading]);
 
   return (
-    <div className="font-['Helvetica']">
+    <div className="fontHelveticaLight">
       <div className="max-w-6xl px-4 mx-auto py-16">
         <div className="flex flex-wrap gap-5 justify-between items-center border-b border-black">
           <h2 className="text-4xl relative tracking-[16%] font-light">

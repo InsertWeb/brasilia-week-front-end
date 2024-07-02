@@ -16,6 +16,10 @@ export function ItemGalery() {
     getItemGalery(id);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   async function getItemGalery(id) {
     setLoading(true);
     const token = localStorage.getItem("token");
@@ -32,7 +36,7 @@ export function ItemGalery() {
       }
     }
   }
-
+  console.log(data.link_youtube);
   return (
     <div>
       <Header />
@@ -56,7 +60,7 @@ export function ItemGalery() {
           </div>
         </div>
       ) : (
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto fontHelveticaLight">
           <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t">
             <h3 className="text-xl font-semibold">
               {lang === "en" ? data?.title_en : data?.title_pt}
@@ -64,15 +68,21 @@ export function ItemGalery() {
           </div>
           <div className="relative p-6">
             {data.link_youtube && (
-              <a
-                href={data.link_youtube}
-                target="_blank"
-                className="underline text-blue-900"
-              >
-                {data.link_youtube}
-              </a>
+              <iframe
+                width="100%"
+                height="500"
+                src={
+                  data.link_youtube.replace("watch?v=", "embed/") +
+                  "?controls=0&modestbranding=1&rel=0&showinfo=0&autohide=1&fs=0&cc_load_policy=1&iv_load_policy=3&disablekb=1"
+                }
+                title={data.title_pt}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
             )}
-            <div className="grid sm:grid-cols-2 gap-5">
+            <div className="grid sm:grid-cols-2 gap-5 mt-8">
               <div>
                 <p dangerouslySetInnerHTML={{ __html: description }} />
               </div>

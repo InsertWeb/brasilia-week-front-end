@@ -15,7 +15,7 @@ export function QueroApoiar() {
     <div className="font-['Sora']">
       <Header />
       <div className="max-w-6xl mx-auto py-16 px-4">
-        <h2 className="text-5xl pb-10 font-['Helvetica']">
+        <h2 className="text-5xl pb-10 fontHelveticaLight">
           {lang === "en" ? "I want to support" : "Quero apoiar"}
         </h2>
         <div className="grid sm:grid-cols-2 gap-10">

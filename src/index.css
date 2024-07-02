@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Helvetica_Bold";
+  src: url("/src/assets/fonts/Helvetica-Bold.woff");
+}
+@font-face {
+  font-family: "Helvetica_Light";
+  src: url("/src/assets/fonts/HelveticaLTStd-Light.otf");
+}
+@font-face {
+  font-family: "Helvetica";
+  src: url("/src/assets/fonts/Helvetica.woff");
+}
+
+.fontHelveticaBold {
+  font-family: "Helvetica_Bold", serif;
+}
+.fontHelveticaLight {
+  font-family: "Helvetica_Light", serif;
+}
+.fontHelveticaNormal {
+  font-family: "Helvetica", sans-serif;
+}

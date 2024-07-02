@@ -41,7 +41,7 @@ export function LoginPage() {
         onSubmit={handleSubmit(onSubmit)}
         className="bg-white flex flex-col max-w-md w-full rounded-xl mx-auto p-8 space-y-5 mt-20"
       >
-        <h2 className="text-2xl font-bold font-['Helvetica'] text-center">
+        <h2 className="text-2xl font-bold fontHelveticaLight text-center">
           Fazer Login
         </h2>
 

@@ -29,7 +29,7 @@ export function Patrocinadores({ lang, data }) {
         />
       </svg>
 
-      <div className="max-w-6xl px-4 mx-auto font-['Helvetica'] flex flex-col">
+      <div className="max-w-6xl px-4 mx-auto fontHelveticaLight flex flex-col">
         <h2 className="text-4xl relative tracking-[16%] font-light pb-4">
           {lang === "en" ? "SPONSORS" : " PATROCINADORES"}
         </h2>
