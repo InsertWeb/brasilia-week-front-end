@@ -93,7 +93,7 @@ export const ModalAddFoto = ({
               className="flex flex-col gap-5"
               onSubmit={handleSubmit(onSubmit)}
             >
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid sm:grid-cols-2 gap-5">
                 <label className="flex flex-col gap-1 text-sm">
                   <span>Titulo (PT)</span>
                   <input
@@ -113,7 +113,7 @@ export const ModalAddFoto = ({
                   />
                 </label>
               </div>
-              <div className="grid grid-cols-2 gap-5 pb-10">
+              <div className="grid sm:grid-cols-2 gap-5 pb-10 space-y-28 sm:space-y-0">
                 <div className="flex flex-col gap-1">
                   <span>Descrição (PT)</span>
                   <Controller
@@ -216,7 +216,7 @@ export const ModalAddFoto = ({
                 </div>
               </div>
 
-              <label className="flex flex-col gap-1 text-sm">
+              <label className="flex flex-col gap-1 text-sm mt-14 sm:mt-0">
                 <span>Link Youtube</span>
                 <input
                   type="text"
@@ -226,7 +226,7 @@ export const ModalAddFoto = ({
                 />
               </label>
 
-              <label className="grid col-span-2 grid-cols-2 gap-1 text-sm">
+              <label className="grid sm:col-span-2 sm:grid-cols-2 gap-1 text-sm">
                 <div className="flex flex-col gap-1">
                   <span>Imagem da sessão</span>
                   <input

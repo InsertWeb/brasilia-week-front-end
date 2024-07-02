@@ -28,16 +28,17 @@ export function AdminUsuarios() {
   }
 
   return (
-    <div className="bg-white rounded-lg p-5 space-y-5">
-      <div className="flex justify-between">
+    <div className="bg-white rounded-lg p-2 sm:p-5 space-y-5">
+      <div className="flex flex-col  sm:flex-row gap-3 justify-between">
         <h2 className="text-2xl font-medium">Configurações - Usuários</h2>
         <ModalAddUsers />
       </div>
       <div className="space-y-2">
         <div className="grid grid-cols-3 font-medium">
-          <span>Nome</span>
-          <span>E-mail</span>
-          <span>Administrador</span>
+          <span className="sm:hidden block">Usuários</span>
+          <span className="hidden sm:block">Nome</span>
+          <span className="hidden sm:block">E-mail</span>
+          <span className="hidden sm:block">Administrador</span>
         </div>
         {loading
           ? Array.from({ length: 5 }).map((_, index) => (
@@ -51,7 +52,7 @@ export function AdminUsuarios() {
               </div>
             ))
           : users.map((e) => (
-              <div key={e.id} className="grid grid-cols-3 text-sm">
+              <div key={e.id} className="grid sm:grid-cols-3 text-sm">
                 <span>{e.name}</span>
                 <span>{e.email}</span>
                 <span>{e.is_admin ? "Sim" : "Não"}</span>

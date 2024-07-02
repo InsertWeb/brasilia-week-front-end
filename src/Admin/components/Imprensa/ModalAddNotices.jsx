@@ -93,7 +93,7 @@ export const ModalAddNotices = ({
           <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 p-6 relative max-h-[95%] overflow-auto">
             <h2 className="text-xl font-bold mb-4">Adicionar Noticia</h2>
             <form
-              className="grid grid-cols-2 gap-5"
+              className="grid sm:grid-cols-2 gap-5"
               onSubmit={handleSubmit(onSubmit)}
             >
               <label className="flex flex-col gap-1">
@@ -153,7 +153,7 @@ export const ModalAddNotices = ({
                 />
               </label>
 
-              <label className="flex flex-col gap-1 col-span-2">
+              <label className="flex flex-col gap-1 sm:col-span-2">
                 <span>Link da Noticia</span>
                 <input
                   type="text"
@@ -163,12 +163,13 @@ export const ModalAddNotices = ({
                 />
               </label>
 
-              <label className="grid col-span-2 grid-cols-2 gap-1 text-sm">
+              <label className="grid sm:col-span-2 sm:grid-cols-2 gap-1 text-sm">
                 <div className="flex flex-col gap-1">
                   <span>Imagem da Noticia</span>
                   <input
                     type="file"
                     {...register("img")}
+                    className="w-full sm:w-fit"
                     accept="image/*"
                     onChange={handleImageChange}
                   />
@@ -190,7 +191,7 @@ export const ModalAddNotices = ({
               </label>
 
               <button
-                className="bg-black col-span-2 text-white py-1 rounded-md"
+                className="bg-black sm:col-span-2 text-white py-1 rounded-md"
                 disabled={isLoading}
               >
                 {isLoading ? "Salvando" : "Salvar"}

@@ -91,7 +91,7 @@ export function AdminSobre() {
     >
       <h2 className="text-2xl font-medium">Configurações - Sobre a #BDW24</h2>
 
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid sm:grid-cols-2 gap-5">
         <label className="flex flex-col gap-1 text-sm">
           <span>Titulo (PT)</span>
           <input
@@ -112,7 +112,7 @@ export function AdminSobre() {
         </label>
       </div>
 
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid sm:grid-cols-2 gap-5">
         <label className="flex flex-col gap-1 text-sm">
           <span>Chamada (PT)</span>
           <textarea
@@ -133,7 +133,7 @@ export function AdminSobre() {
         </label>
       </div>
 
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid sm:grid-cols-2 gap-5 space-y-24 sm:space-y-0">
         <label className="space-y-2 text-sm">
           <span>Descrição (PT)</span>
           <Controller
@@ -224,7 +224,7 @@ export function AdminSobre() {
         </label>
       </div>
 
-      <div className="grid grid-cols-2 gap-5 pt-8">
+      <div className="grid sm:grid-cols-2 gap-5 pt-24 sm:pt-8">
         <label className="flex flex-col gap-1 text-sm">
           <span>Texto Botão (PT)</span>
           <input
@@ -245,12 +245,13 @@ export function AdminSobre() {
         </label>
       </div>
 
-      <label className="grid grid-cols-2 gap-1 text-sm">
+      <label className="grid sm:grid-cols-2 gap-1 text-sm">
         <div className="flex flex-col gap-1">
           <span>Imagem da sessão</span>
           <input
             type="file"
             {...register("img")}
+            className="w-full sm:w-fit"
             accept="image/*"
             onChange={handleImageChange}
           />

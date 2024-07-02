@@ -1,0 +1,8 @@
+.truncated-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Número de linhas a serem exibidas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
