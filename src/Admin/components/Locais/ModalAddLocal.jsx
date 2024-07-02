@@ -105,11 +105,11 @@ export const ModalAddLocal = ({
               </label>
 
               <label className="flex flex-col gap-1 sm:col-span-2">
-                <span>Website</span>
+                <span>Instagram</span>
                 <textarea
                   type="text"
                   {...register("website")}
-                  placeholder="Website"
+                  placeholder="@seunome"
                   className="bg-zinc-50 px-3 py-1 rounded-md resize-none h-24"
                 />
               </label>
