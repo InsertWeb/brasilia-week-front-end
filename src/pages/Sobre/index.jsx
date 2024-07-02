@@ -18,7 +18,7 @@ export function SobrePage() {
   return (
     <div className="relative">
       <Header />
-      <div className="font-['Helvetica'] max-w-6xl mx-auto px-4 py-16 min-h-screen">
+      <div className="fontHelveticaLight max-w-6xl mx-auto px-4 py-16 min-h-screen">
         <h1 className="text-5xl pb-16">
           {lang === "en" ? sobre?.title_en : sobre?.title_pt}
         </h1>

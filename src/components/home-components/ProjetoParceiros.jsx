@@ -5,7 +5,7 @@ import "./truncatStyle.css";
 
 export function ProjetoParceiros({ lang, data }) {
   return (
-    <div className="font-['Helvetica'] relative bg-[url('/bg-cicle.svg')]">
+    <div className="fontHelveticaLight relative bg-[url('/bg-cicle.svg')]">
       <div className="bg-[#83BF45] absolute w-full h-full max-h-[60%] bottom-0"></div>
       <svg
         width="491"

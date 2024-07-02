@@ -19,7 +19,7 @@ export function BannerMain({ lang, data }) {
         <IconCircle />
       </div>
       <header className="max-w-6xl px-4 mx-auto flex justify-between items-center py-5">
-        <Link to={"/"} className="text-3xl text-white font-['Helvetica']">
+        <Link to={"/"} className="text-3xl text-white fontHelveticaLight">
           BDW
         </Link>
         <button onClick={() => setMenuOpen(!menuOpen)}>
@@ -63,7 +63,7 @@ export function BannerMain({ lang, data }) {
             </svg>
           </button>
         </div>
-        <nav className="max-w-6xl mx-auto px-4 pt-8 font-['Helvetica'] grid grid-cols-2">
+        <nav className="max-w-6xl mx-auto px-4 pt-8 fontHelveticaLight grid grid-cols-2">
           <ul className="text-3xl sm:text-5xl space-y-3 font-semibold uppercase">
             <li>
               <Link

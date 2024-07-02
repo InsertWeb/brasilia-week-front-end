@@ -31,7 +31,7 @@ export function MainProgramacao() {
   }, [loading]);
 
   return (
-    <div className="font-['Helvetica'] max-w-6xl mx-auto px-4 py-16">
+    <div className="fontHelveticaLight max-w-6xl mx-auto px-4 py-16">
       <h1 className="text-5xl pb-16">
         {lang === "en" ? "Schedule" : "Programação"}
       </h1>
