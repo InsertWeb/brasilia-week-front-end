@@ -97,8 +97,8 @@ export function AdminGaleria() {
                     alt=""
                     className="w-full h-16 object-cover rounded-lg"
                   />
-                  <p>{e.descricao_pt}</p>
-                  <p>{e.descricao_en}</p>
+                  <p>{e.title_pt}</p>
+                  <p>{e.title_en}</p>
                   <div className="flex flex-col text-sm">
                     <button
                       className="font-medium hover:text-gray-500 duration-300"

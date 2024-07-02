@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { PageConfig } from "../../../Utils/services";
+import ReactQuill from "react-quill";
 
 export const ModalAddFoto = ({
   galeriaImage,
@@ -12,7 +13,7 @@ export const ModalAddFoto = ({
 }) => {
   const [imagePreview, setImagePreview] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
-  const { register, handleSubmit, setValue, reset } = useForm();
+  const { register, handleSubmit, setValue, reset, control } = useForm();
 
   useEffect(() => {
     if (isEdit) {
@@ -84,28 +85,142 @@ export const ModalAddFoto = ({
 
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 ">
-          <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 p-6 relative max-h-[95%] overflow-auto">
+          <div className="bg-white rounded-lg shadow-lg max-w-5xl w-full p-6 relative max-h-[95%] overflow-auto">
             <h2 className="text-xl font-bold mb-4">Adicionar Foto</h2>
             <form
-              className="grid grid-cols-2 gap-5"
+              className="flex flex-col gap-5"
               onSubmit={handleSubmit(onSubmit)}
             >
-              <label className="flex flex-col gap-1">
-                <span>Descrição (PT)</span>
-                <textarea
+              <div className="grid grid-cols-2 gap-5">
+                <label className="flex flex-col gap-1 text-sm">
+                  <span>Titulo (PT)</span>
+                  <input
+                    type="text"
+                    {...register("title_pt")}
+                    className="bg-zinc-50 px-5 py-2"
+                    placeholder="Titulo"
+                  />
+                </label>
+                <label className="flex flex-col gap-1 text-sm">
+                  <span>Titulo (EN)</span>
+                  <input
+                    type="text"
+                    {...register("title_en")}
+                    className="bg-zinc-50 px-5 py-2 rounded-lg"
+                    placeholder="Title"
+                  />
+                </label>
+              </div>
+              <div className="grid grid-cols-2 gap-5 pb-10">
+                <div className="flex flex-col gap-1">
+                  <span>Descrição (PT)</span>
+                  <Controller
+                    name="descricao_pt"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <ReactQuill
+                        className="h-44"
+                        value={field.value}
+                        onChange={field.onChange}
+                        modules={{
+                          toolbar: [
+                            [
+                              "bold",
+                              "italic",
+                              "underline",
+                              "strike",
+                              "blockquote",
+                            ],
+                            [
+                              { list: "ordered" },
+                              { list: "bullet" },
+                              { indent: "-1" },
+                              { indent: "+1" },
+                            ],
+                            ["link", "image", "video"],
+                            ["clean"],
+                          ],
+                        }}
+                        formats={[
+                          "header",
+                          "font",
+                          "size",
+                          "bold",
+                          "italic",
+                          "underline",
+                          "strike",
+                          "blockquote",
+                          "list",
+                          "bullet",
+                          "indent",
+                          "link",
+                          "image",
+                          "video",
+                        ]}
+                      />
+                    )}
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span>Descrição (EN)</span>
+                  <Controller
+                    name="descricao_en"
+                    control={control}
+                    defaultValue=""
+                    render={({ field }) => (
+                      <ReactQuill
+                        className="h-44"
+                        value={field.value}
+                        onChange={field.onChange}
+                        modules={{
+                          toolbar: [
+                            [
+                              "bold",
+                              "italic",
+                              "underline",
+                              "strike",
+                              "blockquote",
+                            ],
+                            [
+                              { list: "ordered" },
+                              { list: "bullet" },
+                              { indent: "-1" },
+                              { indent: "+1" },
+                            ],
+                            ["link", "image", "video"],
+                            ["clean"],
+                          ],
+                        }}
+                        formats={[
+                          "header",
+                          "font",
+                          "size",
+                          "bold",
+                          "italic",
+                          "underline",
+                          "strike",
+                          "blockquote",
+                          "list",
+                          "bullet",
+                          "indent",
+                          "link",
+                          "image",
+                          "video",
+                        ]}
+                      />
+                    )}
+                  />
+                </div>
+              </div>
+
+              <label className="flex flex-col gap-1 text-sm">
+                <span>Link Youtube</span>
+                <input
                   type="text"
-                  {...register("descricao_pt")}
-                  placeholder="Descrição"
-                  className="bg-zinc-50 px-3 py-1 rounded-md resize-none h-24"
-                />
-              </label>
-              <label className="flex flex-col gap-1">
-                <span>Descrição (EN)</span>
-                <textarea
-                  type="text"
-                  {...register("descricao_en")}
-                  placeholder="Description"
-                  className="bg-zinc-50 px-3 py-1 rounded-md resize-none h-24"
+                  {...register("link_youtube")}
+                  className="bg-zinc-50 px-5 py-2 rounded-lg"
+                  placeholder="https://youtube.com"
                 />
               </label>
 
