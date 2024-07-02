@@ -115,7 +115,7 @@ export function AdminLocais() {
                       </span>
                     </div>
                     <div className="flex gap-2 items-center">
-                      <IconSite />
+                      {/*  <IconSite /> */}
                       <span>{e.website}</span>
                     </div>
                   </div>
