@@ -21,7 +21,7 @@ export const ModalAddEvento = ({
       setValue("title_pt", event.title_pt ?? "");
       setValue("title_en", event.title_en ?? "");
       setValue("horario", event.horario ?? "");
-      setValue("date", moment(event.date).format("YYYY-MM-DD") ?? "");
+      setValue("date", moment.utc(event.date).format("YYYY-MM-DD") ?? "");
       setValue("descricao_pt", event.descricao_pt ?? "");
       setValue("descricao_en", event.descricao_en ?? "");
       setValue("img", event.filePath ?? "");

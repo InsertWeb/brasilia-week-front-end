@@ -34,15 +34,13 @@ export function SobreBDW({ lang, data }) {
   return (
     <div className="fontHelveticaLight">
       <div className="max-w-6xl px-4 mx-auto flex flex-wrap gap-5 py-16 items-center justify-between sm:gap-2">
-        <a
-          href="https://linktr.ee/bsbdesignweek?fbclid=PAZXh0bgNhZW0CMTEAAaaqGnGhN0uvaI41Y4W9d7kSvUy_evzBWIqzm4f6rOFM6j7waLmSClF6vZY_aem_APydz2B6uZUjDmnRZhoQew"
+        <Link
+          to="apoiar"
           target="_blank"
           className="bg-black text-white py-6 max-w-sm w-full text-center uppercase"
         >
-          {lang === "en"
-            ? "I want to participate in BDW"
-            : " Quero participar da BDW"}
-        </a>
+          {lang === "en" ? "I want to participate in BDW" : "Quero Apoiar"}
+        </Link>
         <div className="flex gap-4 items-center font-medium">
           <IconCalendary />
           <span>
@@ -52,7 +50,7 @@ export function SobreBDW({ lang, data }) {
         <Link to={"/locais"} className="flex gap-4 items-center">
           <IconLocalization />
           <span>
-            {lang === "en" ? "Exhibition locations" : "Locais de exposição"}
+            {lang === "en" ? "Exhibition locations" : "Circuito BDW24"}
           </span>
         </Link>
       </div>
