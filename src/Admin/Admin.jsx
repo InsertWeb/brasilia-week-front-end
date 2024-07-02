@@ -4,7 +4,7 @@ import { NavMenu } from "./components/NavMenu";
 import { useState } from "react";
 
 export function AdminPage() {
-  const [isOpenMenu, setIsOpenMenu] = useState(true);
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   return (
     <div>

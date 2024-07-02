@@ -66,7 +66,7 @@ export function AdminLocais() {
   return (
     <div className="bg-white rounded-lg p-5 space-y-5">
       <div>
-        <div className="flex justify-between">
+        <div className="flex flex-col sm:flex-row gap-3 justify-between">
           <h2 className="text-2xl font-medium">Configurações - Locais</h2>
           <ModalAddLocal
             local={local}
@@ -103,12 +103,12 @@ export function AdminLocais() {
           ) : (
             <>
               {locais?.data.map((e) => (
-                <div key={e.id}>
+                <div key={e.id} className="text-sm sm:text-base">
                   <div className="space-y-2">
-                    <h3 className="text-xl">
+                    <h3 className="sm:text-xl">
                       {lang === "en" ? e.title_en : e.title_pt}
                     </h3>
-                    <div className="text-[#83BF45] flex gap-2 items-center">
+                    <div className="text-[#83BF45] flex flex-col sm:flex-row gap-2 items-center">
                       <IconLocalization />
                       <span className="text-black">
                         {lang === "en" ? e?.descricao_en : e?.descricao_pt}
