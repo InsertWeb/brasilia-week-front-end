@@ -73,24 +73,24 @@ export function BannerMain({ lang, data }) {
                 Programação
               </Link>
             </li>
-            <li>
+            {/*  <li>
               <Link to="/galeria" className="hover:text-[#83BF45] duration-300">
                 Galeria
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/sobre" className="hover:text-[#83BF45] duration-300">
                 Sobre
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 to="/parceiros"
                 className="hover:text-[#83BF45] duration-300"
               >
                 Parceiros
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link
                 to="/imprensa"
@@ -99,11 +99,11 @@ export function BannerMain({ lang, data }) {
                 Imprensa
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/podcast" className="hover:text-[#83BF45] duration-300">
                 Podcast
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/apoiar" className="hover:text-[#83BF45] duration-300">
                 QUERO APOIAR
@@ -131,7 +131,8 @@ export function BannerMain({ lang, data }) {
 
       <main className="max-w-6xl px-4 mx-auto py-5">
         <div className="flex flex-col items-end gap-5 sm:gap-10 text-white">
-          <TogleLanguage />
+          {/* <TogleLanguage /> */}
+          <div className="invisible">a</div>
           <a href="https://www.instagram.com/bsbdesignweek/" target="_blank">
             <IconInstagram />
           </a>

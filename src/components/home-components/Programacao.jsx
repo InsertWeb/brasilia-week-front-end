@@ -130,7 +130,7 @@ export function Programacao({ lang, data }) {
               ? "SEE THE COMPLETE PROGRAM"
               : "VEJA A PROGRAMAÇÃO COMPLETA"}
           </Link>
-          <a
+          {/* <a
             href="https://linktr.ee/bsbdesignweek?fbclid=PAZXh0bgNhZW0CMTEAAaaqGnGhN0uvaI41Y4W9d7kSvUy_evzBWIqzm4f6rOFM6j7waLmSClF6vZY_aem_APydz2B6uZUjDmnRZhoQew"
             target="_blank"
             className="py-6 max-w-sm w-full bg-[#83BF45] text-white text-center uppercase"
@@ -138,8 +138,8 @@ export function Programacao({ lang, data }) {
           >
             {lang === "en"
               ? "I want to participate in BDW"
-              : "Quero participar da BDW"}
-          </a>
+              : "Quero apoiar da BDW"}
+          </a> */}
         </div>
       </div>
     </div>

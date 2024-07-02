@@ -96,13 +96,13 @@ export function MainProgramacao() {
               ? eventClicked.descricao_en
               : eventClicked.descricao_pt}
           </p>
-          <a
+          {/* <a
             href="https://linktr.ee/bsbdesignweek?fbclid=PAZXh0bgNhZW0CMTEAAaaqGnGhN0uvaI41Y4W9d7kSvUy_evzBWIqzm4f6rOFM6j7waLmSClF6vZY_aem_APydz2B6uZUjDmnRZhoQew"
             target="_blank"
             className="w-full border border-black py-3 text-center"
           >
             {lang === "en" ? "SIGN UP" : "INSCREVA-SE"}
-          </a>
+          </a> */}
         </div>
       </div>
     </div>

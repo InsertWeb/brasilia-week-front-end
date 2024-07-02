@@ -65,24 +65,24 @@ export function Header() {
                 Programação
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/galeria" className="hover:text-[#83BF45] duration-300">
                 Galeria
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/sobre" className="hover:text-[#83BF45] duration-300">
                 Sobre
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 to="/parceiros"
                 className="hover:text-[#83BF45] duration-300"
               >
                 Parceiros
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link
                 to="/imprensa"
@@ -91,11 +91,11 @@ export function Header() {
                 Imprensa
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/podcast" className="hover:text-[#83BF45] duration-300">
                 Podcast
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/apoiar" className="hover:text-[#83BF45] duration-300">
                 QUERO APOIAR

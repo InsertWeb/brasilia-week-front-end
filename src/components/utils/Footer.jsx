@@ -21,12 +21,12 @@ export function Footer() {
           <Link to={"/locais"} className="flex gap-4 items-center">
             <IconLocalization />
             <span>
-              {lang === "en" ? "Exhibition locations" : "Locais de exposição"}
+              {lang === "en" ? "Exhibition locations" : "Circuito BDW24"}
             </span>
           </Link>
         </div>
         <div className="flex items-center gap-10 text-white">
-          <TogleLanguage />
+          {/* <TogleLanguage /> */}
           <a href="https://www.instagram.com/bsbdesignweek/" target="_blank">
             <IconInstagram />
           </a>
