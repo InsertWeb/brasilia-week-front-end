@@ -24,12 +24,25 @@ export function LocaisPage() {
               <h3 className="text-3xl sm:text-4xl pb-2">
                 {lang === "en" ? e?.title_en : e?.title_pt}
               </h3>
-              <div className="text-[#83BF45] flex gap-2 items-center">
-                <IconLocalization />
-                <span className="text-black">
-                  {lang === "en" ? e?.descricao_en : e?.descricao_pt}
-                </span>
-              </div>
+              {e?.link ? (
+                <a
+                  target="_blank"
+                  href={e.link}
+                  className="text-[#83BF45] flex gap-2 items-center"
+                >
+                  <IconLocalization />
+                  <span className="text-black">
+                    {lang === "en" ? e?.descricao_en : e?.descricao_pt}
+                  </span>
+                </a>
+              ) : (
+                <div className="text-[#83BF45] flex gap-2 items-center">
+                  <IconLocalization />
+                  <span className="text-black">
+                    {lang === "en" ? e?.descricao_en : e?.descricao_pt}
+                  </span>
+                </div>
+              )}
               {e.website && (
                 <div className="flex gap-2 items-center">
                   <svg
