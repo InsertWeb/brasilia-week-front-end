@@ -31,14 +31,19 @@ export function Programacao({ lang, data }) {
   const currentDate = uniqueDates[currentDateIndex];
   const currentEvents = data
     ?.filter((event) => event.date === currentDate)
-    .sort((a, b) => new Date(a.date) - new Date(b.date));
+    .sort((a, b) => {
+      if (!a.horario && !b.horario) return 0;
+      if (!a.horario) return 1;
+      if (!b.horario) return -1;
+      return a.horario.localeCompare(b.horario);
+    });
 
   useEffect(() => {
     if (currentEvents) {
       setEventClicked(currentEvents[0]);
     }
   }, [loading]);
-
+  console.log(currentEvents);
   return (
     <div className="fontHelveticaLight">
       <div className="max-w-6xl px-4 mx-auto py-16">
@@ -109,9 +114,16 @@ export function Programacao({ lang, data }) {
                     e.id === eventClicked.id && "bg-[#F6F6F6]"
                   }`}
                 >
-                  <span className="px-5 border-r border-black">
-                    {e.horario}
-                  </span>
+                  {e.horario ? (
+                    <span className="px-5 border-r border-black">
+                      {e.horario}
+                    </span>
+                  ) : (
+                    <span className="px-5 border-r border-black">
+                      <span className="invisible">00:00</span>
+                    </span>
+                  )}
+
                   <span className="pl-5 text-sm">
                     {lang === "en" ? e.title_en : e.title_pt}
                   </span>

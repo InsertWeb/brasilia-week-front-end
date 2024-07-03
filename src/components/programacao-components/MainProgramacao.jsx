@@ -22,7 +22,12 @@ export function MainProgramacao() {
   const currentDate = uniqueDates[currentDateIndex];
   const currentEvents = eventos
     ?.filter((event) => event.date === currentDate)
-    .sort((a, b) => new Date(a.date) - new Date(b.date));
+    .sort((a, b) => {
+      if (!a.horario && !b.horario) return 0;
+      if (!a.horario) return 1;
+      if (!b.horario) return -1;
+      return a.horario.localeCompare(b.horario);
+    });
 
   useEffect(() => {
     if (currentEvents) {
@@ -71,12 +76,21 @@ export function MainProgramacao() {
                 )}
               </div>
               <div
-                className={`border-b border-black py-6 w-full hover:bg-[#F6F6F6] ${
+                className={`flex items-center border-b border-black py-6 w-full hover:bg-[#F6F6F6] ${
                   e.id === eventClicked.id && "bg-[#F6F6F6]"
                 }`}
               >
-                <span className="px-5 border-r border-black">{e.horario}</span>
-                <span className="pl-5">
+                {e.horario ? (
+                  <span className="px-5 border-r border-black">
+                    {e.horario}
+                  </span>
+                ) : (
+                  <span className="px-5 border-r border-black">
+                    <span className="invisible">00:00</span>
+                  </span>
+                )}
+
+                <span className="pl-5 text-sm">
                   {lang === "en" ? e.title_en : e.title_pt}
                 </span>
               </div>
