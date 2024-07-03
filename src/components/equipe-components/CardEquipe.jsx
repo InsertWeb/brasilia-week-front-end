@@ -4,7 +4,7 @@ export function CardEquipe({ data, lang }) {
       <img
         src={data?.filePath}
         alt={data?.nome}
-        className="w-full h-96 object-cover"
+        className="w-full sm:h-96 h-auto object-cover"
       />
       <div className="space-y-1">
         <h3 className="text-2xl font-">
