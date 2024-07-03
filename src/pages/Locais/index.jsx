@@ -17,11 +17,8 @@ export function LocaisPage() {
         </h2>
         <div>
           {locais?.map((e) => (
-            <div
-              key={e.id}
-              className="space-y-3 border-b-2 border-[#83BF45] py-7"
-            >
-              <h3 className="text-3xl sm:text-4xl pb-2">
+            <div key={e.id} className="border-b-2 border-[#83BF45] py-7">
+              <h3 className="text-2xl pb-2">
                 {lang === "en" ? e?.title_en : e?.title_pt}
               </h3>
               {e?.link ? (
