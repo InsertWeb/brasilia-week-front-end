@@ -36,7 +36,7 @@ export function ItemGalery() {
       }
     }
   }
-  console.log(data.link_youtube);
+
   return (
     <div>
       <Header />
