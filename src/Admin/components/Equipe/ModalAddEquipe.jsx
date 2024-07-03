@@ -102,7 +102,7 @@ export const ModalAddEquipe = ({
                 />
               </label>
               <label className="flex flex-col gap-1 sm:col-span-2">
-                <span>Rede Social</span>
+                <span>Instagram</span>
                 <input
                   type="text"
                   {...register("reseSocial")}

@@ -108,7 +108,7 @@ export function Header() {
             </li>
             <li>
               <Link to="/locais" className="hover:text-[#83BF45] duration-300">
-                Locais
+                Circuito BDW24
               </Link>
             </li>
           </ul>

@@ -20,6 +20,7 @@ export const ModalAddLocal = ({
       setValue("endereco_pt", local.descricao_pt ?? "");
       setValue("endereco_en", local.descricao_en ?? "");
       setValue("website", local.website ?? "");
+      setValue("link", local.link ?? "");
     }
   }, [local, isEdit]);
 
@@ -106,11 +107,20 @@ export const ModalAddLocal = ({
 
               <label className="flex flex-col gap-1 sm:col-span-2">
                 <span>Instagram</span>
-                <textarea
+                <input
                   type="text"
                   {...register("website")}
                   placeholder="@seunome"
-                  className="bg-zinc-50 px-3 py-1 rounded-md resize-none h-24"
+                  className="bg-zinc-50 px-3 py-1 rounded-md"
+                />
+              </label>
+              <label className="flex flex-col gap-1 sm:col-span-2">
+                <span>Link</span>
+                <input
+                  type="text"
+                  {...register("link")}
+                  placeholder="http://linkgooglemaps"
+                  className="bg-zinc-50 px-3 py-1 rounded-md"
                 />
               </label>
 

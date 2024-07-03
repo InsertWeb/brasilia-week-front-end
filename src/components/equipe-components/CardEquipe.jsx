@@ -9,7 +9,7 @@ export function CardEquipe({ data, lang }) {
       <div className="space-y-1">
         <h3 className="text-2xl font-">
           {data?.nome.split(" ")[0]} <br />{" "}
-          <b className="font-bold">
+          <b className="font-bold font-['Sora']">
             {data?.nome.split(" ").slice(1).join(" ")}
           </b>
         </h3>

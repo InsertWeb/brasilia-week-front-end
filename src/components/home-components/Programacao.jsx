@@ -43,7 +43,7 @@ export function Programacao({ lang, data }) {
       setEventClicked(currentEvents[0]);
     }
   }, [loading]);
-  console.log(currentEvents);
+
   return (
     <div className="fontHelveticaLight">
       <div className="max-w-6xl px-4 mx-auto py-16">
@@ -83,13 +83,13 @@ export function Programacao({ lang, data }) {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-3 pt-20">
+        <div className="grid md:grid-cols-2 gap-3 pt-8 sm:pt-20">
           <div className="space-y-3">
             <div
               style={{
                 backgroundImage: `url(${backgroundImageUrl})`,
               }}
-              className="bg-cover h-[440px] flex items-end justify-end"
+              className="bg-cover h-[440px] items-end justify-end hidden sm:flex"
             />
             <p>
               {lang === "en"
@@ -114,13 +114,9 @@ export function Programacao({ lang, data }) {
                     e.id === eventClicked.id && "bg-[#F6F6F6]"
                   }`}
                 >
-                  {e.horario ? (
+                  {e.horario && (
                     <span className="px-5 border-r border-black">
                       {e.horario}
-                    </span>
-                  ) : (
-                    <span className="px-5 border-r border-black">
-                      <span className="invisible">00:00</span>
                     </span>
                   )}
 

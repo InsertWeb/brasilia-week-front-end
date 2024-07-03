@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { PageConfig } from "../../../Utils/services";
 import moment from "moment";
+import ReactQuill from "react-quill";
 
 export const ModalAddNotices = ({
   notice,
@@ -13,7 +14,7 @@ export const ModalAddNotices = ({
 }) => {
   const [imagePreview, setImagePreview] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
-  const { register, handleSubmit, setValue, reset } = useForm();
+  const { register, handleSubmit, setValue, reset, control } = useForm();
 
   useEffect(() => {
     if (isEdit) {
@@ -115,24 +116,106 @@ export const ModalAddNotices = ({
                 />
               </label>
 
-              <label className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1 pb-20">
                 <span>Descrição (PT)</span>
-                <input
-                  type="text"
-                  {...register("descricao_p")}
-                  placeholder="Descrição"
-                  className="bg-zinc-50 px-3 py-1 rounded-md"
+                <Controller
+                  name="descricao_pt"
+                  control={control}
+                  defaultValue=""
+                  render={({ field }) => (
+                    <ReactQuill
+                      className="h-44"
+                      value={field.value}
+                      onChange={field.onChange}
+                      modules={{
+                        toolbar: [
+                          [
+                            "bold",
+                            "italic",
+                            "underline",
+                            "strike",
+                            "blockquote",
+                          ],
+                          [
+                            { list: "ordered" },
+                            { list: "bullet" },
+                            { indent: "-1" },
+                            { indent: "+1" },
+                          ],
+                          ["link", "image", "video"],
+                          ["clean"],
+                        ],
+                      }}
+                      formats={[
+                        "header",
+                        "font",
+                        "size",
+                        "bold",
+                        "italic",
+                        "underline",
+                        "strike",
+                        "blockquote",
+                        "list",
+                        "bullet",
+                        "indent",
+                        "link",
+                        "image",
+                        "video",
+                      ]}
+                    />
+                  )}
                 />
-              </label>
-              <label className="flex flex-col gap-1">
+              </div>
+              <div className="flex flex-col gap-1 pb-20">
                 <span>Descrição (EN)</span>
-                <input
-                  type="text"
-                  {...register("descricao_en")}
-                  placeholder="Description"
-                  className="bg-zinc-50 px-3 py-1 rounded-md"
+                <Controller
+                  name="descricao_en"
+                  control={control}
+                  defaultValue=""
+                  render={({ field }) => (
+                    <ReactQuill
+                      className="h-44"
+                      value={field.value}
+                      onChange={field.onChange}
+                      modules={{
+                        toolbar: [
+                          [
+                            "bold",
+                            "italic",
+                            "underline",
+                            "strike",
+                            "blockquote",
+                          ],
+                          [
+                            { list: "ordered" },
+                            { list: "bullet" },
+                            { indent: "-1" },
+                            { indent: "+1" },
+                          ],
+                          ["link", "image", "video"],
+                          ["clean"],
+                        ],
+                      }}
+                      formats={[
+                        "header",
+                        "font",
+                        "size",
+                        "bold",
+                        "italic",
+                        "underline",
+                        "strike",
+                        "blockquote",
+                        "list",
+                        "bullet",
+                        "indent",
+                        "link",
+                        "image",
+                        "video",
+                      ]}
+                    />
+                  )}
                 />
-              </label>
+              </div>
 
               <label className="flex flex-col gap-1">
                 <span>Nome do Jornal (PT)</span>

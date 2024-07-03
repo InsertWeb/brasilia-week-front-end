@@ -220,6 +220,14 @@ export const PageConfig = {
       return error.response;
     }
   },
+  getItemImprensa: async (id) => {
+    try {
+      const res = await api.get(`/imprensa/${id}`);
+      return res;
+    } catch (error) {
+      return error.response;
+    }
+  },
   addImprensa: async (payload) => {
     try {
       const res = await api.post(`/imprensa`, payload);

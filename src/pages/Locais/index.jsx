@@ -13,7 +13,7 @@ export function LocaisPage() {
       <Header />
       <div className="max-w-6xl mx-auto py-16 px-4 min-h-screen">
         <h2 className="text-5xl pb-10">
-          {lang === "en" ? "Locations" : "Locais"}
+          {lang === "en" ? "Locations" : "Circuito BDW24"}
         </h2>
         <div>
           {locais?.map((e) => (
@@ -24,12 +24,25 @@ export function LocaisPage() {
               <h3 className="text-3xl sm:text-4xl pb-2">
                 {lang === "en" ? e?.title_en : e?.title_pt}
               </h3>
-              <div className="text-[#83BF45] flex gap-2 items-center">
-                <IconLocalization />
-                <span className="text-black">
-                  {lang === "en" ? e?.descricao_en : e?.descricao_pt}
-                </span>
-              </div>
+              {e?.link ? (
+                <a
+                  target="_blank"
+                  href={e.link}
+                  className="text-[#83BF45] flex gap-2 items-center"
+                >
+                  <IconLocalization />
+                  <span className="text-black">
+                    {lang === "en" ? e?.descricao_en : e?.descricao_pt}
+                  </span>
+                </a>
+              ) : (
+                <div className="text-[#83BF45] flex gap-2 items-center">
+                  <IconLocalization />
+                  <span className="text-black">
+                    {lang === "en" ? e?.descricao_en : e?.descricao_pt}
+                  </span>
+                </div>
+              )}
               {e.website && (
                 <div className="flex gap-2 items-center">
                   <svg

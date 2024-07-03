@@ -36,7 +36,6 @@ export function SobreBDW({ lang, data }) {
       <div className="max-w-6xl px-4 mx-auto flex flex-wrap gap-5 py-16 items-center justify-between sm:gap-2">
         <Link
           to="apoiar"
-          target="_blank"
           className="bg-black text-white py-6 max-w-sm w-full text-center uppercase"
         >
           {lang === "en" ? "I want to participate in BDW" : "Quero Apoiar"}
@@ -57,9 +56,9 @@ export function SobreBDW({ lang, data }) {
       <div
         style={{
           backgroundImage: `url(${backgroundImageUrl})`,
-          backgroundSize: "40% 100%",
+          backgroundSize: "50%",
         }}
-        className={`bg-no-repeat bg-right`}
+        className={`bg-no-repeat bg-right bg-cover`}
       >
         <div className="grid md:grid-cols-2 max-w-6xl px-4 mx-auto pb-16">
           <div className="space-y-16 flex flex-col">
