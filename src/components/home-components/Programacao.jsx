@@ -42,7 +42,7 @@ export function Programacao({ lang, data }) {
     if (currentEvents) {
       setEventClicked(currentEvents[0]);
     }
-  }, [loading]);
+  }, [loading, currentDate]);
 
   return (
     <div className="fontHelveticaLight">

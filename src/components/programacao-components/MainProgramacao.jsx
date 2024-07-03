@@ -33,7 +33,7 @@ export function MainProgramacao() {
     if (currentEvents) {
       setEventClicked(currentEvents[0]);
     }
-  }, [loading]);
+  }, [loading, currentDate]);
   const handlePrev = () => {
     setCurrentDateIndex((prevIndex) =>
       prevIndex > 0 ? prevIndex - 1 : uniqueDates.length - 1
