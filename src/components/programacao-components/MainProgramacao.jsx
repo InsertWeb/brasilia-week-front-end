@@ -1,6 +1,6 @@
 import moment from "moment";
 import { useGetInfos } from "../../Utils/useGetInfos";
-import { IconPrev } from "../../assets/Icons";
+import { IconNext, IconPrev } from "../../assets/Icons";
 import { useEffect, useState } from "react";
 
 export function MainProgramacao() {
@@ -34,13 +34,22 @@ export function MainProgramacao() {
       setEventClicked(currentEvents[0]);
     }
   }, [loading]);
-
+  const handlePrev = () => {
+    setCurrentDateIndex((prevIndex) =>
+      prevIndex > 0 ? prevIndex - 1 : uniqueDates.length - 1
+    );
+  };
+  const handleNext = () => {
+    setCurrentDateIndex((prevIndex) =>
+      prevIndex < uniqueDates.length - 1 ? prevIndex + 1 : 0
+    );
+  };
   return (
     <div className="fontHelveticaLight max-w-6xl mx-auto px-4 py-16">
       <h1 className="text-5xl pb-16">
         {lang === "en" ? "Schedule" : "Programação"}
       </h1>
-      <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-5">
+      <div className="hidden sm:grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-5 ">
         {uniqueDates.map((e, i) => (
           <button
             key={e.id}
@@ -53,14 +62,33 @@ export function MainProgramacao() {
           </button>
         ))}
       </div>
+      <div className="flex gap-7 items-center w-full sm:w-fit justify-between sm:hidden">
+        <div className="flex gap-7">
+          <button
+            className="bg-[#BCBCBC] py-2 w-12 flex items-center justify-center text-white"
+            onClick={handlePrev}
+          >
+            <IconPrev />
+          </button>
+          <button
+            className="bg-[#BCBCBC] py-2 w-12 flex items-center justify-center text-white"
+            onClick={handleNext}
+          >
+            <IconNext />
+          </button>
+        </div>
+        <span className="text-3xl sm:text-4xl border border-black py-5 px-8">
+          {moment.utc(currentDate).format("DD/MM")}
+        </span>
+      </div>
 
-      <div className="grid md:grid-cols-2 gap-3 py-20">
+      <div className="grid md:grid-cols-2 gap-3 py-8 sm:py-20">
         <div className="space-y-3">
           <div
             style={{
               backgroundImage: `url(${backgroundImageUrl})`,
             }}
-            className="bg-cover h-[440px] flex items-end justify-end"
+            className="bg-cover h-[440px] hidden sm:flex items-end justify-end"
           />
         </div>
         <div className="text-[#0D0D0D]">
@@ -80,13 +108,9 @@ export function MainProgramacao() {
                   e.id === eventClicked.id && "bg-[#F6F6F6]"
                 }`}
               >
-                {e.horario ? (
+                {e.horario && (
                   <span className="px-5 border-r border-black">
                     {e.horario}
-                  </span>
-                ) : (
-                  <span className="px-5 border-r border-black">
-                    <span className="invisible">00:00</span>
                   </span>
                 )}
 

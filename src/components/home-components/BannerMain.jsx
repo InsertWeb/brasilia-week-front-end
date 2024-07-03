@@ -15,22 +15,23 @@ export function BannerMain({ lang, data }) {
       }}
       className={`bg-cover bg-center relative overflow-hidden`}
     >
-      <div className="absolute top-1/3 left-1/3 sm:left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute top-1/3 left-1/3 sm:left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
         <IconCircle />
       </div>
-      <header className="max-w-6xl px-4 mx-auto flex justify-between items-center py-5">
-        <Link to={"/"} className="text-3xl text-white fontHelveticaLight">
+      <header className="max-w-6xl px-4 mx-auto flex justify-between items-center py-5 ">
+        <Link to={"/"} className="text-3xl text-white fontHelveticaLight z-20">
           BDW
         </Link>
-        <button onClick={() => setMenuOpen(!menuOpen)}>
+        <button onClick={() => setMenuOpen(!menuOpen)} className="z-20">
           <MenuHamburguer />
         </button>
       </header>
 
+      <div className="bg-black/70 sm:bg-transparent absolute top-0 bottom-0 right-0 left-0 z-10" />
       <div
         className={`fixed inset-0 bg-black text-white transform ${
           menuOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 ease-in-out py-6`}
+        } transition-transform duration-300 ease-in-out py-6 z-40`}
       >
         <div className="flex justify-between max-w-6xl mx-auto px-4">
           <span className="text-2xl sm:text-3xl">BDW</span>
@@ -116,7 +117,7 @@ export function BannerMain({ lang, data }) {
             </li>
             <li>
               <Link to="/locais" className="hover:text-[#83BF45] duration-300">
-                Locais
+                Circuito BDW24
               </Link>
             </li>
           </ul>
@@ -133,14 +134,18 @@ export function BannerMain({ lang, data }) {
         <div className="flex flex-col items-end gap-5 sm:gap-10 text-white">
           {/* <TogleLanguage /> */}
           <div className="invisible">a</div>
-          <a href="https://www.instagram.com/bsbdesignweek/" target="_blank">
+          <a
+            href="https://www.instagram.com/bsbdesignweek/"
+            className="z-20"
+            target="_blank"
+          >
             <IconInstagram />
           </a>
         </div>
 
         <div className="flex flex-col justify-center items-center text-white gap-32 py-36 text-4xl sm:text-5xl font-thin">
-          <h2>#bdw24</h2>
-          <h1 className="tracking-[20px]">
+          <h2 className="z-20">#bdw24</h2>
+          <h1 className="tracking-[20px] z-20">
             {lang === "en" ? data?.title_en : data?.title_pt}
           </h1>
         </div>

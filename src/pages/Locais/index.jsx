@@ -13,7 +13,7 @@ export function LocaisPage() {
       <Header />
       <div className="max-w-6xl mx-auto py-16 px-4 min-h-screen">
         <h2 className="text-5xl pb-10">
-          {lang === "en" ? "Locations" : "Locais"}
+          {lang === "en" ? "Locations" : "Circuito BDW24"}
         </h2>
         <div>
           {locais?.map((e) => (

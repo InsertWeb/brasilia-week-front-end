@@ -74,7 +74,7 @@ export function NavMenu() {
           </Link>
           <Link to={"/admin?page=locais"}>
             <li className="hover:bg-[#83BF45] hover:text-white py-2 px-5 duration-300">
-              Locais
+              Circuito BDW24
             </li>
           </Link>
           <Link to={"/admin?page=patrocinadores"}>
