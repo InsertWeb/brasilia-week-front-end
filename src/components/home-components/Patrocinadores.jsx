@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export function Patrocinadores({ lang, data }) {
   return (
-    <div className="py-24 relative overflow-hidden">
+    <div className="py-16 relative overflow-hidden">
       <svg
         width="655"
         height="374"
