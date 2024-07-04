@@ -143,7 +143,7 @@ export function Programacao({ lang, data }) {
         <div className="flex flex-col justify-center items-center ">
           <Link
             to={"/programacao"}
-            className="py-3 max-w-2xl border-2 border-black w-full my-32 text-center"
+            className="py-3 max-w-2xl border-2 border-black w-full mt-16 text-center"
           >
             {lang === "en"
               ? "SEE THE COMPLETE PROGRAM"
