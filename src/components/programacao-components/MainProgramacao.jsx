@@ -2,6 +2,7 @@ import moment from "moment";
 import { useGetInfos } from "../../Utils/useGetInfos";
 import { IconNext, IconPrev } from "../../assets/Icons";
 import { useEffect, useState } from "react";
+import { ItemProgramaçãoModal } from "./ItemProgramaçãoModal";
 
 export function MainProgramacao() {
   const context = useGetInfos();
@@ -12,6 +13,7 @@ export function MainProgramacao() {
 
   const [currentDateIndex, setCurrentDateIndex] = useState(0);
   const [eventClicked, setEventClicked] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const backgroundImageUrl = eventClicked?.filePath ?? "/bgBlack.png";
 
@@ -46,10 +48,10 @@ export function MainProgramacao() {
   };
   return (
     <div className="fontHelveticaLight max-w-6xl mx-auto px-4 py-16">
-      <h1 className="text-5xl pb-16">
+      <h1 className="text-5xl pb-8">
         {lang === "en" ? "Schedule" : "Programação"}
       </h1>
-      <div className="hidden sm:grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-5 ">
+      {/* <div className="hidden sm:grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-5 ">
         {uniqueDates.map((e, i) => (
           <button
             key={e.id}
@@ -61,8 +63,8 @@ export function MainProgramacao() {
             {moment.utc(e).format("DD/MM")}
           </button>
         ))}
-      </div>
-      <div className="flex gap-7 items-center w-full sm:w-fit justify-between sm:hidden">
+      </div> */}
+      <div className="flex gap-7 items-center w-full justify-between">
         <div className="flex gap-7">
           <button
             className="bg-[#BCBCBC] py-2 w-12 flex items-center justify-center text-white"
@@ -82,7 +84,7 @@ export function MainProgramacao() {
         </span>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-3 py-8 sm:py-20">
+      <div className="grid md:grid-cols-2 gap-3 py-8 sm:py-10">
         <div className="space-y-3">
           <div
             style={{
@@ -96,7 +98,10 @@ export function MainProgramacao() {
             <div
               key={e.id}
               className="flex gap-2 items-center"
-              onClick={() => setEventClicked(e)}
+              onClick={() => {
+                setEventClicked(e);
+                setIsModalOpen(true);
+              }}
             >
               <div className="sm:w-10 hidden sm:block">
                 {e.id === eventClicked.id && (
@@ -121,9 +126,14 @@ export function MainProgramacao() {
             </div>
           ))}
         </div>
+        <ItemProgramaçãoModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          data={eventClicked}
+        />
       </div>
 
-      <div className="grid md:grid-cols-2">
+      {/* <div className="grid md:grid-cols-2">
         <div className="space-y-10 flex flex-col">
           <h2 className="text-4xl">
             <span className="text-[#83BF45]">{eventClicked.horario}</span>{" "}
@@ -134,15 +144,15 @@ export function MainProgramacao() {
               ? eventClicked.descricao_en
               : eventClicked.descricao_pt}
           </p>
-          {/* <a
+          <a
             href="https://linktr.ee/bsbdesignweek?fbclid=PAZXh0bgNhZW0CMTEAAaaqGnGhN0uvaI41Y4W9d7kSvUy_evzBWIqzm4f6rOFM6j7waLmSClF6vZY_aem_APydz2B6uZUjDmnRZhoQew"
             target="_blank"
             className="w-full border border-black py-3 text-center"
           >
             {lang === "en" ? "SIGN UP" : "INSCREVA-SE"}
-          </a> */}
+          </a>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
