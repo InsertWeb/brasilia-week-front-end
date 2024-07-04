@@ -113,7 +113,7 @@ export function Header() {
             </li>
           </ul>
           <div className="flex flex-col items-end gap-5 sm:gap-10 text-white">
-            <TogleLanguage />
+            {/*  <TogleLanguage /> */}
             <a href="#" target="_blank">
               <IconInstagram />
             </a>

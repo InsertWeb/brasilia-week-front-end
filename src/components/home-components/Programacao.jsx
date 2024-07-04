@@ -3,10 +3,12 @@ import { IconNext, IconPrev } from "../../assets/Icons";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import { useGetInfos } from "../../Utils/useGetInfos";
+import { ItemProgramaçãoModal } from "../programacao-components/ItemProgramaçãoModal";
 
 export function Programacao({ lang, data }) {
   const [eventClicked, setEventClicked] = useState(data && data[0]);
   const [currentDateIndex, setCurrentDateIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const context = useGetInfos();
   const loading = context?.loadingHomepage;
@@ -84,12 +86,12 @@ export function Programacao({ lang, data }) {
         </div>
 
         <div className="grid md:grid-cols-2 gap-3 pt-8 sm:pt-20">
-          <div className="space-y-3">
+          <div className="space-y-3 hidden sm:block">
             <div
               style={{
                 backgroundImage: `url(${backgroundImageUrl})`,
               }}
-              className="bg-cover h-[440px] items-end justify-end hidden sm:flex"
+              className="bg-cover h-[440px] flex items-end justify-end"
             />
             <p>
               {lang === "en"
@@ -102,7 +104,10 @@ export function Programacao({ lang, data }) {
               <div
                 key={e.id}
                 className="flex gap-2 items-center"
-                onClick={() => setEventClicked(e)}
+                onClick={() => {
+                  setEventClicked(e);
+                  setIsModalOpen(true);
+                }}
               >
                 <div className="sm:w-10 hidden sm:block">
                   {e.id === eventClicked.id && (
@@ -128,6 +133,12 @@ export function Programacao({ lang, data }) {
             ))}
           </div>
         </div>
+        <ItemProgramaçãoModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          data={eventClicked}
+          isHome
+        />
 
         <div className="flex flex-col justify-center items-center ">
           <Link

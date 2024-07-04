@@ -27,7 +27,7 @@ export function BannerMain({ lang, data }) {
         </button>
       </header>
 
-      <div className="bg-black/70 sm:bg-transparent absolute top-0 bottom-0 right-0 left-0 z-10" />
+      <div className="bg-black/40 absolute top-0 bottom-0 right-0 left-0 z-10" />
       <div
         className={`fixed inset-0 bg-black text-white transform ${
           menuOpen ? "translate-x-0" : "translate-x-full"
@@ -122,7 +122,7 @@ export function BannerMain({ lang, data }) {
             </li>
           </ul>
           <div className="flex flex-col items-end gap-5 sm:gap-10 text-white">
-            <TogleLanguage />
+            {/*   <TogleLanguage /> */}
             <a href="#" target="_blank">
               <IconInstagram />
             </a>
