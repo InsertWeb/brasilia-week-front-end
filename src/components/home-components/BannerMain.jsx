@@ -70,8 +70,8 @@ export function BannerMain({ lang, data }) {
             </svg>
           </button>
         </div>
-        <nav className="max-w-6xl mx-auto px-4 pt-8 fontHelveticaLight grid grid-cols-2">
-          <ul className="text-xl md:text-xl lg:2xl space-y-3 font-semibold uppercase">
+        <nav className="max-w-6xl mx-auto px-4 pt-8 fontHelveticaLight">
+          <ul className="text-xl md:text-xl lg:text-2xl space-y-3 font-semibold uppercase">
             <li>
               <Link
                 to="/programacao"
