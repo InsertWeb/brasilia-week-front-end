@@ -47,7 +47,7 @@ export function MainProgramacao() {
     );
   };
   return (
-    <div className="fontHelveticaLight max-w-6xl mx-auto px-4 py-16">
+    <div className="fontHelveticaLight max-w-6xl mx-auto min-h-screen px-4 py-16">
       <h1 className="text-5xl pb-8">
         {lang === "en" ? "Schedule" : "#BDW 24 em movimento"}
       </h1>

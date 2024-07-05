@@ -27,12 +27,13 @@
 
 @media (max-width: 1330px) and (min-width: 900px) {
   html {
-    transform: scale(0.65);
+    transform: scale(0.75);
     transform-origin: top left;
-    width: 153.84%; /* 1 / 0.75 = 133.33% */
+    width: 133.33%; /* 1 / 0.75 = 133.33% */
+    height: 100%;
   }
   body {
     overflow-x: hidden;
-    height: calc(100vh / 0.65);
+    height: calc(100vh / 0.75);
   }
 }
