@@ -33,13 +33,14 @@ export function BannerMain({ lang, data }) {
           onClick={() => setMenuOpen(false)}
         />
       )}
+
       <div
         className={`fixed inset-y-0 right-0 bg-black text-white transform ${
           menuOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 ease-in-out py-6 z-40 sm:w-1/3`}
+        } transition-transform duration-300 ease-in-out py-6 z-40 w-full md:w-1/4 lg:w-1/6`}
       >
         <div className="flex justify-between max-w-6xl mx-auto px-4">
-          <span className="text-2xl sm:text-3xl">BDW</span>
+          <span className="text-2xl lg:text-3xl">BDW</span>
           <button
             className="text-white "
             onClick={() => setMenuOpen(!menuOpen)}
@@ -70,7 +71,7 @@ export function BannerMain({ lang, data }) {
           </button>
         </div>
         <nav className="max-w-6xl mx-auto px-4 pt-8 fontHelveticaLight grid grid-cols-2">
-          <ul className="text-xl md:text-3xl space-y-3 font-semibold uppercase">
+          <ul className="text-xl md:text-xl lg:2xl space-y-3 font-semibold uppercase">
             <li>
               <Link
                 to="/programacao"
@@ -126,12 +127,11 @@ export function BannerMain({ lang, data }) {
               </Link>
             </li>
           </ul>
-          <div className="flex flex-col items-end gap-5 sm:gap-10 text-white">
-            {/*   <TogleLanguage /> */}
+          {/*  <div className="flex flex-col items-end gap-5 sm:gap-10 text-white">
             <a href="#" target="_blank">
               <IconInstagram />
             </a>
-          </div>
+          </div> */}
         </nav>
       </div>
 
