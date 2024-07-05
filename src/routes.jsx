@@ -14,7 +14,6 @@ import { LoginPage } from "./Admin/LoginPage";
 import { HomePage } from "./Admin/components/HomePage";
 import { PrivateRoute } from "./components/utils/PrivateRoute";
 import { ItemGalery } from "./pages/Galeria/ItemGalery";
-
 import { ItemImprensa } from "./pages/Imprensa/ItemImprensa";
 
 const router = createBrowserRouter([
