@@ -1,20 +1,48 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Login } from "../../../Utils/services";
 
-export const ModalAddUsers = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export const ModalAddUsers = ({
+  user,
+  isOpen,
+  setIsOpen,
+  isEdit,
+  setIsEdit,
+  reload,
+}) => {
   const [isSubmiting, setIsSubmiting] = useState(false);
+  const { register, handleSubmit, setValue, reset } = useForm();
 
-  const { register, handleSubmit, reset } = useForm();
+  useEffect(() => {
+    if (isEdit) {
+      setValue("name", user.name ?? "");
+      setValue("email", user.email ?? "");
+      setValue("is_admin", user.is_admin ?? "");
+    }
+  }, [user, isEdit]);
+
+  const removeEmptyProps = (obj) => {
+    return Object.fromEntries(
+      Object.entries(obj).filter(([_, v]) => v != null && v !== "")
+    );
+  };
 
   const onSubmit = async (payload) => {
+    const cleanedPayload = removeEmptyProps(payload);
     setIsSubmiting(true);
     try {
-      const res = await Login.addNewUser(payload);
+      let res;
+      if (isEdit) {
+        res = await Login.EditUser(cleanedPayload, user.id);
+      } else {
+        res = await Login.addNewUser(payload);
+      }
+
       if (res.status === 200) {
         reset();
+        reload();
         setIsOpen(false);
+        setIsEdit(false);
       }
     } catch (error) {
       console.log(error);
@@ -65,14 +93,14 @@ export const ModalAddUsers = () => {
                   className="bg-zinc-50 px-3 py-1 rounded-md"
                 />
               </label>
-              {/* <label className="flex items-center gap-2">
+              <label className="flex items-center gap-2">
                 <input
                   type="checkbox"
                   {...register("is_admin")}
                   className="w-4 h-4"
                 />
                 <span>Usúario é Admin</span>
-              </label> */}
+              </label>
 
               <button
                 disabled={isSubmiting}
@@ -83,7 +111,11 @@ export const ModalAddUsers = () => {
             </form>
 
             <button
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                reset();
+                setIsEdit(false);
+                setIsOpen(false);
+              }}
               type="button"
               className="text-red-500 absolute top-3 right-3"
             >

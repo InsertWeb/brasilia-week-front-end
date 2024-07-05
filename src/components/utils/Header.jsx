@@ -69,7 +69,7 @@ export function Header() {
                 to="/programacao"
                 className="hover:text-[#83BF45] duration-300"
               >
-                Programação
+                #BDW 24 em movimento
               </Link>
             </li>
             {/*  <li>

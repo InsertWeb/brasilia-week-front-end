@@ -61,7 +61,7 @@ export function Programacao({ lang, data }) {
             >
               <circle cx="43" cy="43" r="43" fill="#83BF45" />
             </svg>
-            {lang === "en" ? "SCHEDULE" : "PROGRAMAÇÃO"}
+            {lang === "en" ? "SCHEDULE" : "#BDW 24 em movimento"}
           </h2>
 
           <div className="flex gap-7 items-center w-full sm:w-fit justify-between">
@@ -87,11 +87,10 @@ export function Programacao({ lang, data }) {
 
         <div className="grid md:grid-cols-2 gap-3 pt-8 sm:pt-20">
           <div className="space-y-3 hidden sm:block">
-            <div
-              style={{
-                backgroundImage: `url(${backgroundImageUrl})`,
-              }}
-              className="bg-cover h-[440px] flex items-end justify-end"
+            <img
+              src={backgroundImageUrl}
+              alt={eventClicked.title_pt}
+              className="h-[440px] w-full object-cover "
             />
             <p>
               {lang === "en"
