@@ -61,7 +61,7 @@ export function Programacao({ lang, data }) {
             >
               <circle cx="43" cy="43" r="43" fill="#83BF45" />
             </svg>
-            {lang === "en" ? "SCHEDULE" : "#BDW 24 em movimento"}
+            {lang === "en" ? "SCHEDULE" : "#BDW24 em movimento"}
           </h2>
 
           <div className="flex gap-7 items-center w-full sm:w-fit justify-between">

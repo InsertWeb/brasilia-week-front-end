@@ -49,7 +49,7 @@ export function MainProgramacao() {
   return (
     <div className="fontHelveticaLight max-w-6xl mx-auto min-h-screen px-4 py-16">
       <h1 className="text-5xl pb-8">
-        {lang === "en" ? "Schedule" : "#BDW 24 em movimento"}
+        {lang === "en" ? "Schedule" : "#BDW24 em movimento"}
       </h1>
       {/* <div className="hidden sm:grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-5 ">
         {uniqueDates.map((e, i) => (
