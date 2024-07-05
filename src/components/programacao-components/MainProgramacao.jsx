@@ -49,7 +49,7 @@ export function MainProgramacao() {
   return (
     <div className="fontHelveticaLight max-w-6xl mx-auto px-4 py-16">
       <h1 className="text-5xl pb-8">
-        {lang === "en" ? "Schedule" : "Programação"}
+        {lang === "en" ? "Schedule" : "#BDW 24 em movimento"}
       </h1>
       {/* <div className="hidden sm:grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-5 ">
         {uniqueDates.map((e, i) => (
@@ -86,11 +86,10 @@ export function MainProgramacao() {
 
       <div className="grid md:grid-cols-2 gap-3 py-8 sm:py-10">
         <div className="space-y-3">
-          <div
-            style={{
-              backgroundImage: `url(${backgroundImageUrl})`,
-            }}
-            className="bg-cover h-[440px] hidden sm:flex items-end justify-end"
+          <img
+            src={backgroundImageUrl}
+            alt={eventClicked.title_pt}
+            className="h-[440px] w-full object-cover "
           />
         </div>
         <div className="text-[#0D0D0D]">

@@ -20,18 +20,16 @@ export function ItemImprensa() {
 
   async function getItemImprensa(id) {
     setLoading(true);
-    const token = localStorage.getItem("token");
-    if (token) {
-      try {
-        const response = await PageConfig.getItemImprensa(id);
-        if (response && response.status === 200) {
-          setData(response.data);
-        }
-      } catch (error) {
-        return error;
-      } finally {
-        setLoading(false);
+
+    try {
+      const response = await PageConfig.getItemImprensa(id);
+      if (response && response.status === 200) {
+        setData(response.data);
       }
+    } catch (error) {
+      return error;
+    } finally {
+      setLoading(false);
     }
   }
 

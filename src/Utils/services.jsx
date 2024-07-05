@@ -38,6 +38,26 @@ export const Login = {
       return error.response;
     }
   },
+  EditUser: async (payload, id) => {
+    try {
+      const res = await api.put(`/users/${id}`, payload);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error(error.response.data.error);
+      return error.response;
+    }
+  },
+  DeleteUser: async (id) => {
+    try {
+      const res = await api.delete(`/users/${id}`);
+      toast.success(res.data.msg);
+      return res;
+    } catch (error) {
+      toast.error(error.response.data.error);
+      return error.response;
+    }
+  },
 };
 
 export const PageConfig = {
@@ -60,11 +80,9 @@ export const PageConfig = {
     }
   },
 
-  getEventosProgramacaoPage: async (page = 1, perPage = 999, search = "") => {
+  getEventosProgramacaoPage: async (page = 1, perPage = 999) => {
     try {
-      const res = await api.get(
-        `/eventos?page=${page}&perPage=${perPage}&s=${search}`
-      );
+      const res = await api.get(`/eventos?page=${page}&perPage=${perPage}`);
       return res;
     } catch (error) {
       return error.response;
@@ -101,11 +119,9 @@ export const PageConfig = {
     }
   },
 
-  getGaleria: async (page = 1, perPage = 999, search = "") => {
+  getGaleria: async (page = 1, perPage = 999) => {
     try {
-      const res = await api.get(
-        `/galeria?page=${page}&perPage=${perPage}&s=${search}`
-      );
+      const res = await api.get(`/galeria?page=${page}&perPage=${perPage}`);
       return res;
     } catch (error) {
       return error.response;
@@ -169,11 +185,9 @@ export const PageConfig = {
     }
   },
 
-  getParceiros: async (page = 1, perPage = 999, search = "") => {
+  getParceiros: async (page = 1, perPage = 999) => {
     try {
-      const res = await api.get(
-        `/parceiros?page=${page}&perPage=${perPage}&s=${search}`
-      );
+      const res = await api.get(`/parceiros?page=${page}&perPage=${perPage}`);
       return res;
     } catch (error) {
       return error.response;
@@ -210,11 +224,9 @@ export const PageConfig = {
     }
   },
 
-  getImprensa: async (page = 1, perPage = 999, search = "") => {
+  getImprensa: async (page = 1, perPage = 999) => {
     try {
-      const res = await api.get(
-        `/imprensa?page=${page}&perPage=${perPage}&s=${search}`
-      );
+      const res = await api.get(`/imprensa?page=${page}&perPage=${perPage}`);
       return res;
     } catch (error) {
       return error.response;
@@ -259,11 +271,9 @@ export const PageConfig = {
     }
   },
 
-  getPodCast: async (page = 1, perPage = 999, search = "") => {
+  getPodCast: async (page = 1, perPage = 999) => {
     try {
-      const res = await api.get(
-        `/podcasts?page=${page}&perPage=${perPage}&s=${search}`
-      );
+      const res = await api.get(`/podcasts?page=${page}&perPage=${perPage}`);
       return res;
     } catch (error) {
       return error.response;
@@ -300,11 +310,9 @@ export const PageConfig = {
     }
   },
 
-  getEquipes: async (page = 1, perPage = 999, search = "") => {
+  getEquipes: async (page = 1, perPage = 999) => {
     try {
-      const res = await api.get(
-        `/equipes?page=${page}&perPage=${perPage}&s=${search}`
-      );
+      const res = await api.get(`/equipes?page=${page}&perPage=${perPage}`);
       return res;
     } catch (error) {
       return error.response;
@@ -360,11 +368,9 @@ export const PageConfig = {
     }
   },
 
-  getLocais: async (page = 1, perPage = 999, search = "") => {
+  getLocais: async (page = 1, perPage = 999) => {
     try {
-      const res = await api.get(
-        `/locais?page=${page}&perPage=${perPage}&s=${search}`
-      );
+      const res = await api.get(`/locais?page=${page}&perPage=${perPage}`);
       return res;
     } catch (error) {
       return error.response;
@@ -401,10 +407,10 @@ export const PageConfig = {
     }
   },
 
-  getPatrocinadores: async (page = 1, perPage = 999, search = "") => {
+  getPatrocinadores: async (page = 1, perPage = 999) => {
     try {
       const res = await api.get(
-        `/patrocinadores?page=${page}&perPage=${perPage}&s=${search}`
+        `/patrocinadores?page=${page}&perPage=${perPage}`
       );
       return res;
     } catch (error) {
