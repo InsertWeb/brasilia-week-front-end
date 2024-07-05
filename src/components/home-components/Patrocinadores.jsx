@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export function Patrocinadores({ lang, data }) {
   return (
-    <div className="py-16 relative overflow-hidden">
+    <div className="py-16 pt-0 relative overflow-hidden">
       <svg
         width="655"
         height="374"
@@ -30,9 +30,9 @@ export function Patrocinadores({ lang, data }) {
       </svg>
 
       <div className="max-w-6xl px-4 mx-auto fontHelveticaLight flex flex-col">
-        <h2 className="text-4xl relative tracking-[16%] font-light pb-4">
+        {/* <h2 className="text-4xl relative tracking-[16%] font-light pb-4">
           {lang === "en" ? "SPONSORS" : " PATROCINADORES"}
-        </h2>
+        </h2> */}
         <div>
           {data.map((e) => (
             <img

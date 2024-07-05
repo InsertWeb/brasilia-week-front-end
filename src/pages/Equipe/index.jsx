@@ -14,7 +14,7 @@ export function EquipePage() {
       <Header />
       <div className="max-w-6xl mx-auto py-16 px-4">
         <h2 className="text-5xl pb-16">{lang === "en" ? "Team" : "Equipe"}</h2>
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-16">
+        <div className="flex flex-wrap justify-center gap-16">
           {equipe?.map((e) => (
             <div key={e.id}>
               <CardEquipe data={e} lang={lang} />

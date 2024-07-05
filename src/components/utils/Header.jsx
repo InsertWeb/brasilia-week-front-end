@@ -20,10 +20,16 @@ export function Header() {
           <MenuHamburguer />
         </button>
       </header>
+      {menuOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-30"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
       <div
-        className={`fixed inset-0 bg-black text-white transform ${
+        className={`fixed inset-y-0 right-0 bg-black text-white transform ${
           menuOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 ease-in-out py-6 z-20`}
+        } transition-transform duration-300 ease-in-out py-6 z-40 sm:w-1/3`}
       >
         <div className="flex justify-between max-w-6xl mx-auto px-4">
           <Link to={"/"} className="text-2xl sm:text-3xl">
@@ -56,7 +62,7 @@ export function Header() {
           </button>
         </div>
         <nav className="max-w-6xl mx-auto px-4 pt-8 fontHelveticaLight grid grid-cols-2">
-          <ul className="text-3xl sm:text-5xl space-y-3 font-semibold uppercase">
+          <ul className="text-xl md:text-3xl space-y-3 font-semibold uppercase">
             <li>
               <Link
                 to="/programacao"

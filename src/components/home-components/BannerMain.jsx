@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { IconCircle, IconInstagram, MenuHamburguer } from "../../assets/Icons";
 import { Link } from "react-router-dom";
-import { TogleLanguage } from "../utils/TogleLanguage";
 
 export function BannerMain({ lang, data }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,7 +17,7 @@ export function BannerMain({ lang, data }) {
       <div className="absolute top-1/3 left-1/3 sm:left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
         <IconCircle />
       </div>
-      <header className="max-w-6xl px-4 mx-auto flex justify-between items-center py-5 ">
+      <header className="max-w-6xl px-4 mx-auto flex justify-between items-center py-5">
         <Link to={"/"} className="text-3xl text-white fontHelveticaLight z-20">
           BDW
         </Link>
@@ -28,10 +27,16 @@ export function BannerMain({ lang, data }) {
       </header>
 
       <div className="bg-black/40 absolute top-0 bottom-0 right-0 left-0 z-10" />
+      {menuOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-30"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
       <div
-        className={`fixed inset-0 bg-black text-white transform ${
+        className={`fixed inset-y-0 right-0 bg-black text-white transform ${
           menuOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 ease-in-out py-6 z-40`}
+        } transition-transform duration-300 ease-in-out py-6 z-40 sm:w-1/3`}
       >
         <div className="flex justify-between max-w-6xl mx-auto px-4">
           <span className="text-2xl sm:text-3xl">BDW</span>
@@ -65,7 +70,7 @@ export function BannerMain({ lang, data }) {
           </button>
         </div>
         <nav className="max-w-6xl mx-auto px-4 pt-8 fontHelveticaLight grid grid-cols-2">
-          <ul className="text-3xl sm:text-5xl space-y-3 font-semibold uppercase">
+          <ul className="text-xl md:text-3xl space-y-3 font-semibold uppercase">
             <li>
               <Link
                 to="/programacao"
