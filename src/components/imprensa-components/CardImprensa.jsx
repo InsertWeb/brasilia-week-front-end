@@ -5,7 +5,7 @@ export function CardImprensa({ data }) {
   const lang = localStorage.getItem("lang");
 
   return (
-    <Link to={`/imprensa/${data.id}`} className="space-y-4">
+    <Link to={`/imprensa/${data.id}`} className="space-y-5">
       <div className="relative">
         <img
           src={data?.filePath ?? Parceiro1}
@@ -22,11 +22,12 @@ export function CardImprensa({ data }) {
       <h3 className="text-2xl font-semibold">
         {lang === "en" ? data?.title_en : data?.title_pt}
       </h3>
-      {/* <p
+      <div
+        className="truncated-text"
         dangerouslySetInnerHTML={{
           __html: lang === "en" ? data?.descricao_en : data?.descricao_pt,
         }}
-      /> */}
+      />
     </Link>
   );
 }
