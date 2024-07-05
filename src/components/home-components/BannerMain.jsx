@@ -77,7 +77,7 @@ export function BannerMain({ lang, data }) {
                 to="/programacao"
                 className="hover:text-[#83BF45] duration-300"
               >
-                #BDW 24 em movimento
+                Programação
               </Link>
             </li>
             {/*  <li>

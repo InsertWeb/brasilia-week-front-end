@@ -34,7 +34,7 @@ export function NavMenu() {
           </Link>
           <Link to={"/admin?page=programacao"}>
             <li className="hover:bg-[#83BF45] hover:text-white py-2 px-5 duration-300">
-              #BDW 24 em movimento
+              Programação
             </li>
           </Link>
           <Link to={"/admin?page=galeria"}>
