@@ -22,7 +22,7 @@ export function SobrePage() {
         <h1 className="text-5xl pb-16">
           {lang === "en" ? sobre?.title_en : sobre?.title_pt}
         </h1>
-        <div className="grid md:grid-cols-3">
+        <div className="grid md:grid-cols-2">
           <p
             className="tracking-widest"
             dangerouslySetInnerHTML={{ __html: description }}

@@ -24,3 +24,11 @@
 .fontHelveticaNormal {
   font-family: "Helvetica", sans-serif;
 }
+
+@media (max-width: 1330px) and (min-width: 900px) {
+  html {
+    transform: scale(0.75);
+    transform-origin: top left;
+    width: 133.33%; /* 1 / 0.75 = 133.33% */
+  }
+}
