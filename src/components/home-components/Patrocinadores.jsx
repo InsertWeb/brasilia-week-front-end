@@ -34,7 +34,7 @@ export function Patrocinadores({ lang, data }) {
           {lang === "en" ? "SPONSORS" : " PATROCINADORES"}
         </h2> */}
         <div>
-          {data.map((e) => (
+          {data?.map((e) => (
             <img
               src={e.filePath}
               alt={e.nome}

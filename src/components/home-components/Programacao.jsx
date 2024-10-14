@@ -89,7 +89,7 @@ export function Programacao({ lang, data }) {
           <div className="space-y-3 hidden sm:block">
             <img
               src={backgroundImageUrl}
-              alt={eventClicked.title_pt}
+              alt={eventClicked?.title_pt}
               className="h-[440px] w-full object-cover "
             />
             <p>
@@ -125,7 +125,7 @@ export function Programacao({ lang, data }) {
                   )}
 
                   <span className="pl-5 text-sm">
-                    {lang === "en" ? e.title_en : e.title_pt}
+                    {lang === "en" ? e?.title_en : e?.title_pt}
                   </span>
                 </div>
               </div>
