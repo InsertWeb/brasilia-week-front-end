@@ -7,6 +7,13 @@ export function BannerMain({ lang, data }) {
 
   const backgroundImageUrl = data?.image ?? "/bgBlack.png";
 
+  function downloadCatalogo() {
+    const link = document.createElement("a");
+    link.href = "../../assets/bdw24_catalago.pdf";
+    link.download = "catalogo.pdf";
+    link.click();
+  }
+
   return (
     <div
       style={{
@@ -125,6 +132,11 @@ export function BannerMain({ lang, data }) {
               <Link to="/locais" className="hover:text-[#83BF45] duration-300">
                 Circuito BDW24
               </Link>
+            </li>
+            <li>
+              <a onClick={downloadCatalogo} className="hover:text-[#83BF45] duration-300 cursor-pointer">
+                Download  Catalogo
+              </a>
             </li>
           </ul>
           {/*  <div className="flex flex-col items-end gap-5 sm:gap-10 text-white">
