@@ -9,7 +9,7 @@ export function BannerMain({ lang, data }) {
 
   function downloadCatalogo() {
     const link = document.createElement("a");
-    link.href = "../../assets/bdw24_catalago.pdf";
+    link.href = "./bdw24_catalago.pdf ";
     link.download = "catalogo.pdf";
     link.click();
   }
