@@ -21,18 +21,18 @@ export function Homepage() {
       ) : (
         <>
           <BannerMain lang={lang} data={context?.dataHomepage?.banner} />
-          <SobreBDW lang={lang} data={context?.dataHomepage?.sobre} />
-          <Programacao lang={lang} data={context?.dataHomepage?.programacao} />
+          {/* <SobreBDW lang={lang} data={context?.dataHomepage?.sobre} /> */}
+          {/* <Programacao lang={lang} data={context?.dataHomepage?.programacao} /> */}
           {/* <Galeria lang={lang} data={context?.dataHomepage?.galeria} />
           <ProjetoParceiros
             lang={lang}
             data={context?.dataHomepage?.parceiros}
           /> */}
-          <Patrocinadores
+          {/* <Patrocinadores
             lang={lang}
             data={context?.dataHomepage?.patrocinadores}
-          />
-          <Footer />
+          /> */}
+          {/* <Footer /> */}
         </>
       )}
     </div>
