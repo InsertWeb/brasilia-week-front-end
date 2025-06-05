@@ -162,7 +162,7 @@ export function BannerMain({ lang, data }) {
         </div>
 
         <div className="absolute left-0 bottom-1 w-full flex flex-col justify-center items-center text-white gap-32 py-36 text-4xl sm:text-5xl font-thin">
-          <h2 className="z-20">#bdw24</h2>
+          <h2 className="z-20">#bdw25</h2>
           <h1 className="tracking-[20px] z-20">
             {lang === "en" ? data?.title_en : data?.title_pt}
           </h1>
