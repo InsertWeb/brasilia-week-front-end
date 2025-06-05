@@ -19,19 +19,20 @@ export function BannerMain({ lang, data }) {
       style={{
         backgroundImage: `url(${backgroundImageUrl})`,
       }}
-      className={`bg-cover bg-center relative overflow-hidden`}
+      className="w-screen h-screen bg-cover bg-center relative overflow-hidden"
     >
-      <div className="absolute top-1/3 left-1/3 sm:left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+      {backgroundImageUrl}
+      <div className="absolute top-1/2 left-1/2 sm:left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
         <IconCircle />
       </div>
-      <header className="max-w-6xl px-4 mx-auto flex justify-between items-center py-5">
+      {/* <header className="max-w-6xl px-4 mx-auto flex justify-between items-center py-5">
         <Link to={"/"} className="text-3xl text-white fontHelveticaLight z-20">
           BDW
         </Link>
         <button onClick={() => setMenuOpen(!menuOpen)} className="z-20">
           <MenuHamburguer />
         </button>
-      </header>
+      </header> */}
 
       <div className="bg-black/40 absolute top-0 bottom-0 right-0 left-0 z-10" />
       {menuOpen && (
@@ -160,7 +161,7 @@ export function BannerMain({ lang, data }) {
           </a>
         </div>
 
-        <div className="flex flex-col justify-center items-center text-white gap-32 py-36 text-4xl sm:text-5xl font-thin">
+        <div className="absolute left-0 bottom-1 w-full flex flex-col justify-center items-center text-white gap-32 py-36 text-4xl sm:text-5xl font-thin">
           <h2 className="z-20">#bdw24</h2>
           <h1 className="tracking-[20px] z-20">
             {lang === "en" ? data?.title_en : data?.title_pt}
